@@ -67,6 +67,6 @@ public class ScoreCalc {
 
 
 ### Day 4 (4/7 Thu)
-* equals 메소드
- Object : 두 비교값의 주소값을 비교
- String : 두 비교값의 문자열을 
+* equals 메소드<br>
+ Object : 두 비교값의 주소값을 비교<br>
+ String : 두 비교값의 문자열을 비교
