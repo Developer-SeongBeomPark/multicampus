@@ -64,3 +64,9 @@ public class ScoreCalc {
 ```
 
 하나의 파일 안에 2개 이상의 class가 존재할 때, public static void main()이 존재하는 클래스에만! public이 사용되어야 한다.
+
+
+### Day 4 (4/7 Thu)
+* equals 메소드
+ Object : 두 비교값의 주소값을 비교
+ String : 두 비교값의 문자열을 
