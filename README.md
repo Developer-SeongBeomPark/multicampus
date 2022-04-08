@@ -94,8 +94,8 @@ public class ScoreCalc {
  static이 선언되면 메모리의 stack, heap, code영역이 아닌 data영역에 해당 값이 저장된다.<br><br>
  
  ### Day 5 (4/8 Fri)
- * 오버라이딩<br>
- - 업캐스팅
+ ####오버라이딩<br>
+ * 업캐스팅(SubObject.java)
  ```
  
  ```
@@ -131,3 +131,6 @@ public class ConstructorEx {
 }
 ```
 이 경우 Class A에서 기본생성자를 만들지 안을 경우 에러가 발생한다. 부모 클래스에 기본 생성자를 꼭 작성해주도록 한다.
+
+
+* 객체 형변환
