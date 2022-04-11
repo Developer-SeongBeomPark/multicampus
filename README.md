@@ -94,7 +94,7 @@ public class ScoreCalc {
  static이 선언되면 메모리의 stack, heap, code영역이 아닌 data영역에 해당 값이 저장된다.<br><br>
  
  ### Day 5 (4/8 Fri)
- ####오버라이딩<br>
+ #### 오버라이딩<br>
  * 업캐스팅(SubObject.java) (객체 형변환 : 업캐스팅, 다운캐스팅)
  ```
  class SuperObject{
