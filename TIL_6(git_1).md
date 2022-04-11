@@ -8,7 +8,7 @@
 
 * Interface
 
-  음식점의 KIOSK 같은 역할
+  음식점의 KIOSK 같은 역할 
 
 1. CLI(Command Line Interface) :  터미널을 통해 사용자와 컴퓨터가 상호작용하는 방식
 2. GUI(Graphic User Interface) : 그래픽을 통해 사용자와 컴퓨터가 상호작용하는 방식
