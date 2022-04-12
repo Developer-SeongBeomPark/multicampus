@@ -149,6 +149,15 @@ $ git config --global --list
      1. 'i'를 눌러서 insert mode로 전환
      2. 원하는 메세지 입력
      3. ESC 누르고 :wq 누르고 엔터
+     
+     ※ commit 메세지만 수정하기
+     
+     1. git commit --amend
+     2. 'i' 눌러서 insert mode로 바꾸기
+     3. 원하는 메세지로 변경
+     4. ESC 누르고 :wq로 탈출
+     
+     수정 후 커밋하게 되면 새로운 해시값을 가지고 commit한다.
 
 5. git log
 
