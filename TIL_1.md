@@ -1,5 +1,3 @@
-## TIL
-
 ### Day 1 (4/4 Mon)
 ```
 String str = "data";
