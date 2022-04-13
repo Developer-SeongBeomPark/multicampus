@@ -1,12 +1,22 @@
 ### Day 6 (4/11 Mon)
 
-#### git
+#### Git
 
 ---
 
+-[Interface](#interface)
+
+-[명령어](#명령어)
+
+-[git 초기설정](#git-초기설정)
+
+-[git 기본 명령어](#git-기본-명령어)
+
+
+
 ![스크린샷(469)](TIL_6(git_1).assets/스크린샷(469).png)
 
-* Interface
+##### Interface
 
   음식점의 KIOSK 같은 역할 
 
@@ -15,7 +25,7 @@
 
 
 
-* 명령어
+##### 명령어
 
   1. touch : 파일 생성
 
@@ -46,9 +56,8 @@
 
 
 
-#### git 초기설정
+##### git 초기설정
 
----
 
 최초 한번만 설정.
 
@@ -69,9 +78,8 @@ $ git config --global --list
 
 
 
-#### git 기본 명령어
+##### git 기본 명령어
 
----
 
 1. git init
 

@@ -6,4 +6,21 @@
 * [equals 메소드](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_4.md)
 * [생성자](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_4.md)
 * [static](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_4.md)
+* [업캐스팅](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_5.md)
+* 
 
+
+
+
+
+
+
+
+
+## GIT
+
+* [Interface](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_6(git_1).md)
+* [명령어](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_6(git_1).md)
+* [git 초기설정](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_6(git_1).md)
+* [git 기본 명령어](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_6(git_1).md)
+* 
