@@ -79,7 +79,7 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
 (1) Branch란?
 
-![img](https://hphk.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd6378065-5864-4832-8122-0fde3eb4f6ec%2FUntitled.png?table=block&id=aa9b0e1b-bb8b-48ff-85e2-4889a1286ad3&spaceId=daa2d103-3ecd-4519-8c30-4f55e74c7ef4&width=1530&userId=&cache=v2)
+![1](TIL_7(git_2).assets/1.png)
 
 * 브랜치란 나뭇가지처럼 여러 갈래로 작업 공간을 나누어 독립적으로 작업할 수 있도록 도와주는 Git의 도구입니다.
 * `장점` 
