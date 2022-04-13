@@ -650,7 +650,7 @@ $ git commit -m "master test 1"
 
 1. 소유권이 있는 원격 저장소를 로컬 저장소로 `clone` 받습니다.
 
-   ![Untitled (5)](TIL_7(git_2).assets/Untitled (5).png)
+   ![Untitled (5)](TIL_7(git_2).assets/Untitled (5).png?raw=true)
 
    ```bash
    $ git clone <https://github.com/edukyle/django-project.git>
