@@ -12,16 +12,7 @@
 
 [branch scenario](#branch-scenario)
 
-- [사전 세팅](#사전-세팅)
-- [브랜치 생성, 조회](#브랜치-생성,-조회)
-- [브랜치 이동](#브랜치-이동)
-- [login 브랜치에서 커밋 생성](#login-브랜치에서-커밋-생성)
-
 [branch merge](#branch-merge)
-
-- [git merge](#git-merge)
-- [Fast-Forward](#fast-forward)
-- [Merge conflict](#merge-conflict)
 
 [git workflow](#git-workflow)
 
