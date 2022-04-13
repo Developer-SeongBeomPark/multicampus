@@ -1,0 +1,16 @@
+package day03;
+
+class Pay{
+	String name;
+	int bonbong;
+	int tax;
+	int silsu;
+}
+
+public class PayCalc {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

@@ -1,0 +1,45 @@
+package day04.code;
+
+import java.util.Scanner;
+
+class operator{
+	private int x, y;
+	private String operator;
+	
+	public void input() {
+		Scanner sc = new Scanner(System.in);
+		this.x = sc.nextInt();
+		this.y = sc.nextInt();
+		this.operator = sc.nextLine();
+	}
+	
+	public int Oper(int x, int y, String operator) {
+		int value;
+		if(operator == "+") {
+			value = x + y;
+		}
+		else if(operator == "-") {
+			value = x - y;
+		}
+		else if(operator == "*") {
+			value = x * y;
+		}
+		else {
+			value = x / y;
+		}
+		return value;
+	}
+	
+	public void print() {
+		System.out.println("결과값 : " + Oper());
+	}
+}
+
+public class Operator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package day03.test;
+
+public class Test2 {
+
+	public static void main(String[] args) {
+		double[] arr = {13.5, 86.3, 47.2, 55.5, 62.3, 9.8, 20.5, 0};
+		double max = Integer.MIN_VALUE;
+		double min = Integer.MAX_VALUE;
+		
+		for(double value : arr) {
+			
+		}
+	}
+
+}

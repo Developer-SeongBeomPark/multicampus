@@ -1,0 +1,11 @@
+package day04;
+
+class Score{
+	
+}
+
+public class ScoreCalc{
+	public static void main(String[] args) {
+		
+	}
+}

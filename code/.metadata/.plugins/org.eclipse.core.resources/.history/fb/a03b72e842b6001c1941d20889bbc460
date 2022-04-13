@@ -1,0 +1,23 @@
+package day04.code;
+
+import java.util.Scanner;
+
+class operator{
+	private int x, y;
+	private String operator;
+	
+	public void input() {
+		Scanner sc = new Scanner(System.in);
+		this.x = sc.nextInt();
+		this.y = sc.nextInt();
+	}
+}
+
+public class Operator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

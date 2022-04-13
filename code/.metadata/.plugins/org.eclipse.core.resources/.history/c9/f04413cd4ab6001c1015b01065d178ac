@@ -1,0 +1,36 @@
+package day04.test;
+
+class Circle{
+	private int r;
+	
+	public int getR() {
+		return r;
+	}
+
+	public void setR(int r) {
+		this.r = r;
+	}
+
+	public double area() {
+		double value = r * r * Math.PI;
+		return value;
+	}
+}
+
+class Triangle{
+	
+}
+
+class Rectangle{
+	
+}
+
+
+public class Shape {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

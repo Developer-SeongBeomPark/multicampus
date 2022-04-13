@@ -1,0 +1,27 @@
+package day05;
+
+class Test {
+	String name;
+	String phone;
+	static int ID;
+
+	public void setName(String s) {
+		name = s;
+	    }
+	public String getPhone() {
+		return phone;
+		}
+	public static int getID() {
+		return ID;
+		}
+}
+
+class Professor extends Test {
+
+	public void setName(String s) {}
+	public String getPhone() {  
+		return phone+"";
+	}
+	public void getPhone(){  }
+	public int getID() { }
+}
