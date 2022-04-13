@@ -1,10 +1,33 @@
 ### Day 7 (4/12 Tue)
 
-#### git
+#### Git
 
 ---
 
-<h5>* git clone</h5>
+[git clone](#git-clone)
+
+[git pull](#git-pull)
+
+[branch](#branch)
+
+[branch scenario](#branch-scenario)
+
+- [사전 세팅](#사전-세팅)
+- [브랜치 생성, 조회](#브랜치-생성,-조회)
+- [브랜치 이동](#브랜치-이동)
+- [login 브랜치에서 커밋 생성](#login-브랜치에서-커밋-생성)
+
+[branch merge](#branch-merge)
+
+- [git merge](#git-merge)
+- [Fast-Forward](#fast-forward)
+- [Merge conflict](#merge-conflict)
+
+[git workflow](#git-workflow)
+
+
+
+##### git clone
 
 * 원격 저장소의 커밋 내역을 모두 가져와서, 로컬 저장소를 생성하는 명령어
 
@@ -25,7 +48,7 @@
 
 
 
-<h5>*git pull</h5>
+##### git pull
 
 * 원격 저장소의 변경 사항을 가져와서, 로컬 저장소를 업데이트하는 명령어
 
@@ -59,7 +82,7 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
 
 
-#### branch
+##### branch
 
 ---
 
@@ -122,11 +145,11 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
 
 
-#### branch Scenario
+##### branch Scenario
 
 ---
 
-### (1) 사전 세팅
+###### (1) 사전 세팅
 
 1. 홈 디렉토리에 `git-branch-practice` 폴더를 생성하고 이동 후 vscode를 엽니다.
 
@@ -176,7 +199,7 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
    ![Untitled (1)](TIL_7(git_2).assets/Untitled (1).png)
 
-### (2) 브랜치 생성, 조회
+###### (2) 브랜치 생성, 조회
 
 1. 현재 위치(master 브랜치의 최신 커밋)에서 `login`이라는 이름으로 브랜치를 생성합니다.
 
@@ -217,7 +240,7 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
    ![Untitled (2)](TIL_7(git_2).assets/Untitled (2).png)
 
-### (3) 브랜치 이동
+###### (3) 브랜치 이동
 
 1. 현재 브랜치와 커밋의 상태는 다음과 같습니다.
 
@@ -288,7 +311,7 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
 </aside>
 
-### (4) login 브랜치에서 커밋 생성
+###### (4) login 브랜치에서 커밋 생성
 
 1. `test.txt` 파일에 `login-1`이라고 작성합니다.
 
@@ -336,11 +359,11 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
 
 
-#### Branch Merge
+##### Branch Merge
 
 ---
 
-[1] git merge
+###### [1] git merge
 
 * 분기된 브랜치들을 하나로 합치는 명령어
 
@@ -364,9 +387,9 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
   
 
-[2] branch merge Scenario
+###### [2] branch merge Scenario
 
-### (1) 사전 세팅
+(1) 사전 세팅
 
 ```bash
 $ mkdir git_merge
@@ -381,7 +404,7 @@ $ git add .
 $ git commit -m "master test 1"
 ```
 
-### (2) Fast-Forward
+(2) `Fast Forward`
 
 ![111](TIL_7(git_2).assets/111.png)
 
@@ -445,7 +468,7 @@ $ git commit -m "master test 1"
 
 
 
-### (3) Merge Conflict
+###### (3) `Merge Conflict`
 
 ![merge comflict](TIL_7(git_2).assets/merge comflict.png)
 
@@ -620,19 +643,19 @@ $ git commit -m "master test 1"
 
 
 
-#### Git workflow
+##### Git workflow
 
 ---
 
-## [1] 원격 저장소 소유권이 있는 경우 (Shared repository model)
+###### [1] 원격 저장소 소유권이 있는 경우 (Shared repository model)
 
-### (1) 개념
+(1) 개념
 
 - 원격 저장소가 자신의 소유이거나 collaborator로 등록되어 있는 경우에 가능합니다.
 - master에 직접 개발하는 것이 아니라, `기능별로 브랜치`를 따로 만들어서 개발합니다.
 - `Pull Request`를 같이 사용하여 팀원 간 변경 내용에 대한 소통을 진행합니다.
 
-### (2) 작업 흐름
+(2) 작업 흐름
 
 1. 소유권이 있는 원격 저장소를 로컬 저장소로 `clone` 받습니다.
 
@@ -702,16 +725,16 @@ $ git commit -m "master test 1"
     $ git switch -c feature/pay
     ```
 
-## [2] 원격 저장소 소유권이 없는 경우 (Fork & Pull model)
+###### [2] 원격 저장소 소유권이 없는 경우 (Fork & Pull model)
 
-### (1) 개념
+(1) 개념
 
 - 오픈 소스 프로젝트와 같이, 자신의 소유가 아닌 원격 저장소인 경우 사용합니다.
 - 원본 원격 저장소를 그대로 내 원격 저장소에 `복제`합니다. (이 행위를 `fork`라고 합니다.)
 - 기능 완성 후 `Push는 복제한 내 원격 저장소에 진행`합니다.
 - 이후 `Pull Request`를 통해 원본 원격 저장소에 반영될 수 있도록 요청합니다.
 
-### (2) 작업 흐름
+(2) 작업 흐름
 
 1. 소유권이 없는 원격 저장소를 `fork`를 통해 내 원격 저장소로 `복제`합니다.
 
@@ -788,7 +811,7 @@ $ git commit -m "master test 1"
     $ git switch -c feature/pay
     ```
 
-## [3] Pull Request (PR) 자세히 알아보기
+###### [3] Pull Request (PR) 자세히 알아보기
 
 > Github 화면을 통해 Pull Request 과정을 자세히 알아봅니다.
 
