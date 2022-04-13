@@ -188,7 +188,7 @@ clone과 pull이 모두 원격 저장소로부터 가져오는 명령어라서 �
 
 5. 현재까지 결과
 
-   ![Untitled (1)](TIL_7(git_2).assets/Untitled (1).png)
+   ![Untitled(1)](TIL_7(git_2).assets/Untitled(1).png)
 
 ###### (2) 브랜치 생성, 조회
 
