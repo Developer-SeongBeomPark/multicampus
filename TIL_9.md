@@ -8,7 +8,7 @@
 
 [StringBuffer](#stringbuffer)
 
-[WrapperClass와 AutoBoxing, UnBoxing](#wrapperclass와-autoboxing,-unboxing)
+[WrapperClass와 AutoBoxing, UnBoxing](#wrapperclass와-autoboxing-unboxing)
 
 [자동호출 toString 메소드](#자동호출-tostring-메소드)
 
@@ -60,7 +60,7 @@ String을 이용하여 문자열을 가공하면 해시코드가 바뀌기 때�
 
 
 
-##### WrapperClass와 AutoBoxing, UnBoxing
+##### WrapperClass와 AutoBoxing UnBoxing
 
 ---
 
