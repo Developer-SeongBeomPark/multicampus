@@ -3,8 +3,8 @@ package day02.test;
 public class EX03 {
 
 	public static void main(String[] args) {
-		char c = 'C'; 
-        String str = "C"; 
+		    char c = 'C'; 
+        
         
         if(c == 'A') {
         	System.out.println("입력된 코드는 A 입니다.");

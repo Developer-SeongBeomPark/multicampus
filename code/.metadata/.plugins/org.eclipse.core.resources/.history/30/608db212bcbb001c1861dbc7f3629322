@@ -1,0 +1,39 @@
+package day09;
+
+abstract class Calculator{
+  public abstract int add(int a, int b);
+  public abstract int subtract(int a, int b);
+  public abstract double average(int[] a);
+  
+}
+
+class GoodCalc extends Calculator{
+
+  @Override
+  public int add(int a, int b) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int subtract(int a, int b) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public double average(int[] a) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+  
+}
+
+public class CalcMain {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+
+  }
+
+}
