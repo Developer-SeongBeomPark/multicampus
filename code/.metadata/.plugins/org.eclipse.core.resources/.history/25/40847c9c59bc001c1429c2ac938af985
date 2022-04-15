@@ -1,0 +1,19 @@
+package day10;
+
+class D1 implements B{
+  String str = "";
+  void display(String s) {
+    str = s;
+    System.out.println("☆☆☆☆☆☆☆☆☆ " + s);
+  }
+}
+
+
+public class IR2 {
+  
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+
+  }
+
+}

@@ -1,0 +1,14 @@
+package day10;
+
+public class Myinfouse {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    
+    Myinfo m = new Myinfointer();
+    
+    
+    
+  }
+
+}

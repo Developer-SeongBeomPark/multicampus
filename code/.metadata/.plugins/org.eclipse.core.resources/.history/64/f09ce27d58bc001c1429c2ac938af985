@@ -1,0 +1,11 @@
+package day10;
+
+public interface MouseDriver {
+  void mouseMove();
+  void mouseClick();
+}
+
+public class MouseDriver implements MouseDriver{
+  
+}
+
