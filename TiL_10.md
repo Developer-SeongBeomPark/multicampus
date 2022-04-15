@@ -86,7 +86,7 @@ public  class FileDirDemo1 {
      * System.in: 키보드 standard InputStream 
      * new InputStreamReader(System.in): 입력을 받아 문자 인코딩을 실행 
      * new BufferedReader();: 입력받은 문자를 버퍼에 저장하는 역활과 
-     * 저장소 역활을 함 
+     * 저장소 역활을 함  
      *  
      *                                          System.in 
      *                                          ↑   
@@ -106,8 +106,3 @@ public  class FileDirDemo1 {
         System.out.println("Error: " + e.toString()); 
       }     
 ```
-
-
-
-
-
