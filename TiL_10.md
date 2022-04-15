@@ -46,7 +46,7 @@ ___
 
 
 
-- scanner.next()
+- scanner.next() 
 
 ```
 import java.util.Scanner;
