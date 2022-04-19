@@ -1,0 +1,29 @@
+package day11;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+public class ProTest2 {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    String myinfoPath = "myinfo.properties";
+    FileInputStream fis = null;
+    
+    Properties pro = new Properties();
+    
+    try {
+      fis = new FileInputStream(myinfoPath);
+      
+      pro.load(fis);
+      
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  
+  
+  }
+
+}

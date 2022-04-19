@@ -1,0 +1,13 @@
+package day11;
+
+import java.util.Properties;
+
+public class ProTest {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    Properties p = new Properties();
+    p.put("step1", "Java + SCJP")
+  }
+
+}

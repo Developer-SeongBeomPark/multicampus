@@ -1,0 +1,25 @@
+package day11;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class DevProcess {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    String fileName = "C:/Users/nambi/OneDrive/바탕 화면/TIL/TIL_10/dev,txt";
+    String fileNameOutput = "C:/Users/nambi/OneDrive/바탕 화면/TIL/TIL_10/dev_output.txt";
+  
+    FileReader fr;
+    try {
+      fr = new FileReader(fileName);
+      BufferedReader br = new BufferedReader(fr);
+    } catch (FileNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    
+  }
+
+}
