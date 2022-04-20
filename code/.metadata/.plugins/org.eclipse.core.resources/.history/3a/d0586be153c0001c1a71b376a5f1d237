@@ -1,0 +1,30 @@
+package day12;
+
+class Price<N,V>{
+  private N[] names;
+  private V[] values;
+  private int index;
+  
+  Price(){}
+  Price(int size){
+    names = (N[]) new Object[size];
+    values = (V[]) new Object[size];
+    index = 0;
+  }
+  
+  public void insert(N n, V v) {
+    names[index] = n;
+    values[index] = v;
+    index++;
+  }
+}
+
+
+public class MultipleTypeParam {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+
+  }
+
+}

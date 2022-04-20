@@ -1,0 +1,36 @@
+package day12;
+
+class SimpleGeneric<T>{
+  private T[] values;
+  private int index;
+  
+  SimpleGeneric(){}
+  SimpleGeneric(int len){
+    values = (T[])new Object[len];
+    index = 0;
+  }
+  
+  public void add(T ... args) {
+    for(T e : args) {
+      values[index++] = e;
+    }
+  }
+  
+  public void print() {
+    for(T e : values) {
+      System.out.print(e + " ");
+    }
+    System.out.println();
+  }
+}
+
+
+
+public class GenericClassExample {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    
+  }
+
+}

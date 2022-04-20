@@ -1,0 +1,13 @@
+package day12;
+
+public class TravelTest {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+
+    TravelCustomer Lee = new TravelCustomer("이순신",40,100);
+    TravelCustomer Kim = new TravelCustomer("김유신", 20, 100);
+    TravelCustomer Hong = new TravelCustomer("홍길동", 13, 50);
+  }
+
+}
