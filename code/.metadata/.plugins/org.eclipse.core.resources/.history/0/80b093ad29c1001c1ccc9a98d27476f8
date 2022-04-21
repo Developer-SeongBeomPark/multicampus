@@ -1,0 +1,27 @@
+package day13;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class AddressTest {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    try {
+      InetAddress ad = InetAddress.getLocalHost();
+      System.out.println(ad.getHostName());
+      System.out.println(ad.getHostAddress());
+      
+      ad = InetAddress.getByName("java.sun.com");
+      System.out.println(ad);
+      
+      ad = InetAddress.getByName("java.sun.com"); 
+      System.out.println("java.sun.com 도메인 이름과 IP 주소 : "+ad); 
+      
+    } catch (UnknownHostException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
+}
