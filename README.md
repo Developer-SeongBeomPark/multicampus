@@ -59,3 +59,13 @@
 * [git workflow](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_7(git_2).md)
 
   
+
+
+
+
+
+## MYSQL
+
+- [데이터 입력](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_14.md)
+
+- [MYSQL](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_14.md)

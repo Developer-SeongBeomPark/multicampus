@@ -2,7 +2,9 @@
 
 ---
 
+[데이터 입력](#데이터-입력)
 
+[MYSQL](#mysql)
 
 ##### 데이터 입력
 
@@ -105,6 +107,130 @@
                      where  mem_number = 6 
                       and   addr = '경기'
              );
+     ```
+
+     ```mysql
+     # 평균키(height)가 큰 순으로 정렬하여 3번째부터 2건만 조회한다.
+     select  mem_name, height
+       from  member
+       order by height
+       limit 3, 2;
+     ```
+     
+     ```mysql
+     #집계함수(sum)와 Group by를 사용하면 한번에 계산된 결과를 확인할 수 있다.
+      select  mem_id "회원 아이디" , sum(amount) "총 구매 개수"
+        from  buy
+        group by mem_id;
+     ```
+     
+     ```mysql
+     #Having 사용
+     #where절에는 집계함수를 사용할 수 없다.
+      select  mem_id "회원 아이디" , sum(price * amount) "총 구매 금액"
+        from  buy
+        group by mem_id
+        having sum(price * amount) > 1000;
+        
+     #order by사용
+      select  mem_id "회원 아이디" , sum(price * amount) "총 구매 금액"
+        from  buy
+        group by mem_id
+        having sum(price * amount) > 1000
+        order by "총 구매 금액" ; # 쌍따옴표 대신 백틱도 가능(`)
+     ```
+     
+     ```mysql
+     # round(), truncate()를 이용하면 반올림을 사용할 수 있다.
+     select mem_id "회원 아이디", round(avg(amount)) "평균 구매 개수"
+       from buy
+      group by mem_id;
+      
+     #ROUND(숫자,반올림할 자릿수) - 숫자를 반올림할 자릿수 +1 자릿수에서 반올림
+     #TRUNCATE(숫자,버릴 자릿수) - 숫자를 버릴 자릿수 아래로 버림(버릴 자리수 반드시 명시) 
+     ```
+   
+2. DQL(Data Manapulation Language)
+
+   - insert문
+
+     ```mysql
+     #기본적인 형식
+     INSERT INTO 테이블 [(열1, 열2, ......)] VALUES (값1, 값2, ......)
+     ```
+
+     ```mysql
+     #auto_increment
+     create table test2(
+         toy_id int not null auto_increment primary key, 
+         toy_name char(4), 
+         age int);
+      
+     insert into test2 values(null, '보핍',25);
+     insert into test2 values(null, '슬링키',22);
+     insert into test2 values(null, '렉스',21);
+     
+     #자동으로 pk가 1,2,3 들어감
+     ```
+
+     ```mysql
+     #자동증가되는 값을 중간에 변경하고 싶을때 alter table 뒤에 auto_increment값을변경하면 된다.
+     
+     alter table test2 auto_increment = 100;
+     insert into test2(toy_name, age) values('lee', 21);
+     insert into test2(toy_name, age) values('park', 25);
+     ```
+
+     ```mysql
+     # @@auto_increment_increment
+     #처음 테이블이 생성되고 자동 증가의 시작값을 원하는 값으로 설정한 후 증가값을 지정할 때 사용하는 시스템 변수 이다.
+     create table test3(
+             toy_id int not null auto_increment primary key, 
+             toy_name char(4), 
+             age int
+             );
+     
+     alter table test3 auto_increment = 1000; -- 시작값
+     SET @@auto_increment_increment = 3; -- 증가값
+     insert into test3(toy_name, age) values('토마스', 21);
+     insert into test3(toy_name, age) values('제임스', 23);
+     insert into test3(toy_name, age) values('고든', 25);
+     select * from test3;
+     ```
+
+     ```mysql
+     # 여러줄을 한줄로 간단히 입력하는 방법
+     insert into test3(toy_name, age) 
+     values('보핍',25),('슬링키',22),('lee',21);
+     ```
+
+     ```mysql
+     insert into ~ select
+     # 다른 테이블의 데이터를 한 번에 입력할 때 사용한다.
+     create table city_popul(
+     	city_name char(35),
+         population int
+     );
+     
+     insert into city_popul
+     	select name, population
+         from city;
+     ```
+
+     ```mysql
+     # Update
+     use city_popul;
+     update city_popul
+     	set city_name = '서울'
+         where city_name = 'Seoul';
+         
+     update city_popul
+     	set city_name = '뉴욕', population  = 0
+         where city_name = 'New York';
+         
+     select city_name, population
+     	from city_popul
+         where city_name = '뉴욕';
      ```
 
      
