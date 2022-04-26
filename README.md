@@ -67,10 +67,23 @@
 ## MYSQL
 
 - [데이터 입력](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_14.md)
+
 - [MYSQL](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_14.md)
+
 - [Delete](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_15.md)
+
 - [데이터 형 변환](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_15.md)
+
 - [JOIN](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_15.md)
+
 - [테이블과 뷰](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_15.md)
+
 - [제약조건](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_15.md)
+
 - [가상테이블 뷰](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_15.md)
+
+- [Java와 DB 연동](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_16.md)
+
+- [실습](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_16.md)
+
+  
