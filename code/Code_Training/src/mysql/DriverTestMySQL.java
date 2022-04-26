@@ -2,8 +2,9 @@ package mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import utility.DBOpen;
-import utility.DBClose;
+
+import mysql.utility.DBClose;
+import mysql.utility.DBOpen;
 
 public class DriverTestMySQL {
 
