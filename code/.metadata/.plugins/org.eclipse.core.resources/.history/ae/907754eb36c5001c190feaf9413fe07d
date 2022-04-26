@@ -1,0 +1,52 @@
+package address;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import utility.DBOpen;
+
+public class AddressDAO {
+  
+  /*
+   * db에서 여러건의 레코드를 가져온다.
+   * @return 여러건의 레코드
+   */
+  
+  public List<AddressDTO> list(){
+    List<AddressDTO> data_list = new ArrayList<>();
+    Connection con = DBOpen.getConnection();
+    
+    PreparedStatement pstmt = null;
+    
+    ResultSet rs = null;
+    
+    StringBuffer sql = new StringBuffer();
+    sql.append(" select * ");
+    sql.append(" from address ");
+    
+    try {
+      pstmt = con.prepareStatement(sql.toString());
+      
+      rs = pstmt.executeQuery();
+      
+      while(rs.next()) {
+        System.out.println("addressnum : " + rs.getInt("addressnum"));
+        System.out.println("name : " + rs.getString("name"));
+        System.out.println("handphone : " + rs.getString("handphone"));
+        System.out.println("address : " + rs.getString("address"));
+      }
+      
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    
+    
+    return data_list;
+  }
+
+}

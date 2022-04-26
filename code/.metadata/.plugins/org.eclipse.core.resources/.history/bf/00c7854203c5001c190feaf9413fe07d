@@ -1,0 +1,15 @@
+package mysql;
+
+import java.sql.Connection;
+
+public class InsertDB {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    Connection con = null;
+    String url = "jdbc:mysql://127.0.0.1:3306/javadb?useUnicode=true&characterEncoding=utf8";
+    String user = "javauser";
+    String passwd = "1234";
+  }
+
+}
