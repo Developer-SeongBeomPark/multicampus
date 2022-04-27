@@ -1,0 +1,16 @@
+package team;
+
+public class TeamTest {
+
+  public static void main(TeamDAO dao) {
+    // TODO Auto-generated method stub
+    read(dao);
+    
+  }
+
+  private static void read(TeamDAO dao) {
+    // TODO Auto-generated method stub
+    
+  }
+
+}

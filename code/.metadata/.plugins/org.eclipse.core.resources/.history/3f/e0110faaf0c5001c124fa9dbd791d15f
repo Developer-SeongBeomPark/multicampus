@@ -1,0 +1,47 @@
+package team;
+
+import java.util.Iterator;
+import java.util.List;
+
+public class TeamTest {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    TeamDAO dao = new TeamDAO();
+    
+    //read(dao);
+    readOne(dao);
+    
+  }
+
+  private static void readOne(TeamDAO dao) {
+    // TODO Auto-generated method stub
+    TeamDTO dto = dao.readOne(3);
+    p(dto);
+  }
+
+  private static void read(TeamDAO dao) {
+    // TODO Auto-generated method stub
+    List<TeamDTO> list =  dao.read();
+    
+    Iterator<TeamDTO> iter = list.iterator();
+    while(iter.hasNext()) {
+      TeamDTO dto = iter.next();
+      p(dto);
+      p("-------------");
+    }
+  }
+  
+  private static void p(String string) {
+    System.out.println(string);
+  }
+  
+  private static void p(TeamDTO dto) {
+    p("name = " + dto.getName());
+    p("phone = " + dto.getPhone());
+    p("emali = " + dto.getEmail());
+    p("skills = " + dto.getSkills());
+    p("address = " + dto.getAddress());
+  }
+
+}

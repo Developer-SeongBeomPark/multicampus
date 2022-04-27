@@ -9,3 +9,7 @@
 1650968709064	Delete element
 1650968720338	Move compilation units
 1650968723198	Delete element
+1651034860840	Rename package 'tem'
+1651049333929	Rename type 'memoDAO'
+1651049339306	Rename type 'memoDTO'
+1651049347642	Rename type 'memoTest'

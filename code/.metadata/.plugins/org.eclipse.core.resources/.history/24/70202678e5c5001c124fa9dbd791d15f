@@ -1,0 +1,11 @@
+package team;
+
+public class TeamDTO {
+  private int no;
+  private String name;
+  private String phone;
+  private String email;
+  private String skills;
+  private String address;
+    
+}

@@ -1,0 +1,73 @@
+package memo;
+
+public class memoTest {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    memoDAO dao = new memoDAO();
+    
+    //create(dao);
+    //read(dao);
+    update(dao);
+    //delete(dao);
+    //list(dao);
+  }
+
+  
+  
+  
+  private static void read(memoDAO dao) {
+    // TODO Auto-generated method stub
+    int num = 2;
+    
+    memoDTO dto = dao.read(num);
+    
+    p(dto);
+    
+  }
+
+
+
+
+  private static void update(memoDAO dao) {
+    // TODO Auto-generated method stub
+    memoDTO dto = dao.read(1);
+    dto.setWname("이길동");
+    dto.setTitle("mysql 수업");
+    dto.setContent("DAO,DTO");
+    
+    boolean flag = dao.update(dto);
+    if(flag) p("update 성공");
+    else p("update 실패");
+  }
+
+  
+  
+  
+  private static void create(memoDAO dao) {
+    // TODO Auto-generated method stub
+    memoDTO dto = new memoDTO();
+    dto.setWname("이길동");
+    dto.setTitle("mysql 수업");
+    dto.setContent("DAO,DTO");
+    dto.setPasswd("1234");
+    
+    boolean flag = dao.create(dto);
+    if(flag) p("create 성공");
+    else p("create 실패");
+  }
+
+  private static void p(String string) {
+    // TODO Auto-generated method stub
+    System.out.println(string);
+  }
+  
+  private static void p(memoDTO dto) {
+    // TODO Auto-generated method stub
+    p("작성자 이름 : " + dto.getWname());
+    p("제목 : " + dto.getTitle());
+    p("내용 : " + dto.getContent());
+    p("날짜 : " + dto.getWdate());
+  }
+  
+}

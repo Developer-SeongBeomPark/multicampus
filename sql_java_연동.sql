@@ -15,7 +15,10 @@ insert into address values(null, '개발자1', '222-123-1234', '러시아');
 
 select *
 	from address;
-    
+
+select *
+	from address
+    where addressnum = 5;
     
 update address
 	set handphone = '010-5555-5555', address = '터키'
