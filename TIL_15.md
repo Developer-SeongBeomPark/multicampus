@@ -337,3 +337,50 @@ INSERT INTO buy VALUES(NULL, 'APN', '아이폰', '디지털', 200); -- APN은 �
 ##### 가상테이블 뷰
 
 ---
+
+```mysql
+CREATE VIEW v_member
+AS
+    SELECT mem_id, mem_name, addr FROM member;
+ 
+SELECT * FROM v_member;
+
+SELECT mem_name, addr FROM v_member
+   WHERE addr IN ('서울', '경기');
+```
+
+```mysql
+CREATE VIEW v_memberbuy
+AS
+    SELECT B.mem_id, M.mem_name, B.prod_name, M.addr, 
+            CONCAT(M.phone1, M.phone2) '연락처' 
+       FROM buy B
+         INNER JOIN member M
+         ON B.mem_id = M.mem_id;
+ 
+SELECT * FROM v_memberbuy WHERE mem_name = '블랙핑크';
+```
+
+```mysql
+CREATE VIEW v_viewtest1
+AS
+    SELECT B.mem_id 'Member ID', M.mem_name AS 'Member Name', 
+            B.prod_name "Product Name", 
+            CONCAT(M.phone1, M.phone2) AS "Office Phone" 
+       FROM buy B
+         INNER JOIN member M
+         ON B.mem_id = M.mem_id;
+         
+alter view v_viewtest1
+as
+	select b.mem_id '회원 아이디', m.mem_name '회원 이름',
+    b.prod_name '제품 이름', concat(m.phone1,m.phone2) '연락처'
+		from buy b
+        join member m
+        on b.mem_id = m.mem_id;
+```
+
+```mysql
+DROP VIEW v_viewtest1;
+```
+
