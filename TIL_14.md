@@ -4,7 +4,7 @@
 
 [데이터 입력](#데이터-입력)
 
-[MYSQL](#mysql)
+[SELECT INSERT UPDATE](#select-insert-update)
 
 
 ##### 데이터 입력
@@ -33,7 +33,7 @@
 
 
 
-##### MYSQL
+##### SELECT INSERT UPDATE
 
 ---
 
@@ -218,6 +218,8 @@
          from city;
      ```
 
+   - update문
+   
      ```mysql
      # Update
      use city_popul;
@@ -233,6 +235,6 @@
      	from city_popul
          where city_name = '뉴욕';
      ```
-
-     
+   
+  
 
