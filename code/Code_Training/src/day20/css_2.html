@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+		color : green; /* '*' : 전부 다 적용   */
+	}
+
+	li {
+	color : blue;
+	}
+	
+	li#special { /* '#' : id 적용*/
+	color : pink;
+	}
+	
+	.red {   /*  '.' : class 적용  */
+	width : 100px;
+	height: 100px;
+	background : yellow;
+	}
+	
+	
+	button:hover { /* ':' : state */
+	color : red;
+	background : beige;
+	}
+	
+	/* [] */
+	
+	a[href] {
+	color : purple;
+	}
+	
+	
+	a[href='naver.com'] {
+	color : skyblue;
+	}
+	
+	a[href^='naver'] { /* '^' : naver로 시작하는 링크 */
+	color : red;
+	}
+	
+	a[href$='.com'] { /*  '$' : .com으로 끝나는 링크 */
+	color : purple;
+	}
+
+</style>
+
+</head>
+<body>
+	<ol>
+		<li id='special'>First</li>
+		<li>second</li>
+	</ol>
+	<h1 id='special'>Hello</h1>
+	<button>Button 1</button>
+	<button>Button 2</button>
+	<div class='red'></div>
+	<div class='blue'></div>
+	<a href="naver.com">Naver</a>
+	<a href="googlenaver.com">Google</a>
+	<a>Empty</a>
+</body>
+</html>
