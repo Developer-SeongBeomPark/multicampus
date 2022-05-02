@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style>
+	.container{
+		background : beige;
+		/*height : 100%; --> 부모높이의 100%를 채운다는 의미*/
+		height : 100vh; /* vh(view height) : 뷰 전체 높이*/
+		display : flex; /* display : flex 지정 시, flex-direction 기본 값은 row */
+		flex-direction : column;
+		/* flex-direction:  column; */
+		/* flex-direction:  row-reverse; */
+		/* flex-direction:  column-reverse; */
+
+		/*flex-wrap : nowrap --> 기본값, 브라우저 크기가 줄어들어도 한줄로 보임*/
+		flex-wrap:wrap; /* 브라우저 크기가 줄어들면 여러줄로 보임*/
+		/*flex-wrap : wrap-reverse --> 여러줄에 보여주지만 역순으로 보여줌*/
+
+		/* flex-flow : row wrap;
+		flex-flow : column wrap;  --> flex-wrap과 동일한 기능   */
+
+
+		
+}
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7">7</div>
+    <div class="item item8">8</div>
+    <div class="item item9">9</div>
+    <div class="item item10">10</div>
+    
+    <!-- <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7">7</div>
+    <div class="item item8">8</div>
+    <div class="item item9">9</div>
+    <div class="item item10">10</div> -->
+  </div>
+</body>
+</html>
