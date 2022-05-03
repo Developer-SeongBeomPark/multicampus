@@ -54,7 +54,8 @@ const gsymbol1 = Symbol.for('id');
 const gsymbol2 = Symbol.for('id');
 console.log(gsymbol1 === gsymbol2)
 console.log(`value: ${symbol1.description}, type: ${typeof symbol1}`)  //symbol를 문자열로 변환해서 출력
- 
+console.log(`value: ${gsymbol1.description}, type: ${typeof gsymbol1}`)
+
 //Dynamic typing : dynamically typed language
 let text = 'hello';
 console.log(text.charAt(0)); //'h'
