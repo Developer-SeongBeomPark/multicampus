@@ -140,12 +140,12 @@
 
 ## Javascript
 
-[반응형 웹](#반응형-웹)
+[반응형 웹](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_21.md)
 
-[반응형 CSS Units](#반응형-css-units)
+[반응형 CSS Units](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_21.md)
 
-[Javascript](#javascript)
+[Javascript](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_21.md)
 
-[Data Type](#data-type)
+[Data Type](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_21.md)
 
-[Operator]()
+[Operator](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_21.md)
