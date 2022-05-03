@@ -1,0 +1,40 @@
+package practice;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class ConnectDB_Select {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    String url = "";
+    String user_name = "";
+    String password = "";
+    String driver = "";
+    StringBuffer sql = new StringBuffer();
+    sql.append("");
+    
+    try {
+      Class.forName(driver);
+      Connection con = DriverManager.getConnection(url, user_name, password);
+      PreparedStatement pstmt = null;
+      ResultSet rs = null;
+      
+      pstmt = con.prepareStatement(sql.toString());
+      rs = pstmt.executeQuery();
+      
+      while(rs.next()) {
+        
+      }
+      
+      
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    
+  }
+
+}
