@@ -1,0 +1,9 @@
+package practice;
+
+public class Constant {
+  private final String url = "";
+  private final String user = "";
+  private final String password = "";
+  private final String driver = "";
+      
+}

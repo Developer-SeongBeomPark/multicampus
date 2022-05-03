@@ -1,0 +1,51 @@
+package practice;
+
+public class practiceDTO {
+  private String mem_id;
+  private String mem_name;
+  private int height;
+  private String phone1;
+  
+   
+  @Override
+  public String toString() {
+    return "practiceDTO [mem_id=" + mem_id + ", mem_name=" + mem_name + ", height=" + height + ", phone1=" + phone1
+        + "]";
+  }
+  
+  public practiceDTO(String mem_id, String mem_name, int height, String phone1) {
+    super();
+    this.mem_id = mem_id;
+    this.mem_name = mem_name;
+    this.height = height;
+    this.phone1 = phone1;
+  }
+  
+  public String getMem_id() {
+    return mem_id;
+  }
+  public void setMem_id(String mem_id) {
+    this.mem_id = mem_id;
+  }
+  public String getMem_name() {
+    return mem_name;
+  }
+  public void setMem_name(String mem_name) {
+    this.mem_name = mem_name;
+  }
+  public int getHeight() {
+    return height;
+  }
+  public void setHeight(int height) {
+    this.height = height;
+  }
+  public String getPhone1() {
+    return phone1;
+  }
+  public void setPhone1(String phone1) {
+    this.phone1 = phone1;
+  }
+  
+  
+  
+}

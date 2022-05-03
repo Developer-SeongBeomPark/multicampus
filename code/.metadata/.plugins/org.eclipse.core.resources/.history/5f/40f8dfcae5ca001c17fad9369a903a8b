@@ -1,0 +1,22 @@
+package practice;
+
+import mysql.address.AddressDTO;
+
+public class practiceTest {
+  public static void main(String[] args) {
+    practiceDAO dao = new practiceDAO();
+    
+    readOne(dao);
+  }
+
+  private static void readOne(practiceDAO dao) {
+    // TODO Auto-generated method stub
+    int num = 6;
+    practiceDTO dto = dao.readOne(num);
+    p(dto);
+  }
+
+
+    
+  
+}

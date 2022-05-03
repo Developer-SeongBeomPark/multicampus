@@ -1,7 +1,0 @@
-package utility;
-
-public class Constant {
-
-  public static final String URL = "jdbc:mysql://127.0.0.1:3306/javadb?useUnicode=true&characterEncoding=utf8";
-
-}
