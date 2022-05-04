@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>자바 스크립트 예제</TITLE>
+<link rel = "stylesheet" href = "../style.css">
+<script src= 'utility.js'></script>
+</HEAD>
+ 
+<BODY>
+    <h1> isNaN 함수 예제</h1>
+    <script>
+        let temp1 = prompt('값을 입력하세요',100.5);
+        //문자:true, 숫자:false
+        if(isNaN(temp1)){
+            pl(`${temp1} 은 문자 이다.`);
+        }else{
+            pl(`${temp1} 은 숫자 이다.`);
+        }
+ 
+    </script>
+</BODY>
+</HTML>
