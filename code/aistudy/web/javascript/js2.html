@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css"> 
+*{ 
+  font-family: gulim; 
+  font-size: 22px; 
+} 
+</style> 
+</head>
+<body>
+<H2>if-else 제어구조</H2>
+<HR>
+ 
+<script type="text/javascript">
+ 
+  var temp1 = 5, temp2 = 10;
+  var max, min; 
+ 
+  // 두 숫자의 크기를 비교하여 max와 min변수에 저장
+  if (temp1 >= temp2){
+    //temp1이 큰경우
+    max=temp1;
+    min=temp2;
+  }else{
+    //temp2가 큰경우
+    max=temp2;
+    min=temp1;
+  }
+  
+  pl("");
+  pl("큰값 = " + max);
+  pl("작은값 = " + min); 
+ 
+  function pl(str){
+    document.write("<span style='color: #FF0000; font-size: 28px'>");
+    document.write(str);
+    document.write("</span><br>");
+  }
+ 
+</script>
+ 
+</body>
+</html>
+ 

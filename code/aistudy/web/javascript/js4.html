@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css"> 
+*{ 
+  font-family: gulim; 
+  font-size: 22px; 
+} 
+</style> 
+</head>
+<body>
+ 
+<H2>while 문의 사용</H2>
+<HR>
+ 
+<script type="text/javascript">
+var innum, i;
+ 
+// 숫자를 입력
+innum=prompt("1부터 9사이의 수를 입력하세요", "2");
+ 
+pl("입력한 숫자 " + innum + "에 대한 구구단<br>");
+i=1;
+ 
+//1부터 9까지 9번 반복실행
+while(i <= 9){
+  pl(innum + " X " + i + " = " + (innum * i));
+  //i값을 1 증가
+  i++;    
+}
+ 
+function pl(str){
+  document.write(str + "<br>");
+}
+ 
+</script>
+ 
+ 
+</body>
+</html>
