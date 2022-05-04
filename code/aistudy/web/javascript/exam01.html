@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "style.css">
+    <script src = "utility.js"></script>
+</head>
+<body>
+    <h2>성적 처리</h2>
+    <hr>
+    <script>
+        let kuk = parseInt(prompt("국어 성적", 0));
+        let eng = parseInt(prompt("영어 성적", 0));
+        let math = parseInt(prompt("수학 성적", 0));
+
+        let tot = kuk + eng + math;
+        let avg = tot / 3;
+
+        let star = '';
+        for(let i = 0; i < avg/10; i++ ){
+            star += `★`;
+        }
+
+        p("<table>");
+            p("<tr><th>점수</th><tr>");
+                p(`<tr><td> 국어 : ${kuk} </td></tr>`);
+                p(`<tr><td> 영어 : ${eng} </td></tr>`);
+                p(`<tr><td> 수학 : ${math} </td></tr>`);
+                p(`<tr><td> 총점 : ${tot} </td></tr>`);
+                p(`<tr><td> 평균 : ${avg} </td></tr>`);
+                p(`<tr><td> 평가 : ${star} </td></tr>`);
+        p("<table>");
+
+
+    </script>
+
+
+
+</body>
+</html>
