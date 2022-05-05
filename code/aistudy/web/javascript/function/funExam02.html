@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //함수선언
+        function callTenTimes(callback){ //callback 매개변수,지역변수
+ 
+            for (let i = 0; i < 10 ; i ++){
+                callback(i);
+            }
+ 
+        }
+
+        // //함수호출
+        // callTenTimes(function(i){
+        //     alert(`함수 호출2 ${i}`);
+        // }); 
+
+        //함수표현식
+        let callback = function(i){
+            alert(`함수 호출1 ${i}`);
+        }
+ 
+        //함수호출
+        callTenTimes(callback); //callback 실인수, 전역변수의 값
+        // callTenTimes(i => alert(`함수 호출3 ${i}`));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

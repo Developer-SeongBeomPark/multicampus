@@ -1,0 +1,23 @@
+package exam;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class BookTest {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    DBOpen.open();
+    
+    Connection con = null; // Connection 객체를 선언하지 않아도 DBOpen.java에서 Connection 객체를 static으로 선언했기 때문에 static 영역에 con이 남아있어여하는거 아닌가?
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    
+    
+    
+    pstmt = con.prepareStatement(sql.toString());
+    
+  }
+
+}
