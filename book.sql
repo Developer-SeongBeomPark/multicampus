@@ -19,3 +19,18 @@ insert into book values(35332,'Android App','홍길동','Jaen.kr', 25000 ,'Light
 insert into book values(35355,'OOAD 분석,설계','소나무','Jaen.kr', 30000 ,null,sysdate());	
 
 select * from book;
+
+select *
+	from book
+    where isbn = 21424;
+    
+update book
+	set publisher = 'Hana.kr'
+    where isbn = 21424;
+    
+delete
+	from book
+    where isbn = 21424;
+
+
+

@@ -11,6 +11,17 @@ public class BookDTO {
   private String des;
   private Date date;
   
+  
+  public BookDTO(int isbn, String title, String author, String publisher, int price, String des) {
+    super();
+    this.isbn = isbn;
+    this.title = title;
+    this.author = author;
+    this.publisher = publisher;
+    this.price = price;
+    this.des = des;
+  }
+
   public BookDTO(int isbn, String title, String author, String publisher, int price, String des, Date date) {
     super();
     this.isbn = isbn;
@@ -28,8 +39,7 @@ public class BookDTO {
 
   @Override
   public String toString() {
-    return "BookDTO [isbn=" + isbn + ", title=" + title + ", author=" + author + ", publisher=" + publisher + ", price="
-        + price + ", des=" + des + ", date=" + date + "]";
+    return isbn + "\t| " + title + "\t| " + author + "\t|" + publisher + "\t| " + price + "\t| " + des;
   }
 
   public int getIsbn() {
