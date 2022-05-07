@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    nav{
+        border-bottom : 1px solid black;
+    }
+
+    .crumbs ol{/* '.'은 class를 의미함. '#'은 하위 태그를 의미함. */        
+        list-style-type : none;
+        padding-left: 0;
+    }
+
+    .crumb{
+        display : inline-block;
+    }
+
+    .crumb a::after{/* "::" 해당하는 태그나 클래스에 해당하는 내용 뒤에(after) 적용 / befor도 있음 */
+        display : inline-block;
+        color : #000;
+        content : '>';
+        font-size : 80%;
+        font-weight : bold;
+        padding : 0 3px;
+    }
+
+
+</style>
+</head>
+<body>
+	<nav class="crumbs">
+        <ol>
+            <li class="crumb"><a href = "#">Bikes</a></li>
+            <li class="crumb"><a href = "#">BMX</a></li>
+            <li class="crumb">Jump Bike 3000</a></li>
+        </ol>
+    </nav>    
+    
+    <h1>Jump Bike 3000</h1>
+    <p>This BMX bike is a solid step into the pro world. It looks as legit as it rides and is built to polish your skills.</p>
+</body>
+</html>

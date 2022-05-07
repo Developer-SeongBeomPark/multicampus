@@ -1,0 +1,40 @@
+package exam;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class BookDAO {
+  public boolean create(BookDTO dto) {
+    boolean flag = false;
+    
+    Connection con = DBOpen.open();
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    
+    StringBuffer sql = new StringBuffer();
+    sql.append(" insert into book values(?, ?, ?, ? ,? ,? ,?) ");
+    
+    try {
+      pstmt = con.prepareStatement(sql.toString());
+      pstmt.setInt(1, );
+      pstmt.setString(2, );
+      pstmt.setString(3, );
+      pstmt.setString(4, );
+      pstmt.setInt(5, 0);
+      pstmt.setString(6, ));
+      pstmt.setDate(7, null);
+      
+      
+      
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    
+    
+    
+    return flag;
+  }
+}

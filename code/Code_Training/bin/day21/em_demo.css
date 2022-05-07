@@ -1,0 +1,18 @@
+h1 {
+    display: inline-block;
+    font-size: 5em;
+    background-color: mediumaquamarine;
+    padding: 1em;
+  }
+   
+  @media screen and (max-width: 780px) {/* @media screen --> 브라우저의 크기가 변함에따라 설정값을 바꿈*/
+    h1 {
+      font-size: 3em;
+    }
+  }
+   
+  @media screen and (max-width: 680px) {
+    h1 {
+      font-size: 1.5em;
+    }
+  }

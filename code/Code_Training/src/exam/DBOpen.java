@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBOpen {
   static Connection con = null;
-  public static void open() {
+  public static Connection open() {
     try {
       Class.forName(Constant.DRIVER);
       con = DriverManager.getConnection(Constant.URL, Constant.USER, Constant.PASSWORD);
@@ -14,6 +14,6 @@ public class DBOpen {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    
+    return con;
   }
 }

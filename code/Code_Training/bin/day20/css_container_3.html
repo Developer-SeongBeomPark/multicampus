@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style>
+	.container{
+		background : beige;
+		/*height : 100%; --> 부모높이의 100%를 채운다는 의미*/
+		height : 100vh; /* vh(view height) : 뷰 전체 높이*/
+		display : flex; /* display : flex 지정 시, flex-direction 기본 값은 row */
+		flex-direction : column;
+		/* flex-direction:  column; */
+		/* flex-direction:  row-reverse; */
+		/* flex-direction:  column-reverse; */
+
+		/*flex-wrap : nowrap --> 기본값, 브라우저 크기가 줄어들어도 한줄로 보임*/
+		flex-wrap:wrap; /* 브라우저 크기가 줄어들면 여러줄로 보임*/
+		/*flex-wrap : wrap-reverse --> 여러줄에 보여주지만 역순으로 보여줌*/
+
+		/* flex-flow : row wrap;
+		flex-flow : column wrap;  --> flex-wrap과 동일한 기능   */
+
+		justify-content : flex-end; /* 오른쪽으로 붙임 */
+		/* justify-content : flex-start ; --> 왼쪽으로 붙임*/
+		/* justify-content : center; --> 가운데 정렬 */
+		/* justify-content : space-around; */
+		/* 균등하게 간격을 만듬 */
+		/* justify-content : space-evenly; */ 
+		/* justify-content : space-between; */ 
+
+    padding-top : 100px;
+		
+}
+
+.item{
+	width : 40px;
+	height : 40px;
+	border : 1px solid black;
+}
+.item1 {
+  background:#ef9a9a;
+  flex-grow : 1; /*flex-grow --> 비율에 맞게 item 크기 설정*/
+}
+.item2 {
+  background:#f48fb1;
+  flex-shrink: 2; /*flex-shrink --> n배로 줄어든다*/
+  flex-basis : default auto;
+}
+.item3 {
+  background:#ce93d8;
+  flex-basis : 60%;
+  flex : 2 2 auto; /* grow, shrink, basis가 결합됨. 0,1,auto가 기본값 */
+}
+.item4 {
+  background:#b39ddb;
+}
+.item5 {
+  background:#90caf9;
+}
+.item6 {
+  background:#a5d6a7;
+}
+.item7 {
+  background:#e6ee9c;
+}
+.item8 {
+  background:#fff59d;
+}
+.item9 {
+  background:#ffcc80;
+}
+.item10 {
+  background:#ffab91;
+}
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <!-- <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7">7</div>
+    <div class="item item8">8</div>
+    <div class="item item9">9</div>
+    <div class="item item10">10</div> -->
+    
+    <!-- <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7">7</div>
+    <div class="item item8">8</div>
+    <div class="item item9">9</div>
+    <div class="item item10">10</div> -->
+  </div>
+</body>
+</html>
