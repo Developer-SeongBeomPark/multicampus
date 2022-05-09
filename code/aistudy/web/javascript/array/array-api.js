@@ -108,7 +108,7 @@
   {
     const result = students
       .map((student) => student.score)
-      .sort((a, b) => a-b)
+      .sort((a, b) => a-b)//b-a로 하면 내림차순
       .join();
     console.log(result);
   }
