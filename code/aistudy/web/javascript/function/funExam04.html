@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function test(name){
+            var output = "Hello" + name + "...!";
+        
+            return function(){
+                console.log(output);
+            }
+        }
+
+
+        //alert(output);// --> 출력 안됨.
+        test("javascript")();
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>

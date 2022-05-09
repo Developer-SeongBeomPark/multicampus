@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function test(name){
+            let output = `Hello ${name} ...!`;
+
+            return function(){
+                console.log(output);
+            }
+        }
+
+        let test1 = test("web");
+        let test2 = test("ajax");
+
+        test1();
+        test2();
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>

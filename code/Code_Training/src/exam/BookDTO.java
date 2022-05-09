@@ -28,7 +28,7 @@ public class BookDTO {
 
   @Override
   public String toString() {
-    return isbn + "\t| " + title + "\t| " + author + "\t|" + publisher + "\t| " + price + "\t| " + des;
+    return isbn + "\t| " + title + "\t| " + author + "\t| " + publisher + "\t| " + price + "\t| " + des;
   }
 
   public int getIsbn() {
