@@ -149,3 +149,11 @@
 [Data Type](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_21.md)
 
 [Operator](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_21.md)
+
+[제어문](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_22.md)
+
+[Function(함수)](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_22.md)
+
+[함수 활용하기](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_23.md)
+
+[객체(Object)](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_23.md)
