@@ -148,6 +148,7 @@ Anchor 태그에서 click 이벤트를 받는 소스
         제목 : <input type="text" name = "subject"><br>
         내용 : <textarea name="wcontent" cols="54" rows="8"></textarea><br>
         <button onclick = "check(this.form)">저장</button> <!--this.form -> 해당 form태그가 parameter로 들어감-->
+        <input type='image' src='disks.jpg'></input>
     </form>
 </body>
 </html>
@@ -155,7 +156,131 @@ Anchor 태그에서 click 이벤트를 받는 소스
 
 
 
+실습
 
+문제 : Input 태그에서 행의 수와 열의 수를 입력받아 자바스크립트로 테이블을 생성하는 예제를 작성하세요. 입력되는 값은 수만 입력가능하며, 문자열 입력시 에러 메시지를 출력하세요. 입력 가능 값의 범위는 3 ~ 10 만 가능하며 이 값의 범위를 벗어나면 역시 에러메세지를 출력하세요.
+
+ 조건: 1) 숫자 입력 여부 검사, 2) 입력되는 수의 범위 검사
+
+ 힌트: 함수 안에서 다른 함수를 호출할 수 있습니다. 
+
+
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+    function check(f){
+            let row = f.row.value;
+            let col = f.col.value;
+            console.log(`row:${row}, col:${col}`);
+            if(isFinite(row)==false){
+                alert("숫자를 입력하세요");
+                f.row.value = '';
+                f.row.focus();
+                return false;
+            }else if(row<3 || row>10){
+                alert('3~10 사이의 수만 입력하세요');
+                f.row.value = '';
+                f.row.focus();
+                return false;
+            }else if(isFinite(col)==false){
+                alert("숫자를 입력하세요");
+                f.col.value = '';
+                f.col.focus();
+                return false;
+            }else if(col<3 || col>10){
+                alert('3~10 사이의 수만 입력하세요');
+                f.col.value = '';
+                f.col.focus();
+                return false;
+            }else{
+                makeTable(row,col);
+                return false;
+            }
+        }
+
+    function makeTable(row, col){
+        let html = "<table>";
+        for (let i = 0; i < row; i++){
+            html += "<tr>"
+                for(let j = 0; j < col; j++){
+                    html += "<td>&nbsp</td>";
+                }
+            html += "</tr>";
+            }
+
+        html += "</table>"
+
+        let panel = document.getElementById('panel').innerHTML = html;
+    }
+</script>
+</head>
+<body>
+    <form name='myform' onsubmit="return check(this)">
+        행의수:<input type="text" name="row" id="row" value="5" size="20"><br>
+        열의수:<input type="text" name="col" id="col" value="5" size="20"><br>
+        <button>테이블 생성</button>
+    </form>
+    <div id="panel"></div>
+</body>
+</html>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### Onload 이벤트 처리
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function searchW(){
+            let str = "기획자/설계자/개발자/디자이너";
+            let strout = '';
+            let strSplit = str.split("/");
+            
+            for(let i = 0; i < strSplit.length; i++){
+                strout += `❤ ${strSplit[i]}`;
+            }
+
+            let panel = document.getElementById("panel");
+            panel.innerHTML = strout;
+        }
+
+    </script>
+</head>
+<body onload = "searchW()">
+    <div id = "panel">
+
+    </div>
+</body>
+</html>
+```
 
 
 

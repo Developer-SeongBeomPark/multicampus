@@ -8,18 +8,22 @@
     <link rel="stylesheet" href="../style.css">
     <script>
         function check(f){
-            if(f.wname.value == "" | f.wname.value.length == 0){
-                alert("이름을 입력하세요");
+            if(f.wname.value == '' || f.wname.value.length ==0){
+                alert('이름을 입력하세요');
                 f.wname.focus();
-            }else if(f.subject.value == "" | f.subject.value.length == 0){
-                alert("제목을 입력하세요");
+               // return false;//button이 submit기능을 가지고 있을때 작성
+            }else if(f.subject.value.length == 0){
+                alert('제목을 입력하세요');
                 f.subject.focus();
-            }else if(f.wcotent.value == ""){
-                alert("내용을 입력하세요")
+                //return false;//button이 submit기능을 가지고 있을때 작성
+            }else if(f.wcontent.value == ''){
+                alert('내용을 입력하세요');
                 f.wcontent.focus();
+                //return false;//button이 submit기능을 가지고 있을때 작성
             }else{
-                alert("데이터 정상 입력. 계속 진행합니다");
-                f.submit();
+                alert('데이터 정상 입력, 계속 진행합니다.');
+                f.submit();  // button이 submit기능이 없을때 호출
+                
             }
         }
 
@@ -31,7 +35,11 @@
         이름 : <input type="text" name = "wname"><br>
         제목 : <input type="text" name = "subject"><br>
         내용 : <textarea name="wcontent" cols="54" rows="8"></textarea><br>
-        <button onclick = "check(this.form)">저장</button> <!--this.form -> 해당 form태그가 parameter로 들어감-->
+        <!-- <button onclick = "check(this.form)">저장</button> this.form -> 해당 form태그가 parameter로 들어감 -->
+        <!-- <input type='image' src='disks.jpg'></input> -->
+        <a href="javascript:check(myform)">
+            <img src = "disks.jpg" border='0'>
+        </a>
     </form>
 </body>
 </html>
