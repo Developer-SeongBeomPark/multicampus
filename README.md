@@ -157,3 +157,5 @@
 [함수 활용하기](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_23.md)
 
 [객체(Object)](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_23.md)
+
+[배열](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_23.md)
