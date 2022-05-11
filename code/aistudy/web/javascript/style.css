@@ -20,4 +20,6 @@ th{
     font-size : 12;
     color : rgb(13,1,1);
     height : 19px;
+    border : 1px dashed;
+    
 }

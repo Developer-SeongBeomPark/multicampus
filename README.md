@@ -159,3 +159,9 @@
 [객체(Object)](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_23.md)
 
 [배열](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_23.md)
+
+[이벤트의 처리](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_24.md)
+
+[Select 이벤트 처리](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_24.md)
+
+[실습](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_24.md)

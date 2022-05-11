@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../style.css">
+    <script>
+        function trimSpace(f){
+            let str = f.txtData.value;
+            for(let i = 0; i < str.length; i++){
+                if(str.charAt(i) == ' '){
+                    str = str.substring(0,i) + str.substring(i+1, str.length);
+                    i = i - 1;
+                }
+
+            }
+            f.txtData2.value = str;
+        }
+    </script>
 </head>
 <body>
     <form name = "myform">

@@ -1,7 +1,0 @@
-package practice;
-
-public class practiceTest {
-  public static void main(String[] args) {
-    
-  }
-}

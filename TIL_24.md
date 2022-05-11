@@ -2,9 +2,11 @@
 
 ---
 
-[]()
+[이벤트의 처리](#이벤트의-처리)
 
-[]()
+[Select 이벤트 처리](#select-이벤트-처리)
+
+[실습](#실습)
 
 
 
@@ -436,5 +438,45 @@ Anchor 태그에서 click 이벤트를 받는 소스
 3. 문자열에서 공백을 제거하는 스크립트
 
 ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function trimSpace(f){
+            let str = f.txtData.value;
+            for(let i = 0; i < str.length; i++){
+                if(str.charAt(i) == ' '){
+                    str = str.substring(0,i) + str.substring(i+1, str.length);
+                
+                }
+
+            }
+            f.txtData2.value = str;
+        }
+    </script>
+</head>
+<body>
+    <form name = "myform">
+        원본 문자열 : <input name="txtData" type = "text" size = "
+        60" maxlenth = "60">
+        <a href="javascript:trimSpace(myform)">
+            <b>문자열 공백 지우기</b><br>
+        </a>
+        공백 제거 문자열 : <input type="text" name = "txtData2" size = "60" maxlength="60">
+
+    </form>
+</body>
+</html>
 ```
+
+
+
+##### 실습
+
+
 
