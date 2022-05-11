@@ -7,7 +7,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="../style.css">
     <script>
+        function ansquChange(f){
+            let frm = document.frmData;
+            let str = f.title.value + f.ansqu.options[f.ansqu.selectedIndex].text;
+            f.title.value = str;
+            f.title.focus();
 
+            frm.ansqu.value = f.ansqu.options[f.ansqu.selectedIndex].value;
+        }
+
+        function partChange(f){
+            let frm = document.frmData;
+            let str = f.title.value + f.pt.options[f.pt.selectedIndex].text;
+
+            f.title.value = str;
+            f.title.focus();
+
+            frm.pt.value = f.pt.options[f.pt.selectedIndex].value;
+        }
 
     </script>
 </head>
@@ -22,6 +39,7 @@
             <option value='A005'> [추천] </option>
             <option value='A006'> [선택 안함] </option>
         </select>
+        
 
         <select name="pt" onchange='partChange(this.form)'>
             <option value=''> [분야 선택] </option>
@@ -32,7 +50,7 @@
             <option value='P005'> [ORACLE] </option>
             <option value='P006'> [선택 안함] </option>
         </select>
-
+        <br>
         <input type="text" name = "title" size = "85" class = "title" maxlength = "100">
 
     </form>

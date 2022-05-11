@@ -292,7 +292,149 @@ Anchor 태그에서 click 이벤트를 받는 소스
 2. 파일의 확장자를 검사하는 함수
 
  ```html
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="../style.css">
+     <script>
+         window.onload = function(){
+             let word1 = document.getElementById("word1");
+             let result1 = document.getElementById("result1");
+ 
+             word1.innerHTML = "test.jsp";
+             let str = word1.innerHTML;
+ 
+             if(str.lastIndexOf(".jsp") >= 0){
+                 result1.innerHTML = "전송할 수 없는 확장자입니다";
+             }
+         }
+     </script>
+ </head>
+ <body>
+     <h1>자바 스크립트 확장자 검사</h1><br><br>
+ 
+     <div id = "panel">
+         <span id = "word1"></span> : <span id = "result1"></span><br>
+ 
+     </div>
+ </body>
+ </html>
  ```
 
 
+
+
+
+##### Select 이벤트 처리
+
+1. select 태그 자바스크립트에서 연동하기
+
+ ```html
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="../style.css">
+     <script>
+         function ansquChange(f){
+             let frm = document.frmData;
+             let str = f.title.value + f.ansqu.options[f.ansqu.selectedIndex].text;
+             f.title.value = str;
+             f.title.focus();
+ 
+             frm.ansqu.value = f.ansqu.options[f.ansqu.selectedIndex].value;
+         }
+ 
+         function partChange(f){
+             let frm = document.frmData;
+             let str = f.title.value + f.pt.options[f.pt.selectedIndex].text;
+ 
+             f.title.value = str;
+             f.title.focus();
+ 
+             frm.pt.value = f.pt.options[f.pt.selectedIndex].value;
+         }
+ 
+     </script>
+ </head>
+ <body>
+     <form name = "frmSelect">
+         <select name="ansqu" onchange="ansquChange(this.form)">
+             <option value=''> [종류 선택] </option>
+             <option value='A001'> [질문] </option>     
+             <option value='A002'> [답변] </option>
+             <option value='A003'> [참고] </option>
+             <option value='A004'> [공지] </option>
+             <option value='A005'> [추천] </option>
+             <option value='A006'> [선택 안함] </option>
+         </select>
+         
+ 
+         <select name="pt" onchange='partChange(this.form)'>
+             <option value=''> [분야 선택] </option>
+             <option value='P001'> [JAVA] </option>
+             <option value='P002'> [JSP] </option>
+             <option value='P003'> [Spring] </option>
+             <option value='P004'> [JavaScript] </option>
+             <option value='P005'> [ORACLE] </option>
+             <option value='P006'> [선택 안함] </option>
+         </select>
+         <br>
+         <input type="text" name = "title" size = "85" class = "title" maxlength = "100">
+ 
+     </form>
+ 
+     <hr>
+ 
+     <form name = "frmData">
+         분야 선택 전송값: <input type='text' name='ansqu' value='' size='50'><br>
+         언어 선택 전송값: <input type='text' name='pt' value='' size='50'>
+ 
+     </form>
+ </body>
+ </html>
+ ```
+
+
+
+2. substring 함수
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src = "../utility.js">
+    </script>
+</head>
+<body>
+    <script>
+        let str = '123ABC 가나다/가나다';
+        pl(`${str}`);
+        pl(`${str.substring(0,3)}`);
+        pl(str.substring(7));
+        pl(str.lastIndexOf('가나다'));
+
+    </script>
+</body>
+</html>
+```
+
+
+
+3. 문자열에서 공백을 제거하는 스크립트
+
+```html
+```
 
