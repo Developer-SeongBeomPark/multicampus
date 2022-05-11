@@ -249,6 +249,9 @@ Anchor 태그에서 click 이벤트를 받는 소스
 
 ##### Onload 이벤트 처리
 
+1. split()함수를 이용하여 입력된 값을 분리하여 출력한다.
+- onload event: 페이지 로딩시 자동실행 함수 선언, BODY 태그 실행후 실행
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -281,6 +284,15 @@ Anchor 태그에서 click 이벤트를 받는 소스
 </body>
 </html>
 ```
+
+
+
+
+
+2. 파일의 확장자를 검사하는 함수
+
+ ```html
+ ```
 
 
 
