@@ -5,31 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{ 
-            font-family: gulim; 
-            font-size: 22px; 
-        } 
-    </style>
-    <script>
-    function sendit(){
-        let str = document.getElementById('url').value; //id 로 검색
-        //let str = document.regiform.url.value; --> name 으로 검색
-        console.log(`str: ${str}`);
- 
-        if(str == ''){
-            alert('주소를 입력하세요');
-            document.regiform.url.focus(); //name속성으로 검색
-        }else{
-            location.href = str; //주소 요청
-        }
-    }
-    </script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="sendit.js"></script>
 </head>
 <body>
     <form name='regiform'>
         <input type='text' id='url' name='url' size= '50'>
         <a href="javascript:sendit();">주소이동</a>
+        <button type = "button" onclick = "sendit()">주소이동</button>
+        <button type = "button" onclick = "direct_sendit('https://www.daum.net')">DAUM</button>
+        <button type = "button" onclick = "direct_sendit('https://www.weather.go.kr')">기상청</button>
+        <button type = "button" onclick = "direct_sendit('https://www.kyobobook.co.kr')">교보문고</button>
         
     </form>
 </body>
