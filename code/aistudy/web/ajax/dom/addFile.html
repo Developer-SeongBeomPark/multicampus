@@ -14,6 +14,7 @@
             number += 1;
             divel.innerHTML = `파일 선택 : ${number}` + "<input type='file' name='file'/>";
             parentdiv.appendChild(divel);
+            console.log(parentdiv.childElementCount);
         }
 
         function remove(){
@@ -22,6 +23,7 @@
                 parentdiv.removeChild(parentdiv.lastChild);
                 number -= 1; // 다 지우고 새로 "파일 선택 추가"를 누르면 왜 0이 출력??
                 //if(number < 1) number = 0;
+                console.log(parentdiv.childElementCount);
             }
         }
 
