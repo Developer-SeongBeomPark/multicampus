@@ -9,8 +9,12 @@
         function imgshow(){
             let img = document.createElement("img");
             img.src = "http://www.apache.org/images/ac2008us_343x114.jpg";
+            
+            let str = "<img src = 'http://www.apache.org/images/ac2008us_343x114.jpg'>";
+
             let holder = document.getElementById("imgPlaceHolder");
-            holder.appendChild(img);
+            //holder.appendChild(img);--> 버튼을 클릭하면 계속 추가됨
+            holder.innerHTML = str; // 한번밖에 추가 안됨.
         }
 
     </script>
