@@ -478,5 +478,6 @@ Anchor 태그에서 click 이벤트를 받는 소스
 
 ##### 실습
 
+shopping-template 폴더
 
-
+![스크린샷(472)](TIL_24.assets/스크린샷(472).png)

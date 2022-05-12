@@ -1,4 +1,4 @@
-:root {
+:root {/* 전역변수 설정 . 사용방법 : var(변수이름) ex) var(--color-black)*/
   /* color */
   --color-black: #3f454d;
   --color-white: #ffffff;
@@ -6,14 +6,12 @@
   --color-yellow: #fbbe28;
   --color-pink: #fd7f84;
   --color-light-grey: #dfdfdf;
-
   /* size */
   --base-space: 8px;
   --size-button: 60px;
   --size-border: 4px;
   --size-thumbnail: 50px;
   --font-size: 18px;
-
   /* animation */
   --size-animation-duration: 300ms;
 }
