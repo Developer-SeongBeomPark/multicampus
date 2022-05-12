@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            background-color: #ece9d8;
+            display : flex;
+            height : 100vh;
+            justify-content: right; 
+        }
+
+        .mainItem1{
+            margin : 100px 10px 0 0;
+            width : 700px;
+            height : 470px;
+            background-color: aqua;
+        }
+
+        .mainItem2{
+            margin : 100px;
+            width : 100px;
+            height : 450px;
+            background-color: white;
+            display : flex;
+            flex-direction : column;
+            justify-content : space-between;    
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let img1 = document.createElement("img");
+            img1.src = "images/showImg/01.jpg";
+            img1.width = 100;
+            img1.height = 90;
+            let show1Div = document.getElementById("show1");
+            show1Div.appendChild(img1);
+
+            let img2 = document.createElement("img");
+            img2.src ="images/showImg/02.jpg";
+            img2.width=100;
+            img2.height=90;
+            let show2Div = document.getElementById("show2");
+            show2Div.appendChild(img2);
+    
+            let img3 = document.createElement("img");
+            img3.src ="images/showImg/03.jpg";
+            img3.width=100;
+            img3.height=90;        
+            let show3Div = document.getElementById("show3");
+            show3Div.appendChild(img3);
+    
+            let img4 = document.createElement("img");
+            img4.src ="images/showImg/04.jpg";
+            img4.width=100;
+            img4.height=90;
+            let show4Div = document.getElementById("show4");
+            show4Div.appendChild(img4);
+    
+            let img5 = document.createElement("img");
+            img5.src ="images/showImg/05.jpg";
+            img5.width=100;
+            img5.height=90;
+            let show5Div = document.getElementById("show5");
+            show5Div.appendChild(img5); 
+        }
+    </script>
+</head>
+<body>
+    <div class='container'>
+        <div class='mainItem1' id='showMain'></div>
+        <div class='mainItem2'>
+            <div class='item item1' id="show1" onclick="show(this)"></div>
+            <div class='item item2' id="show2" onclick="show(this)"></div>
+            <div class='item item3' id="show3" onclick="show(this)"></div>
+            <div class='item item4' id="show4" onclick="show(this)"></div>
+            <div class='item item5' id="show5" onclick="show(this)"></div>
+        </div>
+    </div>
+</body>
+</html>
