@@ -68,6 +68,17 @@
             let show5Div = document.getElementById("show5");
             show5Div.appendChild(img5); 
         }
+
+        function show(div){
+            let temp = div.firstChild;
+            let mainImg = document.createElement("img");
+            mainImg.src = temp.src; // 이미지 경로 전달
+            mainImg.width=700;
+            mainImg.height=470;
+            let showMain = document.getElementById("showMain");
+            showMain.innerHTML="";
+            showMain.appendChild(mainImg); 
+    }
     </script>
 </head>
 <body>
