@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function kma(){
+            document.getElementById("thelink").href="http://www.kma.go.kr";
+        }
+
+        function yahoo(){
+        document.getElementById("thelink").href="http://www.yahoo.com";
+        }
+ 
+        function func(){
+            document.getElementById("thelink").href="javascript:display();";
+        }
+
+        function display(){
+            alert("display 함수가 호출 되었습니다.");
+        }
+
+    </script>
+</head>
+<body>
+    <a id="thelink">클릭하세요</a>
+    <input type="button" onclick = "kma()" value="기상청"/>
+    <input type="button" onclick = "yahoo()" value="야후"/>
+    <input type="button" onclick = "func()" value="링크로 함수 걸기"/>
+</body>
+</html>

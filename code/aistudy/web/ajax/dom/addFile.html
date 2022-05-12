@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let number = 0;
+
+        function add(){
+            let parentdiv = document.getElementById("textHolder");
+            let divel = document.createElement("div");
+            number += 1;
+            divel.innerHTML = `파일 선택 : ${number}` + "<input type='file' name='file'/>";
+            parentdiv.appendChild(divel);
+        }
+
+        function remove(){
+            let parentdiv = document.getElementById("textHolder");
+            if(parentdiv.firstChild) {
+                parentdiv.removeChild(parentdiv.lastChild);
+                number -= 1; // 다 지우고 새로 "파일 선택 추가"를 누르면 왜 0이 출력??
+                //if(number < 1) number = 0;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" onclick = "add()" value="파일 선택 추가" />
+    <input type="button" onclick = "remove()" value="파일 선택 제거" />
+    <br/>
+    <DIV id="textHolder">
+    </DIV>
+</body>
+</html>

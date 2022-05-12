@@ -2,9 +2,11 @@
 
 ---
 
-[]()
+[Finding HTML Elements](#finding-html-elements)
 
-[]()
+[Another Elements](#another-elements)
+
+[실습](#실습)
 
 
 
@@ -474,7 +476,155 @@ document.getElementById("demo").innerHTML =
 9. 화면의 특정 영역을 동적으로 숨기거나 감추기
 
    ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <script>
+           function show(){
+               document.getElementById("content").style.display = '';
+               //document.getElementById("content").style.visibility = '';
+           }
+           function hide(){
+               document.getElementById("content").style.display = "none"; // 영역도 없앰
+               //document.getElementById("content").style.visibility = ''; visibility: 영역은 남아 있음
+   
+           }
+       </script>
+   </head>
+   <body>
+       <div id="content">
+           DIV 태그 출력<br/>
+           <img src='http://www.apache.org/images/ac2008us_343x114.jpg' width='300' height='250'>
+       
+       </div>
+       
+        <input type="button" onclick="show()" value="div 보이기" />
+        <input type="button" onclick="hide()" value="div 감추기" />
+   </body>
+   </html>
    ```
 
-   
+10. 텍스트의 링크를 동적으로 변경하기
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            function kma(){
+                document.getElementById("thelink").href="http://www.kma.go.kr";
+            }
+    
+            function yahoo(){
+            document.getElementById("thelink").href="http://www.yahoo.com";
+            }
+     
+            function func(){
+                document.getElementById("thelink").href="javascript:display();";
+            }
+    
+            function display(){
+                alert("display 함수가 호출 되었습니다.");
+            }
+    
+        </script>
+    </head>
+    <body>
+        <a id="thelink">클릭하세요</a>
+        <input type="button" onclick = "kma()" value="기상청"/>
+        <input type="button" onclick = "yahoo()" value="야후"/>
+        <input type="button" onclick = "func()" value="링크로 함수 걸기"/>
+    </body>
+    </html>
+    ```
+
+11. 텍스트를 div 태그로 감싸서 추가하기
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            function show()
+            { 
+                // DIV 태그 검색
+                let parentdiv = document.getElementById("textHolder");
+                // 새로운 DIV 태그 생성
+                let divel = document.createElement("div");
+                // 새로운 DIV태그에 텍스트 생성
+                divel.appendChild(document.createTextNode("CBD Developer 8"));
+                // 새로운 DIV 태그를 부모 DIV 태그인 'textHolder'에 추가
+                parentdiv.appendChild(divel);
+            
+            }
+    
+            function remove(){
+                let parentdiv = document.getElementById("textHolder");
+                if(parentdiv.firstChild) parentdiv.removeChild(parentdiv.firstChild);   
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" onclick="show()" value="텍스트 추가" />
+        <input type="button" onclick="remove()" value="텍스트 삭제" />
+        <div id="textHolder"></div>
+    </body>
+    </html>
+    ```
+
+12. 파일 전송 태그를 추가
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            let number = 0;
+    
+            function add(){
+                let parentdiv = document.getElementById("textHolder");
+                let divel = document.createElement("div");
+                number += 1;
+                divel.innerHTML = `파일 선택 : ${number}` + "<input type='file' name='file'/>";
+                parentdiv.appendChild(divel);
+            }
+    
+            function remove(){
+                let parentdiv = document.getElementById("textHolder");
+                if(parentdiv.firstChild) {
+                    parentdiv.removeChild(parentdiv.lastChild);
+                    number -= 1; // 다 지우고 새로 "파일 선택 추가"를 누르면 왜 0이 출력??
+                    //if(number < 1) number = 0;
+                }
+            }
+    
+        </script>
+    </head>
+    <body>
+        <input type="button" onclick = "add()" value="파일 선택 추가" />
+        <input type="button" onclick = "remove()" value="파일 선택 제거" />
+        <br/>
+        <DIV id="textHolder">
+        </DIV>
+    </body>
+    </html>
+    ```
+
+13. 
 
