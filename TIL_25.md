@@ -354,6 +354,126 @@ document.getElementById("demo").innerHTML =
 7. 체크 상자의 선택 상태를 읽거나 변경하기
 
    ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <script>
+           function check(){
+               document.getElementById("chkLCD").checked=true;
+           }
+   
+           function uncheck(){
+               document.getElementById("chkRAM").checked=false;
+           }
+   
+           function check(id){
+               document.getElementById(id).checked=true;
+           }
+   
+           function uncheck(id){
+               document.getElementById(id).checked=false;
+           }
+   
+           function getOption(){
+               let str = "";
+               let lcd = document.getElementById("chkLCD");
+               let ram = document.getElementById("chkRAM");
+               let printer = document.getElementById("chkPrinter");
+               if(lcd.checked){
+                   str += lcd.value + " ";
+               }
+               if(ram.checked){
+                   str += ram.value + " ";
+               }
+               if(printer.checked){
+                   str += printer.value + " ";
+               }
+               document.getElementById("opt").value = str;
+           }
+   
+   
+   
+       </script>
+   </head>
+   <body>
+       <form>
+           <p>상품 옵션 선택 </p>
+           <p>
+             <input type="checkbox" id="chkLCD" value="LCD 24" />
+             <input type="button" onClick="check()" value="LCD 24' 선택" />
+             <input type="button" onClick="uncheck()" value="LCD 24' 선택 안함 " />
+             </p>
+           <p>
+             <input type="checkbox" id="chkRAM" value="RAM 2G" />
+             <input type="button" onClick="check2('chkRAM')" value="RAM 2G 선택" />
+             <input type="button" onClick="uncheck2('chkRAM')" value="RAM 2G 선택 안함 " />
+             </p>
+           <p>
+             <input type="checkbox" id="chkPrinter" value="프린터" />
+             <input type="button" onClick="check2('chkPrinter')" value="프린터 선택" />
+             <input type="button" onClick="uncheck2('chkPrinter')" value="프린터 선택 안함 " />
+             </p>        
+             <p>
+            <input type="button" name="btnOpt" value="선택한 옵션" onClick="getOption()">
+            <input type="text" id="opt" size="40">
+             </p>
+         </form>
+   </body>
+   </html>
+   ```
+
+8. 태그에 특정 CSS 적용하기
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <style>
+           .greenText {
+               padding: 0px 0px 4px 0px;
+               margin: 0px;
+               FONT: bold italic 26px Georgia; 
+               COLOR: #7e9e50; 
+           }
+           .redText {
+               padding: 0px 0px 4px 0px;
+               margin: 0px;
+               FONT: bold italic 26px Georgia; 
+               COLOR: #FF493f;; 
+           }
+           .hide {
+               DISPLAY:NONE
+           }
+       </style>
+       <script>
+           function cssapply(cssName){
+               document.getElementById("content").className = cssName;
+           }
+       </script>
+   </head>
+   <body>
+       <div id="content">
+           JAVA-MySQL, JSP-Oracle, MVC-Struts, OJT
+       </div>
+       
+        <input type="button" onclick="cssapply('greenText');" value="CSS 적용 1(녹색 텍스트)" />
+        <input type="button" onclick="cssapply('redText');" value="CSS 적용 2(적색 텍스트)" />
+        <input type="button" onclick="cssapply('hide');" value="CSS 적용 3(감추기)" />
+   </body>
+   </html>
+   ```
+
+9. 화면의 특정 영역을 동적으로 숨기거나 감추기
+
+   ```html
    ```
 
    

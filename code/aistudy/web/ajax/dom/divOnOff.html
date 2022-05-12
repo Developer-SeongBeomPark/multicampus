@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function show(){
+            document.getElementById("content").style.display = '';
+            //document.getElementById("content").style.visibility = '';
+        }
+        function hide(){
+            document.getElementById("content").style.display = "none"; // 영역도 없앰
+            //document.getElementById("content").style.visibility = ''; visibility: 영역은 남아 있음
+
+        }
+    </script>
+</head>
+<body>
+    <div id="content">
+        DIV 태그 출력<br/>
+        <img src='http://www.apache.org/images/ac2008us_343x114.jpg' width='300' height='250'>
+    
+    </div>
+    
+     <input type="button" onclick="show()" value="div 보이기" />
+     <input type="button" onclick="hide()" value="div 감추기" />
+</body>
+</html>
