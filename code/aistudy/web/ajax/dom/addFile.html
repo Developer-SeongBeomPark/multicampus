@@ -11,11 +11,24 @@
         function add(){
             let parentdiv = document.getElementById("textHolder");
             let divel = document.createElement("div");
-            number += 1;
-            divel.innerHTML = `파일 선택 : ${number}` + `<input type='file' name='file'/>`;
+            //number++;
+            let text = document.createTextNode(`파일 첨부 : ${++number} `);
+            divel.appendChild(text);
             parentdiv.appendChild(divel);
-            console.log(parentdiv.childElementCount);
+            
+            let file = document.createElement("input");
+            file.type = "file";
+            divel.appendChild(file);
         }
+
+        // function add(){
+        //     let parentdiv = document.getElementById("textHolder");
+        //     let divel = document.createElement("div");
+        //     number += 1;
+        //     divel.innerHTML = `파일 선택 : ${number}` + `<input type='file' name='file'/>`;
+        //     parentdiv.appendChild(divel);
+        //     console.log(parentdiv.childElementCount);
+        // }
 
         function remove(){
             let parentdiv = document.getElementById("textHolder");
