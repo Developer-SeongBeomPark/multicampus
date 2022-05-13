@@ -626,5 +626,3 @@ document.getElementById("demo").innerHTML =
     </html>
     ```
 
-13. 
-
