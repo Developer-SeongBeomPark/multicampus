@@ -132,3 +132,121 @@
 
 ##### Ajax의 이해
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### Ajax 통신 예제
+
+1. Html 파일 비동기 요청
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <script>
+           function loadDoc(){
+               let xhttp;
+               if(window.XMLHttpRequest){
+                   xhttp = new XMLHttpRequest();
+               } else {
+                  // code for IE6, IE5
+                   xhttp = ActiveXObject("Microsoft.XMLHTTP");
+               } 
+               xhttp.onreadystatechange = function(){
+                   if (xhttp.readyState == 4 && xhttp.status == 200){
+                       alert(xhttp.responseText);
+                       document.getElementById("demo").innerHTML = xhttp.responseText;
+                   }
+               };
+    
+               xhttp.open("GET","info.html",true);
+               xhttp.send();
+           }
+    
+       </script>
+   </head>
+   <body>
+    
+       <p id='demo'>Let AJAX change this text.</p>
+       <button onclick='loadDoc()'>Change Content</button>
+       
+   </body>
+   </html>
+   ```
+
+2. xml 파일 비동기 요청
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <script>
+           function loadDoc(){
+               let xhttp;
+               if(window.XMLHttpRequest){
+                   xhttp = new XMLHttpRequest();
+               } else {
+                  // code for IE6, IE5
+                   xhttp = ActiveXObject("Microsoft.XMLHTTP");
+               } 
+    
+               xhttp.onreadystatechange = function(){
+                   if (xhttp.readyState == 4 && xhttp.status == 200){
+                       xmlDoc = xhttp.responseXML;
+                       let txt = '';
+                       let x = xmlDoc.getElementsByTagName("ARTIST");
+                       console.log(`x : ${x.length}`);
+                       for (let i=0; i < x.length ; i++){
+                           txt = txt + x[i].childNodes[0].nodeValue + '<br>';
+                       }
+                       document.getElementById("demo").innerHTML = txt;
+                   }else{
+                       if (xhttp.readyState != 4 && xhttp.status != 200){
+                           alert(xhttp.status)
+                       }
+                   }
+               };
+    
+               xhttp.open("GET","catalog.xml",true);
+               xhttp.send();
+           }
+    
+       </script>
+   </head>
+   <body>
+    
+       <p id='demo'>Let AJAX change this text.</p>
+       <button onclick='loadDoc()'>Change Content</button>
+       
+   </body>
+   </html>
+   ```
+
+   
