@@ -171,3 +171,43 @@
 [Another Elements](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_25.md)
 
 [실습](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_25.md)
+
+
+
+
+
+
+
+## Ajax
+
+[Ajax의 주요 구성 요소](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+
+[Ajax 방식](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+
+[XMLHttpRequest 객체](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+
+[XMLHttpRequest의 객체 생성](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+
+[XMLHttpRequest 객체](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+
+[Ajax 통신 예제](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+
+
+
+
+
+## JSON
+
+[JSON](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+
+- [직렬화와 역직렬화](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+- [비동기 통신 예제 JSON 사용](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_26.md)
+
+[CallBack 함수의 개선](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_27.md)
+
+- [Promise 사용](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_27.md)
+
+- [async, await 사용](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_27.md)
+
+[XHR와 Promise 사용 실습](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_27.md)
+
