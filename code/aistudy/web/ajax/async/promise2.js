@@ -13,6 +13,7 @@ fetchNumber
     .then(num => console.log(num));
  
 //4. Error Handling
+// {} 사용시 return 키워드 반드시 사용.
 const getHen = () =>
     new Promise((resolve, reject) => {
         setTimeout(() => resolve('hen'),1000);
