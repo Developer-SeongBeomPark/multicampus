@@ -211,3 +211,16 @@
 
 [XHR와 Promise 사용 실습](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_27.md)
 
+
+
+
+
+## Web
+
+[Fetch API 사용](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_28.md)
+
+[STS에서 Dynamic Web Project 실습](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_28.md)
+
+- [BackEnd](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_28.md)
+
+- [FrontEnd](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_28.md)
