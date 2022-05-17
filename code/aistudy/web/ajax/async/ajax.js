@@ -19,7 +19,7 @@ class UserStorage {
           reject(new Error(this.xhr.status));
         };
         //alert(`pay.jsp?id=${id}&passwd=${passwd}`);
-        this.xhr.open('GET', `pay.jsp?id=${id}&passwd=${passwd}`, true);
+        this.xhr.open('GET', `pay.jsp?id=${id}&pass=${passwd}`, true);
         this.xhr.send();
       });
     }

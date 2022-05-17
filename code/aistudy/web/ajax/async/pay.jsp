@@ -30,17 +30,17 @@ String[] titles = {
 <body>
     <ul>
 <%
-String id = request.getParameter("id");
-String passwd = request.getParameter("passwd");
-System.out.println(id);
-if (id.equals("테스트") && passwd.equals("테스트")){
-    for (int i = 0 ; i < titles.length ; i++) {
-        out.println("<li>" + titles[i] + "<br/><br/>");
+    String id = request.getParameter("id");
+    String passwd = request.getParameter("pass");
+    System.out.println(id);
+    if (id.equals("테스트") && passwd.equals("테스트")){
+        for (int i = 0 ; i < titles.length ; i++) {
+            out.println("<li>" + titles[i] + "<br/><br/>");
+        }
+    }else{
+        out.println("<li>인증 실패입니다.<br/><br/>");
+        out.println("<li>다시 시도해 주세요.<br/><br/>");
     }
-}else{
-    out.println("<li>인증 실패입니다.<br/><br/>");
-    out.println("<li>다시 시도해 주세요.<br/><br/>");
-}
 %>    
 </ul>
 </body>
