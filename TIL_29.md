@@ -492,3 +492,301 @@ $( "ul li" ).eq(2).append( "<span> - 3nd!</span>" );
 </html>
 ```
 
+
+
+
+
+(5) last-child selector 
+
+ - $("태그:last-child") : 자식태그들 중에 마지막 자식태그 
+ - .hover(handlerIn, handlerOut)
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>last-child demo</title>
+  <style>
+  span.solast {
+    text-decoration: line-through;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div>
+  <span>John,</span>
+  <span>Karl,</span>
+  <span>Brandon,</span>
+  <span>Sam</span>
+</div>
+<div>
+  <span>Glen,</span>
+  <span>Tane,</span>
+  <span>Ralph,</span>
+  <span>David</span>
+</div>
+ 
+<script>
+$( "div span:last-child" )
+  .css({ color:"red", fontSize:"80%" })
+  .hover(function() {
+    $( this ).addClass( "solast" );
+  }, function() {
+    $( this ).removeClass( "solast" );
+  });
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+
+
+(6) only-child 유사클래스  
+
+ - $("태그:only-child") : 부모의 자식이 하나인 태그 
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>only-child demo</title>
+  <style>
+  div {
+    width: 100px;
+    height: 80px;
+    margin: 5px;
+    float: left;
+    background: #b9e;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div>
+  <button>Sibling!</button>
+  <button>Sibling!</button>
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+</div>
+ 
+<div>
+  None
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+  <button>Sibling!</button>
+  <button>Sibling!</button>
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+</div>
+ 
+<script>
+$( "div button:only-child" ).text( "Alone" ).css( "border", "2px blue solid" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+
+
+###### Attribute
+
+ (1) [attribute]  
+
+  - $("[속성명]")  : 특정 속성을 가진 태그
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 셀렉터</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+$(function(){
+  $("[id]").css("color","red");
+});
+</script>
+</head>
+<body>
+<ul>
+<li id="first"> 텍스트 텍스트 텍스트 텍스트 텍스트 </li>
+<li class="second"> 텍스트 텍스트 텍스트 텍스트 텍스트 </li>
+<li id="third"> 텍스트 텍스트 텍스트 텍스트 텍스트 </li>
+<li class="fourth"> 텍스트 텍스트 텍스트 텍스트 텍스트 </li>
+</ul>
+</body>
+</html>
+```
+
+
+
+
+
+(2) [attribute='value']
+
+ - $("[속성명='값']")  "|=" : en으로 시작하면서 '-'가 있는 속성을 찾는다.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>attributeContainsPrefix demo</title>
+<style>
+a {
+display: inline-block;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<a href="example.html" hreflang="en">Some text</a>
+<a href="example.html" hreflang="en-UK">Some other text</a>
+<a href="example.html" hreflang="english">will not be outlined</a>
+ 
+<script>
+$( "a[hreflang|='en']" ).css( "border", "3px dotted green" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+
+
+(3) [attribute^='value']
+
+ - $("태그명[속성명^='값']")  : 특정 속성이 지정한 값으로 시작되는 태그
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>attributeNotEqual demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+ 
+  <script type="text/javascript">
+    $(function(){
+      $("[title^='f']").css("color","red");
+    });
+  </script>
+ </head>
+<body>
+    <ul>
+    <li title="first"> 텍스트 텍스트 텍스트 텍스트 텍스트 </li>
+    <li title="second"> 텍스트 텍스트 텍스트 텍스트 텍스트 </li>
+    <li title="third"> 텍스트 텍스트 텍스트 텍스트 텍스트 </li>
+    <li title="fourth"> 텍스트 텍스트 텍스트 텍스트 텍스트 </li>
+    </ul>
+</body>
+</html>
+```
+
+
+
+(4) [attribute$='value']
+
+- $("태그명[속성명$='값']")  : 특정 속성이 지정한 값으로 끝나는 태그
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>attributeEndsWith demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<input name="newsletter">
+<input name="milkman">
+<input name="jobletter">
+ 
+<script>
+$( "input[name$='letter']" ).val( "a letter" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+(5) [attribute*='value']
+
+ - $("태그명[속성명*='값']") : 특정 속성이 지정한 값을 포함하고 있는 태그
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>attributeContains demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<input name="man-news">
+<input name="milkman">
+<input name="letterman2">
+<input name="newmilk">
+ 
+<script>
+$( "input[name*='man']" ).val( "has man in it!" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+(6) [attribute~='value']  
+
+ \- $("태그명[속성 ~= 값]")
+ : 공백으로 구분된 주어진 단어를 포함하는 값으로 지정된 속성이 있는 요소를 선택
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>attributeContainsWord demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<input name="man-news">
+<input name="milk man">
+<input name="letterman2">
+<input name="newmilk">
+ 
+<script>
+$( "input[name~='man']" ).val( "mr. man is in it!" );
+</script>
+ 
+</body>
+</html>
+```
+
