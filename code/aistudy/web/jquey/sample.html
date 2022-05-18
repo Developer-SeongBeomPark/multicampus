@@ -10,8 +10,15 @@
 $(function () {  // onload와 동일. 페이지가 켜지면 자동으로 실행
     $("dd:not(:first)").css("display","none");
     //의미:첫번째 dd태그를 제외한 나머지 dd태그의 display를 none로 한다.\
-    $("+dd", this).slideDown("slow");
-    //의미: 현재 dd의 뒤에 dd를 천천히 올린다.
+    //$("+dd", this).slideDown("slow");
+    //의미: 현재 dd의 뒤에 dd를 천천히 올린다. +dd : 지금 누르는 그 dd 말고 가 다음 dd들
+
+    $("dl dt").click(function () {
+        if ($("+dd", this).css("display") == "none") {
+          $(this).siblings("dd").slideUp("slow");
+          $("+dd", this).slideDown("slow");
+        }
+      });
 });
 </script>
 <style>
