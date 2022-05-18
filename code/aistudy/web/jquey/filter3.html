@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title></title>
+<style>
+    .test{
+        border : 3px inset red;
+
+    }
+    td {
+        width : 40px;
+        bacground : green;
+    }
+</style>
+<script src='https://code.jquery.com/jquery-3.5.0.js'></script>
+<script>
+$(function () {
+    $( ":header" ).css({ background: "#ccc", color: "blue" });
+    $( "div:contains('John')" ).css( "text-decoration", "underline" );
+    $( "div:has(p)" ).addClass( "test" );
+    $("td:parent").fadeTo(1500,0.3);// 1500/1000s 동안 1 -> 0.3 선명도로 변함.
+});
+</script>
+</head>
+<body>
+    <h1>Header 1</h1>
+    <p>Contents 1</p>
+    <h2>Header 2</h2>
+    <p>Contents 2</p>
+
+    <div>John Resig</div>
+    <div>George Martin</div>
+    <div>Malcom John Sinclair</div>
+    <div><p>J. Ohn</p></div>
+
+    <table border="1">
+        <tr><td>Value 1</td><td></td></tr>
+        <tr><td>Value 2</td><td></td></tr>
+    </table>
+</body>
+</html>
