@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title></title>
+<style></style>
+<script src='https://code.jquery.com/jquery-3.5.0.js'></script>
+<script>
+$(function () {
+    $( "input:not(:checked) + span" ).css( "background-color", "yellow" );
+    $( "input").attr( "disabled", "disabled" ); //disable : 비활성화(check를 못하도록 함)
+});
+</script>
+</head>
+<body>
+    <div>
+        <input type="checkbox" name="a">
+        <span>Mary</span>
+      </div>
+      <div>
+        <input type="checkbox" name="b">
+        <span>lcm</span>
+      </div>
+      <div>
+        <input type="checkbox" name="c" checked="checked">
+        <span>Peter</span>
+      </div>
+</body>
+</html>

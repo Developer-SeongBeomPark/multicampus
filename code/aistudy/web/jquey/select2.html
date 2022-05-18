@@ -8,7 +8,7 @@
 <script src='https://code.jquery.com/jquery-3.5.0.js'></script>
 <script>
 $(function () {
-    ${"#prev ~ div"}.css("border", "3px groove blue");
+    $("#prev ~ div").css("border", "3px groove blue"); // prev와 자매인 div 태그(노드)들
 });
 </script>
 <style>
@@ -27,6 +27,7 @@ $(function () {
         font-size: 12px;
         background-color: #fab;
     }
+
 
 </style>
 </head>
