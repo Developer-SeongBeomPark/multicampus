@@ -403,6 +403,92 @@ $( "#prev ~ div" ).css( "border", "3px groove blue" );
 
  - $(":not(selector)") : 주어진 selector에 매치되지 않는 모든 요소를 선택한다.
 
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>empty demo</title>
+  <style>
+  td {
+    text-align: center;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<table border="1">
+  <tr><td>TD #0</td><td></td></tr>
+  <tr><td>TD #2</td><td></td></tr>
+  <tr><td></td><td>TD#5</td></tr>
+</table>
+ 
+<script>
+$( "td:empty" )
+  .text( "Was empty!" )
+  .css( "background", "rgb(255,220,200)" );
+</script>
+ 
+</body>
+</html>
 ```
+
+
+
+(4) jQuery( ":nth-child(index/even/odd/equation)" ) 
+
+ - $("태그:nth-child(index)") : 특정 태그안에서 지정한 번호의 태그
+ - 두 개의 <li>를 포함하는 단일 <ul>이 주어지면 $( "li:nth-child(1)" ) 첫 번째 <li> 를 선택하는 반면 $( "li" ).eq( 1 ) 는 두 번째 <li>를 선택한다.
+ - .eq(n) 의 n은 0부터 시작한다. eq메소드는 해당하는 한가지만 적용시킨다.
+
+
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nth-child demo</title>
+  <style>
+  div {
+    float: left;
+  }
+  span {
+    color: blue;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div>
+  <ul>
+    <li>John</li>
+    <li>Karl</li>
+    <li>Brandon</li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Sam</li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Glen</li>
+    <li>Tane</li>
+    <li>Ralph</li>
+    <li>David</li>
+  </ul>
+</div>
+ 
+<script>
+$( "ul li:nth-child(2)" ).append( "<span> - 2nd!</span>" );
+$( "ul li" ).eq(2).append( "<span> - 3nd!</span>" );
+</script>
+ 
+</body>
+</html>
 ```
 

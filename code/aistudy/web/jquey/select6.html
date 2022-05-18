@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title></title>
+<style>
+    span.solast {
+    text-decoration: line-through;
+  }
+</style>
+<script src='https://code.jquery.com/jquery-3.5.0.js'></script>
+<script>
+$(function () {
+    $("div span:last-child")
+    .css({color : "red", fontSize : "80%"})
+    .hover(function(){
+        $(this).addClass("solast");
+    }, function(){
+        $(this).removeClass("solast");
+    });
+});
+</script>
+</head>
+<body>
+    <div>
+        <span>John,</span>
+        <span>Karl,</span>
+        <span>Brandon,</span>
+        <span>Sam</span>
+      </div>
+      <div>
+        <span>Glen,</span>
+        <span>Tane,</span>
+        <span>Ralph,</span>
+        <span>David</span>
+      </div>
+</body>
+</html>
