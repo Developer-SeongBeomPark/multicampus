@@ -8,7 +8,7 @@
 <script src='https://code.jquery.com/jquery-3.5.0.js'></script>
 <script>
 $(function () {
-    $("#first, #third").css("color", "red");
+    $("li>strong").css("color", "red");
 });
 </script>
 </head>
@@ -16,7 +16,7 @@ $(function () {
     <ul>
         <li id="first"><strong> 텍스트 </strong> 텍스트 텍스트 텍스트 텍스트 </li>
         <li id="second"><em> 텍스트 </em> 텍스트 텍스트 텍스트 텍스트 </li>
-        <li id="third"><span> 텍스트 </span> 텍스트 텍스트 텍스트 텍스트 </li>
+        <li id="third"><span><strong> 텍스트 </span></strong>텍스트 텍스트 텍스트 텍스트 </li>
         <li id="fourth">텍스트 텍스트 텍스트 텍스트 </li>
     </ul>
 </body>
