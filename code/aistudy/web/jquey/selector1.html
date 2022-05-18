@@ -8,7 +8,8 @@
 <script src='https://code.jquery.com/jquery-3.5.0.js'></script>
 <script>
 $(function () {
-    $("li>strong").css("color", "red");
+    //$("#second + li").css("color", "red"); // +는 근접한 태그 or id or class
+    $("li:first-child").css("color", "red"); //first, first-child : 해당 태그 중에 첫번째
 });
 </script>
 </head>
