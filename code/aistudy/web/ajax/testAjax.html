@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title></title>
+<style>
+    table,td{
+        border : 1px solid gray;
+    }
+</style>
+<script src='https://code.jquery.com/jquery-3.5.0.js'></script>
+<script>
+function requestCheck() {
+    let param = $("#frmSungjuk").serialize();//text기반의 name과 value를 받아옴.
+    $.ajax({
+        url : "test.jsp",
+        dataType : "json",
+        data : param,
+        success : function(data){
+            console.log(`data : ${data}, type : ${typeof data}`);            display(data);
+        },
+    
+        statusCode:{
+            404 : function(){
+                alert("page not found");
+            },
+            500 : function(){
+                alert("server error");
+            }
+        }
+    
+    });
+}
+
+function display(result){
+    $("#panel").append(
+            `성명 : ${result.name}
+            국어 : ${result.kuk}
+            영어 : ${result.eng}
+            총점 : ${result.tot}
+            평균 : ${result.avg}`
+        );
+}
+</script>
+</head>
+<body>
+    <div id="panel" align="center"></div>
+    <hr>
+    <form id="frmSungjuk">
+        성명: <input type="text" name="name"  value='가길동'/><br/>
+        국어: <input type="text" name="kuk"  value='80'/><br/>
+        영어: <input type="text" name="eng"  value='100'/><br/><br/>
+    
+        <button type="button" onclick='requestCheck()'>성적계산</button>  
+    
+    </form>
+</body>
+</html>

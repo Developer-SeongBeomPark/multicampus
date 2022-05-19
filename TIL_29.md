@@ -2,13 +2,14 @@
 
 ---
 
-[]()
+[jQuery](#jQuery)
 
-[]()
+- [jQuery로 작성된 스크립트]()
 
-[]()
+- [Selector]()
 
-[]()
+- [CSS2 Selector]()
+- [CSS3 Selector]()
 
 
 
@@ -799,5 +800,248 @@ $( "input[name~='man']" ).val( "mr. man is in it!" );
  인수가 없는 함수이다.
 
 ```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>first demo</title>
+  <style>
+  .highlight {
+    background-color: yellow;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<ul>
+  <li>Look:</li>
+  <li>This is some text in a list.</li>
+  <li>This is a note about it.</li>
+  <li>This is another note about it.</li>
+</ul>
+ 
+<script>
+$( "ul li" ).first().addClass( "highlight" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+
+
+(2) even()/odd() 필터
+
+ - 일치하는 요소 집합을 0부터 번호가 지정된 집합의 짝수/홀수로 줄인다.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>even demo</title>
+  <style>
+  .highlight {
+    background-color: yellow;
+  }
+  .highlight2 {
+    background-color: aqua;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<ul>
+  <li>Look:</li>
+  <li>This is some text in a list.</li>
+  <li>This is a note about it.</li>
+  <li>This is another note about it.</li>
+</ul>
+ 
+<script>
+$( "ul li" ).even().addClass( "highlight2" );
+$( "ul li" ).odd().addClass( "highlight" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+
+
+ 
+
+(3) .eq(index)/eq(indexFromEnd), slice(start [,end])
+
+   index - 요소의 0부터 시작하는 위치를 나타내는 정수이다.
+  indexFromEnd - 요소의 위치를 나타내는 정수로, 집합의 마지막 요소부터 거꾸로 계산
+  eq : 일치하는 요소 집합을 지정된 인덱스에 있는 요소로 줄인다.
+  slice : start ~ end까지 또는 start ~끝까지 일치하는 요소 집합으로 줄인다.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>eq demo</title>
+  <style>
+  div {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    float: left;
+    border: 2px solid blue;
+  }
+  .blue {
+    background: blue;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+ 
+<script>
+$( "body" ).find( "div" ).eq(2 ).addClass("blue");    
+$( "body" ).find( "div" ).slice( 0, 2 ).css("background" ,"yellow" );
+$( "body" ).find( "div" ).slice( 3 ).css("background" ,"orange" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+(4) header/contain/has/parent 필터
+
+ - $(":header")  : h1 ~ h6까지의 heading태그
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>header demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<h1>Header 1</h1>
+<p>Contents 1</p>
+<h2>Header 2</h2>
+<p>Contents 2</p>
+ 
+<script>
+$( ":header" ).css({ background: "#ccc", color: "blue" });
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+- $(":contains(text)")  : 특정 text를 포함하고 있는 태그
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>contains demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div>John Resig</div>
+<div>George Martin</div>
+<div>Malcom John Sinclair</div>
+<div>J. Ohn</div>
+ 
+<script>
+$( "div:contains('John')" ).css( "text-decoration", "underline" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+
+
+ - $(":has(태그)")    : 특정 태그를 포함하고 있는 태그 
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>has demo</title>
+  <style>
+  .test {
+    border: 3px inset red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div><p>Hello in a paragraph</p></div>
+<div>Hello again! (with no paragraph)</div>
+ 
+<script>
+$( "div:has(p)" ).addClass( "test" );
+</script>
+ 
+</body>
+</html>
+```
+
+
+
+- $(":parent) 
+: 하나 이상의 자식 노드(요소 또는 텍스트)가 있는 모든 요소를 선택한다.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>parent demo</title>
+  <style>
+  td {
+    width: 40px;
+    background: green;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<table border="1">
+  <tr><td>Value 1</td><td></td></tr>
+  <tr><td>Value 2</td><td></td></tr>
+</table>
+ 
+<script>
+$( "td:parent" ).fadeTo( 1500, 0.3 );
+</script>
+ 
+</body>
+</html>
 ```
 

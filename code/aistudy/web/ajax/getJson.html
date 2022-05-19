@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title></title>
+<style>
+    img{
+        height : 100px;
+        float : left;
+    }
+</style>
+<script src='https://code.jquery.com/jquery-3.5.0.js'></script>
+<script>
+$(function () {
+    let flickerAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+    $.getJSON(flickerAPI,{
+        tags: "mount rainier",
+        tagmode: "any",
+        format: "json"
+    }).done(function(data){
+        console.log(data.items);
+        $.each( data.items, function( i, item ) {
+            $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+            if ( i === 3 ) {
+                return false;
+            }
+        });
+    });
+
+});
+</script>
+</head>
+<body>
+    <div id="images">
+
+    </div>
+</body>
+</html>

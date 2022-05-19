@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title></title>
+<style>
+    .red{
+        color : red;
+    }
+</style>
+<script src='https://code.jquery.com/jquery-3.5.0.js'></script>
+<script>
+$(function () {
+    $( "div" ).html( "<span class='red'>Hello <b>Again</b></span>" );
+    $( "div.demo-container" ).html("<p>All new content. <em>You bet!</em></p>");
+    $( "div.demo-container" ).html(function() {
+        var emphasis = "<em>" + $( "p" ).length + " paragraphs!</em>";
+        return "<p>All new content for " + emphasis + "</p>";
+    });
+});
+</script>
+</head>
+<body>
+    <span>Hello</span>
+    <div></div>
+    <div></div>
+    <div></div>
+    
+    <div class="demo-container">
+        <div class="demo-box">Demonstration Box</div>
+    </div>
+</body>
+</html>
