@@ -895,6 +895,53 @@ $( "body" ).on( "click", "p", function() {
 - http://localhost:8000/postAjax.html : 비동기 통신 요청
 
 ```html
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title></title>
+<style></style>
+<script src='https://code.jquery.com/jquery-3.5.0.js'></script>
+<script>
+function requestCheck(){
+    let param = $('#frmSungjuk').serialize();
+    console.log(`param:${param}`);
+    $.post(
+        'get.jsp',
+        param,
+        function(data){
+            display(data);
+       },'json')
+       .fail(function(){
+           alert('error');
+       });
+}
+ 
+function display(result){
+    $('#panel').text('').append(
+        `성명: ${result.name}
+         국어: ${result.kuk}
+         영어: ${result.eng}
+         총점: ${result.tot}
+         평균: ${result.avg}`
+    );
+ 
+}
+</script>
+</head>
+<body>
+<div id="panel">
+</div>
+<hr>
+<form action="" id="frmSungjuk">
+    성명 :<input type="text" name="name" value="가길동">
+    국어 :<input type="text" name="kuk" value="80">
+    영어 :<input type="text" name="eng" value="100">
+    <button type="button" onclick='requestCheck()'>성적계산</button>  
+</form>
+</body>
+</html>
 ```
 
 
@@ -905,7 +952,68 @@ $( "body" ).on( "click", "p", function() {
 - http://localhost:8000/get.jsp : 요청페이지 확인
 - http://localhost:8000/testAjax.html : 비동기 통신 요청
 
-```
+```html
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <meta charset="utf-8">
+    <title>insertBefore demo</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript">
+       function requestCheck() {
+            let param = $("#frmSungjuk").serialize();
+            console.log(param);
+            $.ajax({
+                url: "./get.jsp",
+                dataType: "json",
+                data : param,
+                success: function (data) {
+                    console.log(data);
+                    console.log('Call Back Call: ' + result.name);
+                    display(data);
+                },
+                statusCode: {
+                    404: function () {
+                        alert("page not found");
+                    },
+                    500: function () {
+                        alert("page error");
+                    }
+                }
+            });
+        }   
+        function display(result){
+            $("#panel").text("").append(
+                    " 성명: " + result.name+
+                    " 국어: " + result.kuk+
+                    " 영어: " + result.eng+
+                    " 총점: " + result.tot+
+                    " 평균: " + result.avg
+            );        
+        }
+    </script>
+ 
+</head>
+ 
+<body>
+ 
+ 
+    <div id="panel" align="center"></div>
+    <hr>
+    <form id="frmSungjuk">
+        성명: <input type="text" name="name"  value='가길동'/><br/>
+        국어: <input type="text" name="kuk"  value='80'/><br/>
+        영어: <input type="text" name="eng"  value='100'/><br/><br/>
+    
+        <button type="button" onclick='requestCheck()'>성적계산</button>  
+    
+    </form>
+ 
+</body>
+ 
+</html>
+ 
 ```
 
 
@@ -931,6 +1039,30 @@ $( "body" ).on( "click", "p", function() {
 (1) hide()/show()
 
  ```
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+ <script>
+ $(document).ready(function(){
+     $("#hide").click(function(){
+         $("p").hide();
+     });
+     $("#show").click(function(){
+         $("p").show();
+     });
+ });
+ </script>
+ </head>
+ <body>
+  
+ <p>If you click on the "Hide" button, I will disappear.</p>
+  
+ <button id="hide">Hide</button>
+ <button id="show">Show</button>
+  
+ </body>
+ </html>
  ```
 
 
