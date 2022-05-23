@@ -224,3 +224,33 @@
 - [BackEnd](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_28.md)
 
 - [FrontEnd](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_28.md)
+
+
+
+
+
+## JQUERY
+
+[jQuery](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_29.md)
+
+- [jQuery로 작성된 스크립트](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_29.md)
+- [Selector](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_29.md)
+- [CSS2 Selector](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_29.md)
+- [CSS3 Selector](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_29.md)
+- [jQuery 명령어](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_30.md)
+- [jQuery 이벤트](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_30.md)
+- [jQuery Ajax](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_30.md)
+- [jQuery Effects](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_30.md)
+
+
+
+
+
+## JSP
+
+[JSP](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_31.md)
+
+- [인터넷 프로그래밍 개요](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_31.md)
+- [JSP 기초문법](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_31.md)
+- [JSP 지시자와 액션태그](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_31.md)
+- [JSP 내부객체](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_31.md)

@@ -2,11 +2,12 @@
 
 ---
 
-[]()
+[JSP](#jsp)
 
-[]()
-
-[]()
+- [인터넷 프로그래밍 개요](#인터넷-프로그래밍-개여)
+- [JSP 기초문법](#jsp-기초문법)
+- [JSP 지시자와 액션태그](#jsp-지시자와-액션태그)
+- [JSP 내부객체](#jsp-내부객체)
 
 
 
@@ -260,7 +261,7 @@ for (int i = 0; i < images.length; i++) {
 
  <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR"> 
 
- 
+
 
 ■ import: 패키지의 import, 중복 사용가능 
 
@@ -359,9 +360,9 @@ include지시자의 Body 부분입니다.
    \- 자바빈즈(JavaBeans)와 통신을 위해서 구현한 액션태그이다.
 
 ​		■ forward
-​	  \- 다른페이지로 이동할 때 사용하는 태그이다.
+​	  - 다른페이지로 이동할 때 사용하는 태그이다.
 
-```
+```html
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -389,9 +390,7 @@ Forward Tag의 포워딩 되기 전의 페이지입니다.
 <jsp:forward page="forwardTag1_2.jsp" />
 </body>
 </html>
-```
 
-```
 <%@page contentType="text/html;charset=UTF-8"%>
 <%
         String id = request.getParameter("id");
@@ -400,9 +399,7 @@ Forward Tag의 포워딩 되기 전의 페이지입니다.
 <h1>Forward Tag Example1</h1>
 당신의 아이디는<b><%=id%></b>이고<p/>
 패스워드는 <b><%=pwd%></b> 입니다.
-```
-
-
+````
 
 
 
@@ -414,12 +411,13 @@ Forward Tag의 포워딩 되기 전의 페이지입니다.
 
 ![2](TIL_31.assets/2.jpg)
 
-\- include 액션태그는 include 지시자 처럼 다른페이지를 현재 페이지에 포함시킬 수
+- include 액션태그는 include 지시자 처럼 다른페이지를 현재 페이지에 포함시킬 수
   있는 기능을 가진다.
+- include 액션태그는 include 지시자와 다르게 포함시킬 페이지의 처리결과를 포함한다.
+- include 액션태그의 flush 속성은 포함될 페이지로 이동할 때 현재 페이지가 지금까지 출력버퍼에 저장한 결과를 어떻게 처리할 것인가를 결정한다.
+- flush = 'true' 이면 포함할 페이지의 내용을 삽입하기 이전에 현재 페이지가 지금까지 버퍼에 저장한 내용을 출력한다.
 
-\- include 액션태그는 include 지시자와 다르게 포함시킬 페이지의 처리결과를 포함한다.
-\- include 액션태그의 flush 속성은 포함될 페이지로 이동할 때 현재 페이지가 지금까지 출력버퍼에 저장한 결과를 어떻게 처리할 것인가를 결정한다.
-\- flush = 'true' 이면 포함할 페이지의 내용을 삽입하기 이전에 현재 페이지가 지금까지 버퍼에 저장한 내용을 출력한다.
+
 
 
 
@@ -427,21 +425,21 @@ Forward Tag의 포워딩 되기 전의 페이지입니다.
 
 ![jsp04_01](TIL_31.assets/jsp04_01.jpg)
 
- \1. JSP 내부객체의 이해
+ 1. JSP 내부객체의 이해
 
-\- 개발자가 객체를 생성하지 않아도 jsp페이지가 서블릿 컨테이너(Tomcat)로 
+- 개발자가 객체를 생성하지 않아도 jsp페이지가 서블릿 컨테이너(Tomcat)로 
 
  로딩되면 Tomcat등 서버가 자동으로 생성하는 객체이다. 
 
-\- 개발자는 반복적인 작업을 줄이고 필요한 작업만 할수 있다. 
+- 개발자는 반복적인 작업을 줄이고 필요한 작업만 할수 있다. 
 
-\- jsp페이지는 Web서버 및 Servlet Container라고 하는 복잡한 환경에서 실행이 
+- jsp페이지는 Web서버 및 Servlet Container라고 하는 복잡한 환경에서 실행이 
 
  되기 때문에, 실행중에 여러가지 상태정보를 가지고 있어야 하는데, 
 
  이런 경우에 사용되는 객체들이 내부 객체들이다. 
 
-\- 내부 객체로 인해 개발자는 좀더 쉽게 JSP 프로그래밍이 가능함. 
+- 내부 객체로 인해 개발자는 좀더 쉽게 JSP 프로그래밍이 가능함. 
 
 
 
@@ -799,10 +797,3 @@ one / zero = <%=one/zero%><p/>
 에러 메세지 : <b><%=message%></b><p/>
 에러 실체의 클래스명과 에러 메세지  : <b><%=objectMessage%></b><p/>
 ```
-
-
-
-
-
-
-

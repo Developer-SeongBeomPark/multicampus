@@ -2,13 +2,13 @@
 
 ---
 
-[]()
+[jQuery 명령어](#jquery-명령어)
 
-[]()
+[jQuery 이벤트](#jquery-이벤트)
 
-[]()
+[jQuery Ajax](#jquery-ajax)
 
-[]()
+[jQuery Effects](#jquery-effects)
 
 
 
@@ -1072,6 +1072,27 @@ function display(result){
 (2) hide(speed,callback)/show(speed,callback)
 
  ```
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+     <script>
+         $(document).ready(function(){
+             $("button").click(function(){
+                 $("p").hide(1000);
+             });
+         });
+     </script>
+ </head>
+ <body>
+  
+ <button>Hide</button>
+  
+ <p>This is a paragraph with little content.</p>
+ <p>This is another small paragraph.</p>
+  
+ </body>
+ </html>
  ```
 
 
@@ -1081,6 +1102,53 @@ function display(result){
 (1) fadeIn() - 보여짐/ fadeOut()- 안보임
 
 ```
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            width:80px;height:80px;display:none;
+        }
+        div#div1{
+            background-color:red;
+        }
+        div#div2{
+            background-color:green;
+        }
+        div#div3{
+            background-color:blue;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").first().click(function(){
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#div3").fadeIn(3000);
+            });
+            $("button").last().click(function(){
+                $("#div1").fadeOut();
+                $("#div2").fadeOut("slow");
+                $("#div3").fadeOut(3000);
+            });
+        });
+    </script>
+</head>
+<body>
+ 
+<p>Demonstrate fadeIn()/fadeOut with different parameters.</p>
+ 
+<button>Click to fade in boxes</button><br>
+<button>Click to fade out boxes</button><br<br>
+ 
+<div id="div1"></div><br>
+<div id="div2"></div><br>
+<div id="div3"></div>
+ 
+</body>
+</html>
 ```
 
 
@@ -1094,6 +1162,34 @@ function display(result){
  - complete : 애니메이션이 완료되면 호출할 함수로, 일치하는 요소당 한 번 호출된다.
 
 ```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>fadeToggle demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<button>fadeToggle p1</button>
+<button>fadeToggle p2</button>
+<p>This paragraph has a slow, linear fade.</p>
+<p>This paragraph has a fast animation.</p>
+<div id="log"></div>
+ 
+<script>
+$( "button" ).first().click(function() {
+  $( "p" ).first().fadeToggle( "slow", "linear" );
+});
+$( "button" ).last().click(function() {
+  $( "p" ).last().fadeToggle( "fast", function() {
+    $( "#log" ).append( "<div>finished</div>" );
+  });
+});
+</script>
+ 
+</body>
+</html>
 ```
 
 
@@ -1108,6 +1204,31 @@ function display(result){
  - 일치하는 요소의 불투명도를 조정한다.
 
 ```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>fadeTo demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<p>
+Click this paragraph to see it fade.
+</p>
+ 
+<p>
+Compare to this one that won't fade.
+</p>
+ 
+<script>
+$( "p" ).first().click(function() {
+  $( this ).fadeTo( "slow", 0.33 );
+});
+</script>
+ 
+</body>
+</html>
 ```
 
 
@@ -1115,9 +1236,45 @@ function display(result){
 
 
 3. jQuery Slide
-   \- 슬라이딩 동작으로 일치하는 요소를 표시한다.
+   - 슬라이딩 동작으로 일치하는 요소를 표시한다.
 
 ```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>slideDown demo</title>
+  <style>
+  div {
+    background: #de9a44;
+    margin: 3px;
+    width: 80px;
+    height: 40px;
+    display: none;
+    float: left;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+Click me!
+<div></div>
+<div></div>
+<div></div>
+ 
+<script>
+$( document.body ).click(function () {
+  if ( $( "div" ).first().is( ":hidden" ) ) {
+    $( "div" ).slideDown( "slow" );
+  } else{
+    $( "div" ).slideUp("slow");
+  }
+});
+</script>
+ 
+</body>
+</html>
 ```
 
 
@@ -1127,6 +1284,35 @@ function display(result){
 - slideToggle()
 
 ```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>slideToggle demo</title>
+  <style>
+  p {
+    width: 400px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<button>Toggle</button>
+<p>
+  This is the paragraph to end all paragraphs.  You
+  should feel <em>lucky</em> to have seen such a paragraph in
+  your life.  Congratulations!
+</p>
+ 
+<script>
+$( "button" ).click(function() {
+  $( "p" ).slideToggle( "slow" );
+});
+</script>
+ 
+</body>
+</html>
 ```
 
 
@@ -1134,8 +1320,43 @@ function display(result){
 
 
 4. animation()
-   \- CSS 속성 집합의 사용자 지정 애니메이션을 수행한다.
+   - CSS 속성 집합의 사용자 지정 애니메이션을 수행한다.
 
 ```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animate demo</title>
+  <style>
+  div {
+    background-color: #bca;
+    width: 100px;
+    border: 1px solid green;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<button id="go">&raquo; Run</button>
+<div id="block">Hello!</div>
+ 
+<script>
+// Using multiple unit types within one animation.
+ 
+$( "#go" ).click(function() {
+  $( "#block" ).animate({
+    width: "70%",
+    opacity: 0.4,
+    marginLeft: "2em",
+    fontSize: "3em",
+    borderWidth: "10px"
+  }, 1500 );
+});
+</script>
+ 
+</body>
+</html>
 ```
 
