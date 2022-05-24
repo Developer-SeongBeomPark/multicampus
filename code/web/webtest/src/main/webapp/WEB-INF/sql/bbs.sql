@@ -26,7 +26,13 @@ values('홍길동', '제목', '내용', '51234', sysdate());
 -- list
 select bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum
 	from bbs
-    order by bbsno desc;
+    --  where wname like '%t%'
+    order by bbsno desc
+    limit 0, 5;
+    
+-- total 레코드 개수
+select count(*)
+	from bbs;
     
 -- 조회수 증가
 update bbs

@@ -17,7 +17,7 @@
  
   <div class="page-header row">
    <div class="col-sm-4">
-    <img src="<%=root %>/menu/images/img_chania.jpg" class="img-responsive img-thumbnail" alt="Cinque Terre" >
+    <img src="<%=root %>/images/img_chania.jpg" class="img-responsive img-thumbnail" alt="Cinque Terre" >
    </div>
    <div class="col-sm-8"><h1>Homepage</h1></div>     
   </div>
