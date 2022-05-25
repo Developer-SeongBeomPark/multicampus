@@ -37,6 +37,12 @@
 <head>
   <title>homepage</title>
   <meta charset="utf-8">
+  <script>
+  	function read(bbsno){
+  		let url = "read.jsp?bbsno=" + bbsno;
+  		location.href = url;
+  	}
+  </script>
 </head>
 <body> 
 <jsp:include page="/menu/top.jsp"/>
@@ -82,7 +88,26 @@
 %>
 			<tr>
 				<td><%=dto.getBbsno() %></td>
-				<td><%=dto.getTitle() %></td>
+				<td>
+					<%
+						for(int j = 0; j < dto.getIndent(); j++){
+							out.print("&nbsp;&nbsp");	
+						}
+						if(dto.getIndent() > 0) {
+							out.print("<img src = '../images/re.jpg'>");
+						}
+					%>
+					
+					<a href = "javascript:read('<%=dto.getBbsno() %>')"><%=dto.getTitle() %></a>
+					<%
+						if(Utility.compareDay(dto.getWdate())) {
+					%>
+					<img src = "../images/new.gif">
+					<%
+						}					
+					%>
+				
+				</td>
 				<td><%=dto.getWname() %></td>
 				<td><%=dto.getWdate() %></td>
 				<td><%=dto.getGrpno() %></td>

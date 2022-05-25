@@ -16,15 +16,15 @@ CREATE TABLE bbs (
 );
 
 -- create
-insert into bbs(wname, title, content, passwd, wdate) 
-values('왕눈이', '제목', '내용', '1234', sysdate());
-insert into bbs(wname, title, content, passwd, wdate) 
-values('아로미', '제목', '내용', '31421', sysdate());
-insert into bbs(wname, title, content, passwd, wdate) 
-values('홍길동', '제목', '내용', '51234', sysdate());
+insert into bbs(wname, title, content, passwd, wdate, grpno) 
+values('왕눈이', '제목', '내용', '1234', sysdate(), (select ifnull(max(grpno),0) +1 from bbs b)); -- 서브쿼리 사용 시 알리아스 꼭 사용.
+insert into bbs(wname, title, content, passwd, wdate, grpno) 
+values('아로미', '제목', '내용', '31421', sysdate(), (select ifnull(max(grpno),0) +1 from bbs b));
+insert into bbs(wname, title, content, passwd, wdate, grpno) 
+values('홍길동_sub', '제목', '내용', '51234', date_sub(sysdate(),interval 3 day),  (select ifnull(max(grpno),0) +1 from bbs b));
 
 -- list
-select bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum
+select bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum, passwd
 	from bbs
     --  where wname like '%t%'
     order by bbsno desc
@@ -60,3 +60,7 @@ update bbs
 -- delete
 delete from bbs
 	where bbsno = 1;
+    
+delete from bbs;
+
+

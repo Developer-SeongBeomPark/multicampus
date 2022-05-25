@@ -12,6 +12,262 @@ import utility.DBClose;
 import utility.DBOpen;
 
 public class BbsDAO {
+	public void upAnsnum(Map map) {
+		Connection con = DBOpen.getConnection();
+		PreparedStatement pstmt = null;
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append(" update bbs  ");
+		sql.append(" set  ");
+		sql.append(" ansnum = ansnum + 1  ");
+		sql.append(" where grpno = ? and ansnum > ?  ");
+		
+		int grpno = (int)map.get("grpno");
+		int ansnum = (int)map.get("ansnum");
+		
+		try {
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(1, grpno);
+			pstmt.setInt(2, ansnum);
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(pstmt, con);
+		}
+	}
+	
+	public boolean createReply(BbsDTO dto) {
+		boolean flag = false;
+		
+		Connection con = DBOpen.getConnection();
+		PreparedStatement pstmt = null;
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append(" insert into bbs(wname, title, content, passwd, wdate, grpno, indent, ansnum)  ");
+		sql.append(" values(?, ?, ?, ?, sysdate(), ?, ? ,?) ");
+		
+		try {
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, dto.getWname());
+			pstmt.setString(2, dto.getTitle());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setString(4, dto.getPasswd());
+			pstmt.setInt(5, dto.getGrpno());
+			pstmt.setInt(6, dto.getIndent()+1);
+			pstmt.setInt(7, dto.getAnsnum()+1);
+			
+			int cnt = pstmt.executeUpdate();
+			if(cnt > 0) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(pstmt, con);
+		}
+		
+		return flag;
+	}
+	
+	public BbsDTO readreply(int bbsno) {
+	    BbsDTO dto = null;
+	    Connection con = DBOpen.getConnection();
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	 
+	    StringBuffer sql = new StringBuffer();
+	    sql.append(" SELECT bbsno, title, grpno, indent, ansnum ");
+	    sql.append(" FROM bbs   ");
+	    sql.append(" WHERE bbsno = ?  ");
+	 
+	    try {
+	      pstmt = con.prepareStatement(sql.toString());
+	      pstmt.setInt(1, bbsno);
+	 
+	      rs = pstmt.executeQuery();
+	 
+	      if (rs.next()) {
+	        dto = new BbsDTO();
+	        dto.setBbsno(rs.getInt("bbsno"));
+	        dto.setTitle(rs.getString("title"));
+	        dto.setGrpno(rs.getInt("grpno"));
+	        dto.setIndent(rs.getInt("indent"));
+	        dto.setAnsnum(rs.getInt("ansnum"));
+	      }
+	 
+	    } catch (SQLException e) {
+	      // TODO Auto-generated catch block
+	      e.printStackTrace();
+	    } finally {
+	      DBClose.close(rs, pstmt, con);
+	    }
+	 
+	    return dto;
+	  }
+	
+	public boolean delete(int bbsno) {
+		boolean flag = false;
+		
+		Connection con = DBOpen.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append(" delete from bbs ");
+		sql.append(" where bbsno = ? ");
+		
+		
+		try {
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(1, bbsno);
+			
+			int cnt = pstmt.executeUpdate();
+			if(cnt > 0) flag = true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(pstmt, con);
+		}
+		
+		return flag;
+	}
+	
+	public boolean passCheck(Map map) {
+		boolean flag = false;
+			
+		Connection con = DBOpen.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int bbsno = (int)map.get("bbsno");
+		String passwd = (String)map.get("passwd");
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append(" select count(bbsno) as cnt ");
+		sql.append(" 	from bbs ");
+		sql.append("    where bbsno = ? ");
+		sql.append("    and passwd = ? ");
+		
+		try {
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(1, bbsno);
+			pstmt.setString(2, passwd);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			int cnt = rs.getInt("cnt");
+			if(cnt > 0) flag = true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(rs, pstmt, con);
+		}
+		
+		return flag;
+	}
+	
+	public boolean update(BbsDTO dto) {
+		boolean flag = false;
+		
+		Connection con = DBOpen.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append(" update bbs ");
+		sql.append(" 	set wname = ?, ");
+		sql.append(" 	title = ?, ");
+		sql.append(" 	content = ? ");
+		sql.append(" 	where bbsno = ? ");
+		
+		try {
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, dto.getWname());
+			pstmt.setString(2, dto.getTitle());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setInt(4, dto.getBbsno());
+			
+			int cnt = pstmt.executeUpdate();
+			if(cnt > 0) flag = true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(pstmt, con);
+		}
+		
+		return flag;
+	}
+	
+	 public void upViewcnt(int bbsno) {
+		    Connection con = DBOpen.getConnection();
+		    PreparedStatement pstmt = null;
+		    StringBuffer sql = new StringBuffer();
+		    sql.append(" update bbs ");
+		    sql.append(" set viewcnt = viewcnt + 1 ");
+		    sql.append(" where bbsno = ? ");
+		 
+		    try {
+		      pstmt = con.prepareStatement(sql.toString());
+		      pstmt.setInt(1, bbsno);
+		 
+		      pstmt.executeUpdate();
+		 
+		    } catch (SQLException e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		    } finally {
+		      DBClose.close(pstmt, con);
+		    }
+		 
+		  }
+	
+	public BbsDTO read(int bbsno) {
+	    BbsDTO dto = null;
+	    Connection con = DBOpen.getConnection();
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	 
+	    StringBuffer sql = new StringBuffer();
+	    sql.append(" SELECT bbsno, wname, title, content,  viewcnt, wdate ");
+	    sql.append(" FROM bbs   ");
+	    sql.append(" WHERE bbsno = ?  ");
+	 
+	    try {
+	      pstmt = con.prepareStatement(sql.toString());
+	      pstmt.setInt(1, bbsno);
+	 
+	      rs = pstmt.executeQuery();
+	 
+	      if (rs.next()) {
+	        dto = new BbsDTO();
+	        dto.setBbsno(rs.getInt("bbsno"));
+	        dto.setWname(rs.getString("wname"));
+	        dto.setTitle(rs.getString("title"));
+	        dto.setContent(rs.getString("content"));
+	        dto.setViewcnt(rs.getInt("viewcnt"));
+	        dto.setWdate(rs.getString("wdate"));
+	      }
+	 
+	    } catch (SQLException e) {
+	      // TODO Auto-generated catch block
+	      e.printStackTrace();
+	    } finally {
+	      DBClose.close(rs, pstmt, con);
+	    }
+	 
+	    return dto;
+	  }
+	
 	public int total(Map map) {
 		int total = 0;
 		
@@ -73,7 +329,7 @@ public class BbsDAO {
 		
 		
 		StringBuffer sql = new StringBuffer();
-		sql.append(" select bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum ");
+		sql.append(" select bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum, wdate ");
 		sql.append(" from bbs ");
 		if(word.trim().length() > 0 && col.equals("title_content")) {
 			sql.append(" where title like concat('%',?,'%') ");
@@ -111,6 +367,7 @@ public class BbsDAO {
 		        dto.setGrpno(rs.getInt("grpno"));
 		        dto.setIndent(rs.getInt("indent"));
 		        dto.setAnsnum(rs.getInt("ansnum"));
+		        dto.setWdate(rs.getString("wdate"));
 		 
 		        list.add(dto);
 			}
@@ -131,8 +388,8 @@ public class BbsDAO {
 		PreparedStatement pstmt = null;
 		
 		StringBuffer sql = new StringBuffer();
-		sql.append(" insert into bbs(wname, title, content, passwd, wdate)  ");
-		sql.append(" values(?, ?, ?, ?, sysdate()) ");
+		sql.append(" insert into bbs(wname, title, content, passwd, wdate, grpno)  ");
+		sql.append(" values(?, ?, ?, ?, sysdate(), (select ifnull(max(grpno),0) +1 from bbs b)) ");
 		
 		try {
 			pstmt = con.prepareStatement(sql.toString());

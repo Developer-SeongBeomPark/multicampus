@@ -1,6 +1,47 @@
 package utility;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
 public class Utility {
+	 /**
+     * 오늘,어제,그제 날짜 가져오기
+     * @return List- 날짜들 저장
+     * SimpleDateFormat("yyyy-MM-dd") 
+     */
+    public static List<String> getDay(){
+        List<String> list = new ArrayList<String>();
+        
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd"); 
+        Calendar cal = Calendar.getInstance();
+        for(int j = 0; j < 3; j++){
+            list.add(sd.format(cal.getTime()));
+            cal.add(Calendar.DATE, -1);
+        }
+        
+        return list;
+    }
+    /**
+     * 등록날짜와 오늘,어제,그제날짜와 비교
+     * @param wdate - 등록날짜
+     * @return - true:오늘,어제,그제중 등록날짜와 같음
+     *           false:오늘,어제,그제 날짜가 등록날짜와 다 다름
+     */
+    public static boolean compareDay(String wdate){
+        boolean flag = false;
+        List<String> list = getDay();
+        if(wdate.equals(list.get(0)) 
+           || wdate.equals(list.get(1))
+           || wdate.equals(list.get(2))){
+            flag = true;
+        }
+          
+        return flag;
+    }
+	
+	
 	public static String checkNull(String str) {
 		if(str == null) {
 			str = "";
