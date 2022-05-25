@@ -254,3 +254,9 @@
 - [JSP 기초문법](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_31.md)
 - [JSP 지시자와 액션태그](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_31.md)
 - [JSP 내부객체](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_31.md)
+
+
+
+## SERVLET
+
+[서블릿 기초 문법](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_32.md)

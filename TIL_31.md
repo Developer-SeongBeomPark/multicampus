@@ -27,9 +27,9 @@
 
 ##### JSP 기초문법
 
-\1. 스크립틀릿의 이해
+1. 스크립틀릿의 이해
 
- \- 일반적인 java 코드가 쓰임: <% ... JAVA 코드 명시 ... %>
+ - 일반적인 java 코드가 쓰임: <% ... JAVA 코드 명시 ... %>
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -68,9 +68,9 @@ int avg = tot / 2;
 
 
 
-\2. 선언문(특별한 경우만 사용, 빈즈로 대체하여 사용함으로 권장하지 않음)
+2. 선언문(특별한 경우만 사용, 빈즈로 대체하여 사용함으로 권장하지 않음)
 
- \- 메소드(함수) 선언: <%! ...JAVA 메소드... %>
+ - 메소드(함수) 선언: <%! ...JAVA 메소드... %>
 
 ```
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -115,23 +115,23 @@ int avg = avg(tot);
 
 
 
-\3. 표현식(Expression) 
+3. 표현식(Expression) 
 
- \- 단순 출력 기능.
+ - 단순 출력 기능.
 
- \- <% System.out.print(hap(10, 20)); %> 콘솔에 출력 
+ - <% System.out.print(hap(10, 20)); %> 콘솔에 출력 
 
- \- <% out.print(hap(10, 20)); %>      JSP 출력
- \- <%=hap(10, 20)%> JSP 출력, 문장 종결자(';')을 사용할 수 없고,
+ - <% out.print(hap(10, 20)); %>      JSP 출력
+ - <%=hap(10, 20)%> JSP 출력, 문장 종결자(';')을 사용할 수 없고,
    오로지 하나의 값만 출력
 
 
 
 
 
-\4. 주석
+4. 주석
 
-  \- <% 
+  - <% 
 
 ​    //       
 
@@ -188,11 +188,11 @@ out.println("내장객체를 이용한 출력 : " + declaration + "<p/>");
 
 
 
-\5. [실습] 이미지 목록을 배열에 저장한 후 출력하는 스크립트를 작성
+5. [실습] 이미지 목록을 배열에 저장한 후 출력하는 스크립트를 작성
 
-\- for문을 이용할 것.
+- for문을 이용할 것.
 
-\- 다운받은 tulip 압축파일을 tulip폴더에 압축을 풀어 WebContent로 저장후 실행
+- 다운받은 tulip 압축파일을 tulip폴더에 압축을 풀어 WebContent로 저장후 실행
 
 ```
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -228,14 +228,14 @@ for (int i = 0; i < images.length; i++) {
 ##### JSP 지시자와 액션태그
 
 1. JSP 지시자(Directive)
-   \- 지시자는 클라이언트의 요청에 JSP 페이지가 실행이 될 때 필요한 정보를
+   - 지시자는 클라이언트의 요청에 JSP 페이지가 실행이 될 때 필요한 정보를
     JSP 컨테이너에게 알리는 역할한다.
-   \- 지시자는 태그 안에서 @으로 시작하며, 3가지 종류가 있다.
+   - 지시자는 태그 안에서 @으로 시작하며, 3가지 종류가 있다.
     page, include, taglib
 
 (1)page 지시자
- \- jsp페이지에서 지원되는 속성들을 정의하는 것들이다.
- \- jsp페이지에서 JSP컨테이너에게 해당 페이지를 어떻게 처리할 것인가에
+ - jsp페이지에서 지원되는 속성들을 정의하는 것들이다.
+ - jsp페이지에서 JSP컨테이너에게 해당 페이지를 어떻게 처리할 것인가에
  대한 페이지 정보를 알려준다.
 
 
@@ -244,18 +244,18 @@ for (int i = 0; i < images.length; i++) {
 ■ language : Jsp페이지의 스크립트 언어지정 기본값은 Java
 ■ contentType: jsp의 출력 형식 지정, 문자 셋을 지정합니다. 
 
- \- 형식: contentType="text/html; charset=UTF-8" 
+ - 형식: contentType="text/html; charset=UTF-8" 
 
  <%@ page contentType="text/html; charset=UTF-8" %> 
 
- \- JSP처리 결과가 HTML임으로 MIME Type을 'text/html'과 문자 코드(UTF-8)
-  선언. 
+ - JSP처리 결과가 HTML임으로 MIME Type을 'text/html'과 문자 코드(UTF-8)
+    선언. 
 
- \- MIME Type: 브러우저가 출력하는 데이터의 종류를 나타낸 코드값, 
+ - MIME Type: 브러우저가 출력하는 데이터의 종류를 나타낸 코드값, 
 
  예) image/jpg는 이미지가 출력됨 
 
- \- HTML 태그의 META태그도 일치시켜야함(브러우저용). 
+ - HTML 태그의 META태그도 일치시켜야함(브러우저용). 
 
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 
@@ -302,11 +302,11 @@ for (int i = 0; i < images.length; i++) {
 
 
 (2) include 지시자
- \- 여러 jsp페이지에서 공통적으로 포함하는 내용이 있을 때 이러한 내용을
-  매번 입력하지 않고 파일에 저장한 후 JSP파일에 포함해서 실행한다.
+ - 여러 jsp페이지에서 공통적으로 포함하는 내용이 있을 때 이러한 내용을
+    매번 입력하지 않고 파일에 저장한 후 JSP파일에 포함해서 실행한다.
 
- \- 처리 결과가 합쳐지는 것이 아니라 파일의 소스가 하나의 파일에 합쳐진
-  다음 실행된다. 
+ - 처리 결과가 합쳐지는 것이 아니라 파일의 소스가 하나의 파일에 합쳐진
+    다음 실행된다. 
 
  
 
@@ -314,7 +314,7 @@ for (int i = 0; i < images.length; i++) {
 
   \-------------------------------------------------------------  
 
- \- 사용 방법 
+ - 사용 방법 
 
  <%@ include file="Local URL" %> 
 
@@ -353,11 +353,11 @@ include지시자의 Body 부분입니다.
 
 
 2. 액션태그
-   \- JSP 문법이다.
-   \- 액션태그의 종류는 include, forward, useBean, setProperty, getProperty
+   - JSP 문법이다.
+   - 액션태그의 종류는 include, forward, useBean, setProperty, getProperty
     등이 있다.
-   ■ useBean, setProperty, getProperty
-   \- 자바빈즈(JavaBeans)와 통신을 위해서 구현한 액션태그이다.
+    ■ useBean, setProperty, getProperty
+   - 자바빈즈(JavaBeans)와 통신을 위해서 구현한 액션태그이다.
 
 ​		■ forward
 ​	  - 다른페이지로 이동할 때 사용하는 태그이다.
@@ -446,18 +446,18 @@ Forward Tag의 포워딩 되기 전의 페이지입니다.
 
 
 (1) request, response, out 
-\- 클라이언트로 부터 jsp 페이지의 호출에 의해서 전달되는 데이터 요청과 응답,
+- 클라이언트로 부터 jsp 페이지의 호출에 의해서 전달되는 데이터 요청과 응답,
  출력의 역할을 한다.
 
 ■ request 내부 객체 
 
 ![jsp04_02](TIL_31.assets/jsp04_02.jpg)
 
-\- javax.servlet.http.HttpServletRequest Interface를 Tomcat등 서버가 구현한 객체, 
+- javax.servlet.http.HttpServletRequest Interface를 Tomcat등 서버가 구현한 객체, 
   자동화된 객체, 개발자는 사용만함. 
- \- <FORM>에서 입력되어 브러우저가 전송한 데이터를 Tomcat 서버의 JSP에서 처리할수 있도록 객체로 가져오는 역할을 한다 
- \- ? : 파라메터를 보낸다는 뜻
- \- &: 접속자가 보내는 값이 2개 이상인 경우
+ - <FORM>에서 입력되어 브러우저가 전송한 데이터를 Tomcat 서버의 JSP에서 처리할수 있도록 객체로 가져오는 역할을 한다 
+ - ? : 파라메터를 보낸다는 뜻
+ - &: 접속자가 보내는 값이 2개 이상인 경우
 
 
 
@@ -498,8 +498,8 @@ Forward Tag의 포워딩 되기 전의 페이지입니다.
 
 
 
-\- 접속한 클라이언트에 대한 정보도 알 수 있다. 
-\- 웹브라우저와 웹 서버의 정보 반환
+- 접속한 클라이언트에 대한 정보도 알 수 있다. 
+- 웹브라우저와 웹 서버의 정보 반환
 
 ```
 <%@ page contentType="text/html;charset=UTF-8"%>
@@ -532,18 +532,18 @@ Forward Tag의 포워딩 되기 전의 페이지입니다.
 
 ■ response내부 객체 
 
-\- javax.servlet.http.HttpServletResponse Interface를 Tomcat등 
+- javax.servlet.http.HttpServletResponse Interface를 Tomcat등 
 
  서버가 구현한 객체, 자동화된 객체, 개발자는 사용만함. 
 
-\- 처리 결과를 클라이언트(웹 브러우저)에게 출력할 목적을 가지고 있다. 
+- 처리 결과를 클라이언트(웹 브러우저)에게 출력할 목적을 가지고 있다. 
 
-\- out 객체는 response 객체로부터 생성한다.
+- out 객체는 response 객체로부터 생성한다.
 
-\- sendRedirect(): 데이터 처리를 한후 특정 페이지로 자동으로 주소 이동. 
+- sendRedirect(): 데이터 처리를 한후 특정 페이지로 자동으로 주소 이동. 
 
  요청자체가 새로운 요청으로 바뀐다.
-\- 기상청으로 이동: http://www.kma.go.kr 
+- 기상청으로 이동: http://www.kma.go.kr 
 
 ```
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -565,20 +565,20 @@ response.sendRedirect("http://www.kma.go.kr");
 
 
 ■ out 내부 객체 
-\- jsp페이지 결과를 클라이언트에 전송해 주는 출력 스트림을 나타낸다.
-\- javax.servlet.jsp.JspWriter Class의 객체 
+- jsp페이지 결과를 클라이언트에 전송해 주는 출력 스트림을 나타낸다.
+- javax.servlet.jsp.JspWriter Class의 객체 
 
-\- out 객체는 response객체에서 생성된다. 
+- out 객체는 response객체에서 생성된다. 
 
-\- out.print("접속에 성공했습니다.")  
+- out.print("접속에 성공했습니다.")  
 
  HTML이 모두 한줄로 생성됨, 소스 분석 어려움 
 
-\- out.println("접속에 성공했습니다.") 
+- out.println("접속에 성공했습니다.") 
 
  호출될 때마다 HTML코드를 생성하고 새로운 라인으로 이동함. 
 
-\- System.out.print(), System.out.println()은 디버깅 정보를 콘솔창에
+- System.out.print(), System.out.println()은 디버깅 정보를 콘솔창에
 
  출력하는 용도로 사용
 
@@ -605,15 +605,15 @@ int useBuffer = totalBuffer - remainBuffer;
 
 
 (2) session, application, pageContext
-\- 실행되는 페이징지의 외부환경정보(context)와 관련된 내부 객체들이다.
-\- session은 요청에 관한 Context를 제공한다.
-\- application은 서블릿 Context를 제공한다. 
-\- pageContext는 jsp 페이지 자체의 Context를 제공한다.
+- 실행되는 페이징지의 외부환경정보(context)와 관련된 내부 객체들이다.
+- session은 요청에 관한 Context를 제공한다.
+- application은 서블릿 Context를 제공한다. 
+- pageContext는 jsp 페이지 자체의 Context를 제공한다.
 
 
 
 ■ session 
-\- 세션은 요청을 시도한 특정클라이언트와 다른 클라이언트와 구별하여
+- 세션은 요청을 시도한 특정클라이언트와 다른 클라이언트와 구별하여
  각각의 클라이언트에 대한 정보를 지속적으로 관리할 수 있다.
 
 
@@ -701,14 +701,14 @@ int useBuffer = totalBuffer - remainBuffer;
 
 
 ■ application
-\- 서블릿 또는 어플리케이션 외부 환경 정보(contenxt)를 나타낸다
-\- 서버의 정보와 서버측 자원에 대한 정보를 얻을 수 있다.
+- 서블릿 또는 어플리케이션 외부 환경 정보(contenxt)를 나타낸다
+- 서버의 정보와 서버측 자원에 대한 정보를 얻을 수 있다.
 
-\- javax.servlet.ServletContext 인터페이스의 구현 객체 
+- javax.servlet.ServletContext 인터페이스의 구현 객체 
 
-\- 서블릿이 서블릿 컨테이너(Tomcat)에서 실행 될 때의 환경 정보를 저장 
+- 서블릿이 서블릿 컨테이너(Tomcat)에서 실행 될 때의 환경 정보를 저장 
 
-\- 절대 경로 추출시 JSP 형식 
+- 절대 경로 추출시 JSP 형식 
 
   String upDir = "/pds/storage"; 
 
@@ -731,22 +731,22 @@ request1.html의 MIME Type :<%=mimeType%><p />
 
 
 ■ pageContext
-\- Jsp페이지의 Context를 나타낸다.
-\- pageContext 내부객체를 통해서 다른 내부객체를 접근할 수 있다.
-\- out내부객체 가져오는 방법
+- Jsp페이지의 Context를 나타낸다.
+- pageContext 내부객체를 통해서 다른 내부객체를 접근할 수 있다.
+- out내부객체 가져오는 방법
  JspWriter pageOut = pageContext.getOut();
-\- javax.servlet.jsp.PageContext 클래스 타입으로 제공된다.
+- javax.servlet.jsp.PageContext 클래스 타입으로 제공된다.
 
 ![2 (1)](TIL_31.assets/2 (1).jpg)
 
 
 
 (3) page, config
-\- page 내부객체와 config내부객체를 통해서 jsp페이지가 변환된 서블릿관 관련되
+- page 내부객체와 config내부객체를 통해서 jsp페이지가 변환된 서블릿관 관련되
  내용에 접근할 수 있도록 하는 객체들이다.
-■ page
-\- Jsp페이지 그 자체를 나타내는 객체이다.
-\- Jsp페이지에서 page객체는 this 키워드로 자기 자신을 참조한다.
+ ■ page
+- Jsp페이지 그 자체를 나타내는 객체이다.
+- Jsp페이지에서 page객체는 this 키워드로 자기 자신을 참조한다.
 
 ```
 <%@ page info = "study.co.kr"
@@ -761,8 +761,8 @@ request1.html의 MIME Type :<%=mimeType%><p />
 
 
 ■ config
-\- javax.servlet.ServletConfig 클래스 타입의 내부 객체이다.
-\- 서블릿이 초기화될 때 참조해야 할 다른 여러 정보를 가지고 있다가
+- javax.servlet.ServletConfig 클래스 타입의 내부 객체이다.
+- 서블릿이 초기화될 때 참조해야 할 다른 여러 정보를 가지고 있다가
  전해준다.
 
 ![3](TIL_31.assets/3.jpg)
@@ -770,9 +770,9 @@ request1.html의 MIME Type :<%=mimeType%><p />
 
 
 (4) exception 내부객체
-\- Jsp 페이지에서 발생한 예외를 처리하는 페이지를 지정한 경우 에러페이지에
+- Jsp 페이지에서 발생한 예외를 처리하는 페이지를 지정한 경우 에러페이지에
  전달되는 예외 객체이다.
-\- page지시자 isErrorPage속성을 true로 지정한 Jsp페이지에서만 사용가능하다.
+- page지시자 isErrorPage속성을 true로 지정한 Jsp페이지에서만 사용가능하다.
 
 ```
 <%@ page contentType="text/html;charset=UTF-8"
