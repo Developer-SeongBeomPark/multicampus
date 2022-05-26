@@ -29,7 +29,9 @@ use webtest;
     DELETE FROM address WHERE addressnum=3; 
      
     SELECT addressnum, name, handphone, address  
-    FROM address ORDER BY name DESC
+    FROM address 
+    where name like '%개발자%'
+    ORDER BY name DESC
     limit 0, 3;-- 오름차순은 ASC 
     
     DELETE FROM address;

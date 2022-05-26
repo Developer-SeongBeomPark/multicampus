@@ -180,7 +180,7 @@ public class BbsDAO {
 		
 		Connection con = DBOpen.getConnection();
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		
 		
 		StringBuffer sql = new StringBuffer();
 		sql.append(" update bbs ");

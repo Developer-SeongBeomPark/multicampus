@@ -1,5 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page import = "addr.*" %>
+<jsp:useBean id = "dao" class = "addr.AddrDAO"/>
+<%
+	int addressnum = Integer.parseInt(request.getParameter("addressnum"));
+	AddrDTO dto = dao.read(addressnum);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,13 +70,15 @@
 <body>
 	<jsp:include page="/menu/top.jsp" />
 	<div class="container">
-		<h1 class="col-sm-offset-2 col-sm-10">주소등록</h1>
-		<form class="form-horizontal" action="createProc.jsp" method="post">
+		<h1 class="col-sm-offset-2 col-sm-10">주소 수정</h1>
+		<form class="form-horizontal" action="updateProc.jsp" method="post">
 
+			<input type="hidden" name="addressnum" value="<%=addressnum %>">
+			
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">이름</label>
 				<div class="col-sm-6">
-					<input type="text" name="name" id="name" class="form-control">
+					<input type="text" name="name" id="name" class="form-control" value = "<%=dto.getName() %>">
 				</div>
 			</div>
 
@@ -79,7 +86,7 @@
 				<label class="control-label col-sm-2" for="handphone">전화번호</label>
 				<div class="col-sm-6">
 					<input type="text" name="handphone" id="handphone"
-						class="form-control">
+						class="form-control" value = "<%=dto.getHandphone() %>">
 				</div>
 			</div>
 
@@ -87,7 +94,7 @@
 				<label class="control-label col-sm-2" for="zipcode">우편번호</label>
 				<div class="col-sm-2">
 					<input type="text" name="zipcode" class="form-control"
-						id="sample6_postcode" placeholder="우편번호">
+						id="sample6_postcode" placeholder="우편번호" value = "<%=dto.getZipcode() %>">
 				</div>
 				<div class="col-sm-4">
 					<button class="btn" type="button"
@@ -99,7 +106,7 @@
 				<label class="control-label col-sm-2" for="address">주소</label>
 				<div class="col-sm-6">
 					<input type="text" name="address" id="sample6_address"
-						class="form-control" placeholder="주소">
+						class="form-control" placeholder="주소" value = "<%=dto.getAddress() %>">
 				</div>
 			</div>
 
@@ -107,7 +114,7 @@
 				<label class="control-label col-sm-2" for="address2">상세주소</label>
 				<div class="col-sm-6">
 					<input type="text" name="address2" id="sample6_detailAddress"
-						class="form-control" placeholder="상세주소">
+						class="form-control" placeholder="상세주소" value = "<%=dto.getAddress2() %>">
 				</div>
 			</div>
 
@@ -115,7 +122,7 @@
 
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-5">
-					<button class="btn">등록</button>
+					<button class="btn">수정</button>
 					<button type="reset" class="btn">취소</button>
 				</div>
 			</div>
