@@ -79,7 +79,7 @@
 		%>
 		
 		<button class = "btn" onclick = "location.href = 'createForm.jsp'">다시등록</button>
-		<button class = "btn" onclick = "loaction.href = 'list.jsp'">목록</button>
+		<button class = "btn" onclick = "location.href = 'list.jsp'">목록</button>
 	</div>
 	
 </body>

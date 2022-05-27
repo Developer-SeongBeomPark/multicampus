@@ -12,12 +12,19 @@ create table memo (
     ansnum		int           default 0
 );
 
+select *
+	from memo;
+
 -- list
 select memono, wname, title, wdate, grpno, indent, ansnum
 from memo
 -- where wname like '%홍%'   -- wname, title, content, title_content, 전체출력
 order by grpno desc, ansnum
 limit 0, 5;
+
+-- total
+select count(*)
+	from memo;
 
 drop table memo;
 
@@ -34,9 +41,17 @@ values ('홍길동','메모제목','메모내용',sysdate(),
 (select ifnull(max(grpno),0) + 1 from memo m), '1234');
 
 -- read (조회수 증가)
-
+select memono, wname, title, content, viewcnt, wdate
+	from memo;
+    
+update memo
+	set viewcnt = viewcnt + 1
+    where memono = 1;
+    
 -- update (passCheck)
-
+update memo
+	set wname = '', title = '', content = ''
+    where memono = 1;
 -- delete (passCheck)
 
 -- passCheck
