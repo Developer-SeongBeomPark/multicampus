@@ -1,11 +1,16 @@
-<%@ page contentType="text/html; charset=UTF-8" %> 
- 
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import = "model.*" %> 
+
+<%
+	int addressnum = (int)request.getAttribute("addressnum");
+	AddrDTO dto = (AddrDTO)request.getAttribute("dto");
+%>
 <!DOCTYPE html> 
 <html> 
 <head>
   <title>homepage</title>
   <meta charset="utf-8">
-  <script
+<script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function sample6_execDaumPostcode() {
@@ -64,17 +69,18 @@
 </head>
 <body> 
 <div class="container">
-<h1 class="col-sm-offset-2 col-sm-10">제목</h1>
+<h1 class="col-sm-offset-2 col-sm-10">주소 수정</h1>
 <form class="form-horizontal" 
-      action="createProc.do"
+      action="updateProc.do"
       method="post"
       >
- 
-<!--<input type = "hidden" name = "addressnum" value = "<%=addressnum %>"> -->
-  <div class="form-group">
+      
+  <input type="hidden" name="addressnum" value="<%=addressnum %>">
+			
+			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">이름</label>
 				<div class="col-sm-6">
-					<input type="text" name="name" id="name" class="form-control">
+					<input type="text" name="name" id="name" class="form-control" value = "<%=dto.getName() %>">
 				</div>
 			</div>
 
@@ -82,7 +88,7 @@
 				<label class="control-label col-sm-2" for="handphone">전화번호</label>
 				<div class="col-sm-6">
 					<input type="text" name="handphone" id="handphone"
-						class="form-control">
+						class="form-control" value = "<%=dto.getHandphone() %>">
 				</div>
 			</div>
 
@@ -90,7 +96,7 @@
 				<label class="control-label col-sm-2" for="zipcode">우편번호</label>
 				<div class="col-sm-2">
 					<input type="text" name="zipcode" class="form-control"
-						id="sample6_postcode" placeholder="우편번호">
+						id="sample6_postcode" placeholder="우편번호" value = "<%=dto.getZipcode() %>">
 				</div>
 				<div class="col-sm-4">
 					<button class="btn" type="button"
@@ -102,7 +108,7 @@
 				<label class="control-label col-sm-2" for="address">주소</label>
 				<div class="col-sm-6">
 					<input type="text" name="address" id="sample6_address"
-						class="form-control" placeholder="주소">
+						class="form-control" placeholder="주소" value = "<%=dto.getAddress() %>">
 				</div>
 			</div>
 
@@ -110,13 +116,14 @@
 				<label class="control-label col-sm-2" for="address2">상세주소</label>
 				<div class="col-sm-6">
 					<input type="text" name="address2" id="sample6_detailAddress"
-						class="form-control" placeholder="상세주소">
+						class="form-control" placeholder="상세주소" value = "<%=dto.getAddress2() %>">
 				</div>
 			</div>
   
+  
    <div class="form-group">
    <div class="col-sm-offset-2 col-sm-5">
-    <button class="btn">등록</button>
+    <button class="btn">수정</button>
     <button type="reset" class="btn">취소</button>
    </div>
  </div>

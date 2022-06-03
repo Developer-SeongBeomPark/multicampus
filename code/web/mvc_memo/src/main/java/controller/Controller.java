@@ -123,7 +123,9 @@ public class Controller extends HttpServlet {
         } 
         
         // forward 처리
-        RequestDispatcher dispatcher = request.getRequestDispatcher(usingTemplate ? templatePage : viewPage); 
+        RequestDispatcher dispatcher = 
+           request.getRequestDispatcher( 
+                   usingTemplate ? templatePage : viewPage); 
         dispatcher.forward(request, response); 
     } 
 } 

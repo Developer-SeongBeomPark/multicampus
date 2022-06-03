@@ -16,8 +16,8 @@
 <title>homepage</title>
 <meta charset="utf-8">
 <script>
-	function read(bbsno) {
-		let url = "read.do?bbsno=" + bbsno;
+	function read(addressnum) {
+		let url = "read.do?addressnum=" + addressnum;
 		location.href = url;
 	}
 </script>

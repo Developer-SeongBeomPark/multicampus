@@ -1,0 +1,24 @@
+package action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.MemoDAO;
+import model.MemoDTO;
+
+public class UpdateAction implements Action {
+
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		
+		int memono = Integer.parseInt(request.getParameter("memono"));
+		
+		MemoDAO dao = new MemoDAO();
+		MemoDTO dto = dao.read(memono);
+		
+		request.setAttribute("dto", dto);
+		
+		return "/view/updateForm.jsp";
+	}
+
+}
