@@ -1,5 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" %> 
- 
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import = "model.*" %>
+<%
+	MemoDTO dto = (MemoDTO)request.getAttribute("dto");
+%>
 <!DOCTYPE html> 
 <html> 
 <head>
@@ -14,10 +17,10 @@
       action="replyProc.do"
       method="post"
       >
-  <input type = "hidden" name = "memono" value = "<%=Integer.parseInt(request.getParameter("memono")) %>">
-  <input type = "hidden" name = "grpno" value = "<%=Integer.parseInt(request.getParameter("grpno")) %>">
-  <input type = "hidden" name = "indent" value = "<%=Integer.parseInt(request.getParameter("indent")) %>">
-  <input type = "hidden" name = "ansnum" value = "<%=Integer.parseInt(request.getParameter("ansnum")) %>">
+  <input type = "hidden" name = "memono" value = "<%=dto.getMemono() %>">
+  <input type = "hidden" name = "grpno" value = "<%=dto.getGrpno() %>">
+  <input type = "hidden" name = "indent" value = "<%=dto.getIndent() %>">
+  <input type = "hidden" name = "ansnum" value = "<%=dto.getAnsnum() %>">
   
   <div class="form-group">
     <label class="control-label col-sm-2" for="wname">작성자</label>

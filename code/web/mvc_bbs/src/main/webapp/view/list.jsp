@@ -85,7 +85,7 @@
 					<td>
 						<%
 						for (int j = 0; j < dto.getIndent(); j++) {
-							out.print("&nbsp;&nbsp");
+							out.print("&nbsp;&nbsp;");
 						}
 						if (dto.getIndent() > 0) {
 							out.print("<img src = '../images/re.jpg'>");

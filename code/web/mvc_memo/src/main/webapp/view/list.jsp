@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
-<%@ page import = "model.*, java.util.*" %>
+<%@ page import = "model.*, utility.*, java.util.*" %>
  
 <%
 	List<MemoDTO> list = (List<MemoDTO>)request.getAttribute("list");
@@ -91,7 +91,22 @@
 				<td><%=dto.getMemono() %></td>
 				
 				
-				<td><a href = "javascript:read('<%=dto.getMemono()%>')"><%=dto.getWname() %></td>
+				<td>
+				<%
+						for (int j = 0; j < dto.getIndent(); j++) {
+							out.print("&nbsp;&nbsp;");
+						}
+						if (dto.getIndent() > 0) {
+							out.print("<img src = '../images/re.jpg'>");
+						}
+				%>
+				<a href = "javascript:read('<%=dto.getMemono()%>')"><%=dto.getWname() %></a>
+				<%
+						if (Utility.compareDay(dto.getWdate())) {
+						%> <img src="../images/new.gif"> <%
+ 						}
+				%>
+				</td>
 				
 				
 				<td><%=dto.getTitle() %></td>
