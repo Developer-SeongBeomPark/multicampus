@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div class="container">
-	  <h2>form.jsp</h2>
-	  <form class="form-horizontal" method="post" action="./calc">
+	  <h2>form3.jsp</h2>
+	  <form class="form-horizontal" method="post" action="./calc3">
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="menu">메뉴명:</label>
 	      <div class="col-sm-8">
@@ -21,16 +21,26 @@
 	      </div>
 	    </div>
 	    <div class="form-group">
+	    	<label class="control-label col-sm-10" style="color:purple;" >${menu}</label>
+	    </div>
+	    
+	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="price">가격:</label>
 	      <div class="col-sm-8">          
 	        <input type="number" class="form-control" id="price" name="price" value="3000">
 	      </div>
 	    </div>
 	    <div class="form-group">
+	    	<label class="control-label col-sm-10" style="color:purple;" >${price}</label>
+	    </div>
+	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="count">수량:</label>
 	      <div class="col-sm-8">          
 	        <input type="number" class="form-control" id="count" name="count" value="2">
 	      </div>
+	    </div>
+	    <div class="form-group">
+	    	<label class="control-label col-sm-10" style="color:purple;" >${count}</label>
 	    </div>
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">

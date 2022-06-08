@@ -1,4 +1,4 @@
-package model;
+package com.study.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,14 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import utility.DBClose;
-import utility.DBOpen;
-
 import org.springframework.stereotype.Repository;
+
+import com.study.utility.DBClose;
+import com.study.utility.DBOpen;
 
 @Repository
 public class BbsDAO {
-  
 	public void upAnsnum(Map map) {
 		Connection con = DBOpen.getConnection();
 		PreparedStatement pstmt = null;
@@ -142,15 +141,15 @@ public class BbsDAO {
 		return flag;
 	}
 	
-	public boolean passCheck(Map map) {
+	public boolean passCheck(Map<String,String> map) {
 		boolean flag = false;
 			
 		Connection con = DBOpen.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		int bbsno = (int)map.get("bbsno");
-		String passwd = (String)map.get("passwd");
+		int bbsno = Integer.parseInt(map.get("bbsno"));
+		String passwd = map.get("passwd");
 		
 		StringBuffer sql = new StringBuffer();
 		sql.append(" select count(bbsno) as cnt ");
@@ -364,16 +363,16 @@ public class BbsDAO {
 			while(rs.next()) {
 				BbsDTO dto = new BbsDTO();
 				dto.setBbsno(rs.getInt("bbsno"));
-		        dto.setWname(rs.getString("wname"));
-		        dto.setTitle(rs.getString("title"));
-		        dto.setViewcnt(rs.getInt("viewcnt"));
-		        dto.setWdate(rs.getString("wdate"));
-		        dto.setGrpno(rs.getInt("grpno"));
-		        dto.setIndent(rs.getInt("indent"));
-		        dto.setAnsnum(rs.getInt("ansnum"));
-		        dto.setWdate(rs.getString("wdate"));
+        dto.setWname(rs.getString("wname"));
+        dto.setTitle(rs.getString("title"));
+        dto.setViewcnt(rs.getInt("viewcnt"));
+        dto.setWdate(rs.getString("wdate"));
+        dto.setGrpno(rs.getInt("grpno"));
+        dto.setIndent(rs.getInt("indent"));
+        dto.setAnsnum(rs.getInt("ansnum"));
+        dto.setWdate(rs.getString("wdate"));
 		 
-		        list.add(dto);
+		    list.add(dto);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
