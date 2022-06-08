@@ -141,15 +141,15 @@ public class BbsDAO {
 		return flag;
 	}
 	
-	public boolean passCheck(Map<String,String> map) {
+	public boolean passCheck(Map map) {
 		boolean flag = false;
 			
 		Connection con = DBOpen.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		int bbsno = Integer.parseInt(map.get("bbsno"));
-		String passwd = map.get("passwd");
+		int bbsno = (int)map.get("bbsno");
+		String passwd = (String)map.get("passwd");
 		
 		StringBuffer sql = new StringBuffer();
 		sql.append(" select count(bbsno) as cnt ");

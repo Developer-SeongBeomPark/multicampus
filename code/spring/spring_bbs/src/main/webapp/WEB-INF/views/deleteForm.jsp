@@ -16,7 +16,7 @@
 <div class="container">
 <h1 class="col-sm-offset-2 col-sm-10">삭제</h1>
 <form class="form-horizontal" 
-      action="delete"
+      action="../delete"
       method="post"
       >
   <input type = "hidden" name = "bbsno" value = "<%=request.getAttribute("bbsno") %>">
