@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.study.model.AddrMapper">
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM address WHERE addressnum = #{addressnum}
+	</delete>
+
+	<update id="update" parameterType="com.study.model.AddrDTO">
+		UPDATE address
+		SET handphone=#{handphone} , address=#{address}, zipcode = #{zipcode}, address2 = #{address2},  name = #{name}
+		WHERE addressnum = #{addressnum}
+	</update>
+
+	<insert id="create" parameterType="com.study.model.AddrDTO">
+		INSERT INTO address(name, handphone, address, zipcode, address2)
+		VALUES(#{name}, #{handphone}, #{address}, #{zipcode}, #{address2})
+	</insert>
+
+	<select id="read" parameterType="int" resultType="com.study.model.AddrDTO">
+		SELECT name, handphone, zipcode, address, address2
+	    FROM address
+	    WHERE addressnum = #{addressnum}
+	</select>
+
+	<select id="total" parameterType="Map" resultType="int">
+		select count(*)
+		from address
+	</select>
+
+	<select id="list" parameterType="Map" resultType="com.study.model.AddrDTO">
+		SELECT addressnum, name, handphone, zipcode, address, address2
+		FROM address
+		<where>
+			<choose>
+				<when test="col == 'name'">
+					name like concat('%',#{word},'%')
+				</when>
+				<when test="col == 'title'">
+					title like concat('%',#{word},'%')
+				</when>
+				<when test="col == 'content'">
+					content like concat('%',#{word},'%')
+				</when>
+				<when test="col == 'title_content'">
+					title like concat('%',#{word},'%')
+					or
+					content like concat('%',#{word},'%')
+				</when>
+			</choose>
+		</where>
+		order by addressnum desc
+		limit #{sno},#{eno}
+		
+		
+	</select>
+	 
+
+</mapper>

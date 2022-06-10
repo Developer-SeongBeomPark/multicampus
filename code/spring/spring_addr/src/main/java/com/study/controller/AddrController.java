@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.study.model.AddrDAO;
 import com.study.model.AddrDTO;
+import com.study.model.AddrService;
 import com.study.utility.Utility;
 
 @Controller
 public class AddrController {
   @Autowired
-  private AddrDAO dao;
+  @Qualifier("com.study.model.AddrServiceImpl")
+  private AddrService dao;
   
   @RequestMapping("/")
   public String home() {
@@ -93,9 +96,9 @@ public class AddrController {
   @PostMapping("/addr/create")
   public String create(AddrDTO dto) {
     
-    boolean flag = dao.create(dto);
+    int flag = dao.create(dto);
     
-    if(!flag) {
+    if(flag != 1) {
       return "error";
     }
     else {
@@ -119,8 +122,8 @@ public class AddrController {
   @PostMapping("/addr/update")
   public String update(AddrDTO dto) {
     
-    boolean flag = dao.update(dto);
-    if(!flag) {
+    int flag = dao.update(dto);
+    if(flag != 1) {
       return "error";
     }else {
       return "redirect:list";
@@ -139,8 +142,8 @@ public class AddrController {
   @PostMapping("/addr/delete")
   public String delete(HttpServletRequest request) {
     
-    boolean flag = dao.delete(Integer.parseInt(request.getParameter("addressnum")));
-    if(!flag) return "error";
+    int flag = dao.delete(Integer.parseInt(request.getParameter("addressnum")));
+    if(flag != 1) return "error";
     else return "redirect:list";
   }
   
