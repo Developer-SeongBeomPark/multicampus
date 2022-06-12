@@ -22,7 +22,7 @@
    <div class="col-sm-8"><h1>Homepage</h1></div>     
   </div>
   <ul class="nav nav-tabs">
-    <li class="active"><a href="<%=root%>/index.do">Home</a></li>
+    <li class="active"><a href="<%=root%>/">Home</a></li>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판<span class="caret"></span></a>
       <ul class="dropdown-menu">
