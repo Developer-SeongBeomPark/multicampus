@@ -286,6 +286,6 @@
 
 [Spring Boot](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/TIL_40.md)
 
-- [FileUpload 처리](#fileupload-처리)
-  - [set 태그]()
+- [FileUpload 처리](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/20200613.md)
+  - [set 태그](https://github.com/Developer-SeongBeomPark/multicampus/blob/master/20200613.md)
 
