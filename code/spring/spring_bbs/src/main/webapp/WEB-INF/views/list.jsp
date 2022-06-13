@@ -63,9 +63,9 @@
 					<th>제목</th>
 					<th>작성자</th>
 					<th>등록날짜</th>
-					<th>grpno</th>
-					<th>indent</th>
-					<th>ansnum</th>
+					<th>조회수</th>
+					<th>파일명</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -73,7 +73,7 @@
 				if (list.size() == 0) {
 				%>
 				<tr>
-					<td colspan="7">등록된 글이 없습니다.</td>
+					<td colspan="6">등록된 글이 없습니다.</td>
 				</tr>
 				<%
 				} else {
@@ -100,9 +100,9 @@
 					</td>
 					<td><%=dto.getWname()%></td>
 					<td><%=dto.getWdate()%></td>
-					<td><%=dto.getGrpno()%></td>
-					<td><%=dto.getIndent()%></td>
-					<td><%=dto.getAnsnum()%></td>
+					<td><%=dto.getViewcnt()%></td>
+					<td><%=dto.getFilename()%></td>
+					
 				</tr>
 				<%
 				} // for end

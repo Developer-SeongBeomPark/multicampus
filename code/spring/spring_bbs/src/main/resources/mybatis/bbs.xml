@@ -39,16 +39,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="update" parameterType="com.study.model.BbsDTO">
 		update bbs
-		set wname = #{wname},
-		title = #{title},
-		content = #{content}
+		<set>
+			wname = #{wname},
+			title = #{title},
+			content = #{content},
+			<if test="filesize > 0">
+				filename = #{filename},
+				filesize = #{filesize}
+			</if>
+		</set> 
 		where bbsno = #{bbsno}
 	</update>
 
 	<insert id="create" parameterType="com.study.model.BbsDTO">
-		insert into bbs(wname, title, content, passwd, wdate, grpno)
+		insert into bbs(wname, title, content, passwd, wdate, grpno, filename, filesize)
 		values(#{wname}, #{title}, #{content}, #{passwd}, sysdate(),
-			  (select ifnull(max(grpno),0) +1 from bbs b))
+			  (select ifnull(max(grpno),0) +1 from bbs b), #{filename}, #{filesize})
 	</insert>
 
 	<update id="upViewcnt" parameterType="int">
@@ -58,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<select id="read" parameterType="int" resultType="com.study.model.BbsDTO">
-		SELECT bbsno, wname, title, content,  viewcnt, wdate 
+		SELECT bbsno, wname, title, content,  viewcnt, wdate, filename
 	    FROM bbs
 	    <where>
 	    	bbsno = #{bbsno}
@@ -90,7 +96,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="list" parameterType="Map" resultType="com.study.model.BbsDTO">
-		select bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum, wdate
+		select bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum, wdate, filename, filesize
 		from bbs
 		<where>
 			<choose>

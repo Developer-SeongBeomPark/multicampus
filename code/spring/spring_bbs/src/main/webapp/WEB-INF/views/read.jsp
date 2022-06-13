@@ -16,7 +16,7 @@
   	}
   	function del(bbsno){
   		//alert(bbsno);
-  		let url = "/bbs/delete/<%=dto.getBbsno() %>";
+  		let url = "/bbs/delete/<%=dto.getBbsno() %>/<%=dto.getFilename() %>";
   		location.href = url;
   	}
   	function reply(bbsno){
@@ -45,6 +45,9 @@
 	 
 	<div class="panel-heading">등록일</div>
 	<div class="panel-body"><%=dto.getWdate() %></div>
+	
+	<div class="panel-heading">파일명</div>
+	<div class="panel-body"><%=dto.getFilename() %></div>
 	</div>
 	 
 	<div>

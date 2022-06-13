@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.study.bbs.UploadBbs;
 import com.study.model.BbsDTO;
 import com.study.model.BbsService;
 import com.study.utility.Utility;
@@ -87,6 +88,15 @@ public class BbsController {
   
   @PostMapping("/bbs/create")
   public String create(BbsDTO dto) {
+    String upDir = UploadBbs.getUploadDir();
+    if(dto.getFilenameMF().getSize() > 0) {//사용자가 브라우저에서 서버로 파일을 보냈을 경우.
+      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
+      dto.setFilesize((int)dto.getFilenameMF().getSize());
+    }
+    else {
+      dto.setFilename("");
+    }
+    
     int cnt = dao.create(dto);
     if(cnt != 1) {
       return "/error";
@@ -108,7 +118,16 @@ public class BbsController {
   }
   
   @PostMapping("/bbs/update")
-  public String update(BbsDTO dto) {
+  public String update(BbsDTO dto, String oldfile) {
+    String upDir = UploadBbs.getUploadDir();
+    if(dto.getFilenameMF().getSize() > 0) {
+      if(oldfile != null) {
+        Utility.deleteFile(upDir, oldfile);
+      }
+      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
+      dto.setFilesize((int)dto.getFilenameMF().getSize());
+    }
+    
     Map map = new HashMap();
     map.put("bbsno", dto.getBbsno());
     map.put("passwd", dto.getPasswd());
@@ -124,18 +143,27 @@ public class BbsController {
     }
   }
   
-  @GetMapping("/bbs/delete/{bbsno}")
-  public String delete(@PathVariable int bbsno, Model model) {
+  @GetMapping("/bbs/delete/{bbsno}/{oldfile}")
+  public String delete(@PathVariable int bbsno, @PathVariable String oldfile, Model model) {
     model.addAttribute("bbsno",bbsno);
+    model.addAttribute("oldfile",oldfile);
     return "/delete";
   }
   
   @PostMapping("/bbs/delete")
-  public String delete(@RequestParam Map<String,String> map) {
+  public String delete(@RequestParam Map<String,String> map, String oldfile) {
+    String upDir = UploadBbs.getUploadDir();
+    
     int bbsno = Integer.parseInt(map.get("bbsno"));
     int pflag = dao.passCheck(map);
     int flag = 0;
-    if(pflag == 1) flag = dao.delete(bbsno);
+    if(pflag == 1) {
+      flag = dao.delete(bbsno);
+      if(oldfile != null) {
+        Utility.deleteFile(upDir, oldfile);
+      }
+    }
+    
     
     if(pflag != 1) return "passwdError";
     else if(flag != 1) return "error";

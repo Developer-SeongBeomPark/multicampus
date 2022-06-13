@@ -16,10 +16,12 @@
 <div class="container">
 <h1 class="col-sm-offset-2 col-sm-10">삭제</h1>
 <form class="form-horizontal" 
-      action="../delete"
+      action="/bbs/delete"
       method="post"
       >
   <input type = "hidden" name = "bbsno" value = "<%=request.getAttribute("bbsno") %>">
+  <input type = "hidden" name = "oldfile" value = "화면 캡처 2022-05-26 134143.jpg">
+  
   <div class="form-group">
     <label class="control-label col-sm-2" for="passwd">비밀번호</label>
     <div class="col-sm-6">

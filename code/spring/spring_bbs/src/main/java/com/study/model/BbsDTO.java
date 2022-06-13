@@ -1,5 +1,7 @@
 package com.study.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BbsDTO {
 	/** 번호 */
 	private int bbsno;
@@ -21,33 +23,68 @@ public class BbsDTO {
 	private int indent;
 	/** 답변 순서 */
 	private int ansnum;
+	/** 파일 이름 */
+  private String filename;
+  /** 파일 사이즈 */
+  private int filesize;
+  /** form 선택한 파일을 서버에서 처리할 수 있는 타입으로 선언 */
+  private MultipartFile filenameMF;
 
-	public BbsDTO() {
+	public String getFilename() {
+    return filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
+  public int getFilesize() {
+    return filesize;
+  }
+
+  public void setFilesize(int filesize) {
+    this.filesize = filesize;
+  }
+
+  public MultipartFile getFilenameMF() {
+    return filenameMF;
+  }
+
+  public void setFilenameMF(MultipartFile filenameMF) {
+    this.filenameMF = filenameMF;
+  }
+
+  public BbsDTO() {
 	}
 
-	public BbsDTO(int bbsno, String wname, String title, String content, String passwd, int viewcnt, String wdate,
-			int grpno, int indent, int ansnum) {
-		super();
-		this.bbsno = bbsno;
-		this.wname = wname;
-		this.title = title;
-		this.content = content;
-		this.passwd = passwd;
-		this.viewcnt = viewcnt;
-		this.wdate = wdate;
-		this.grpno = grpno;
-		this.indent = indent;
-		this.ansnum = ansnum;
-	}
+	
 
 	@Override
-	public String toString() {
-		return "BbsDTO [bbsno=" + bbsno + ", wname=" + wname + ", title=" + title + ", content=" + content + ", passwd="
-				+ passwd + ", viewcnt=" + viewcnt + ", wdate=" + wdate + ", grpno=" + grpno + ", indent=" + indent
-				+ ", ansnum=" + ansnum + "]";
-	}
+  public String toString() {
+    return "BbsDTO [bbsno=" + bbsno + ", wname=" + wname + ", title=" + title + ", content=" + content + ", passwd="
+        + passwd + ", viewcnt=" + viewcnt + ", wdate=" + wdate + ", grpno=" + grpno + ", indent=" + indent + ", ansnum="
+        + ansnum + ", filename=" + filename + ", filesize=" + filesize + ", filenameMF=" + filenameMF + "]";
+  }
 
-	public int getBbsno() {
+  public BbsDTO(int bbsno, String wname, String title, String content, String passwd, int viewcnt, String wdate,
+      int grpno, int indent, int ansnum, String filename, int filesize, MultipartFile filenameMF) {
+    super();
+    this.bbsno = bbsno;
+    this.wname = wname;
+    this.title = title;
+    this.content = content;
+    this.passwd = passwd;
+    this.viewcnt = viewcnt;
+    this.wdate = wdate;
+    this.grpno = grpno;
+    this.indent = indent;
+    this.ansnum = ansnum;
+    this.filename = filename;
+    this.filesize = filesize;
+    this.filenameMF = filenameMF;
+  }
+
+  public int getBbsno() {
 		return bbsno;
 	}
 
