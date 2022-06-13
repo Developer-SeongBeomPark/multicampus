@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+  <!-- main -->
+  <definition name="main"
+    template="/WEB-INF/views/template/template.jsp">
+    <put-attribute name="header"
+      value="/WEB-INF/views/template/top.jsp" />
+  </definition>
+  
+  
+  <definition name="/home" extends="main">
+    <put-attribute name="title" value="기본페이지"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/index.jsp" />
+  </definition>
+  
+  
+  <definition name="/b/list" extends="main">
+    <put-attribute name="title" value="게시판 목록"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/bbs/list.jsp" />
+  </definition>
+  <definition name="/b/create" extends="main">
+    <put-attribute name="title" value="글생성"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/bbs/createForm.jsp" />
+  </definition>
+  <definition name="/b/read" extends="main">
+    <put-attribute name="title" value="조회"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/bbs/read.jsp" />
+  </definition>
+  <definition name="/b/update" extends="main">
+    <put-attribute name="title" value="글 수정"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/bbs/updateForm.jsp" />
+  </definition>
+  <definition name="/b/delete" extends="main">
+    <put-attribute name="title" value="글 삭제"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/bbs/deleteForm.jsp" />
+  </definition>
+  <definition name="/b/reply" extends="main">
+    <put-attribute name="title" value="답변"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/bbs/replyForm.jsp" />
+  </definition>
+  
+  
+  
+  <definition name="/a/list" extends="main">
+    <put-attribute name="title" value="주소 목록"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/addr/list.jsp" />      
+  </definition>
+  <definition name="/a/read" extends="main">
+    <put-attribute name="title" value="주소 조회"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/addr/read.jsp" />      
+  </definition>
+  <definition name="/a/create" extends="main">
+    <put-attribute name="title" value="주소 생성"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/addr/createForm.jsp"/>      
+  </definition>
+  <definition name="/a/update" extends="main">
+    <put-attribute name="title" value="주소 수정"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/addr/updateForm.jsp"/>      
+  </definition>
+  <definition name="/a/delete" extends="main">
+    <put-attribute name="title" value="주소 삭제"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/addr/deleteForm.jsp"/>      
+  </definition>
+  
+  
+  
+  
+  <definition name="/m/list" extends="main">
+    <put-attribute name="title" value="메모 목록"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/memo/list.jsp" />
+  </definition>
+  <definition name="/m/create" extends="main">
+    <put-attribute name="title" value="메모 생성"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/memo/createForm.jsp" />
+  </definition>
+  <definition name="/m/read" extends="main">
+    <put-attribute name="title" value="메모 조회"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/memo/read.jsp" />
+  </definition>
+  <definition name="/m/update" extends="main">
+    <put-attribute name="title" value="메모 수정"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/memo/updateForm.jsp" />
+  </definition>
+  <definition name="/m/delete" extends="main">
+    <put-attribute name="title" value="메모 삭제"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/memo/deleteForm.jsp" />
+  </definition>
+  <definition name="/m/reply" extends="main">
+    <put-attribute name="title" value="메모 삭제"/>
+    <put-attribute name="body"
+      value="/WEB-INF/views/memo/replyForm.jsp" />
+  </definition>
+  
+  
+ 
+</tiles-definitions>
