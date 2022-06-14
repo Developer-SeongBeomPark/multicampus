@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.study.memo.UploadMemo;
 import com.study.model.MemoDTO;
 import com.study.model.MemoService;
 import com.study.utility.Utility;
@@ -77,6 +78,12 @@ public class MemoController {
   
   @PostMapping("/memo/create")
   public String create(MemoDTO dto) {
+    String upDir = UploadMemo.getUploadDir();
+    if(dto.getFilenameMF().getSize() > 0) {
+      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
+      dto.setFilesize((int)dto.getFilenameMF().getSize());
+    }
+        
     int flag = dao.create(dto);
     if(flag != 1) return "error";
     else return "redirect:list";

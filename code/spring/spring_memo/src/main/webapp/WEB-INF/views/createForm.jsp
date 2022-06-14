@@ -13,6 +13,7 @@
 <form class="form-horizontal" 
       action="create"
       method="post"
+      enctype = "multipart/form-data"
       >
  
   <div class="form-group">
@@ -40,6 +41,13 @@
     <label class="control-label col-sm-2" for="passwd">비밀번호</label>
     <div class="col-sm-6">
       <input type="password" name="passwd" id="passwd" class="form-control">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="filenameMF">파일 이름</label>
+    <div class="col-sm-6">
+      <input type="file" name="filenameMF" id="filenameMF" class="form-control">
     </div>
   </div>
   

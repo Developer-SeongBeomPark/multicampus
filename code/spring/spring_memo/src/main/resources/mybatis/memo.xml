@@ -57,9 +57,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<insert id="create" parameterType="com.study.model.MemoDTO">
-		insert into memo (wname, title, content, wdate, grpno, passwd)
+		insert into memo (wname, title, content, wdate, grpno, passwd, filename, filesize)
 		values (#{wname}, #{title}, #{content},sysdate(),
-		(select ifnull(max(grpno),0) + 1 from memo m), #{passwd})
+		(select ifnull(max(grpno),0) + 1 from memo m), #{passwd}, #{filename}, #{filesize})
 	</insert>
 
 	<select id="total" parameterType="Map" resultType="int">
@@ -86,7 +86,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="list" parameterType="Map" resultType="com.study.model.MemoDTO">
-		select memono, wname, title, wdate, grpno, indent, ansnum
+		select memono, wname, title, wdate, grpno, indent, ansnum, filename, filesize
 		from memo
 		<where>
 			<choose>
