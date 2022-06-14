@@ -16,7 +16,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.bbs.UploadBbs;
 import com.study.model.BbsDTO;
@@ -93,9 +95,7 @@ public class BbsController {
       dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
       dto.setFilesize((int)dto.getFilenameMF().getSize());
     }
-    else {
-      dto.setFilename("");
-    }
+    
     
     int cnt = dao.create(dto);
     if(cnt != 1) {
@@ -143,10 +143,17 @@ public class BbsController {
     }
   }
   
-  @GetMapping("/bbs/delete/{bbsno}/{oldfile}")
-  public String delete(@PathVariable int bbsno, @PathVariable String oldfile, Model model) {
+  @GetMapping("/bbs/delete/{bbsno}")
+  public String delete(@PathVariable int bbsno, String oldfile, Model model) {
+    int cnt = dao.checkRefnum(bbsno);
+    boolean flag = false;
+    if(cnt > 0) {
+      flag = true;
+    }
+    
     model.addAttribute("bbsno",bbsno);
     model.addAttribute("oldfile",oldfile);
+    model.addAttribute("flag",flag);
     return "/delete";
   }
   
@@ -178,6 +185,12 @@ public class BbsController {
   
   @PostMapping("/bbs/reply")
   public String reply(BbsDTO dto) {
+    String upDir = UploadBbs.getUploadDir();
+    if(dto.getFilenameMF().getSize() > 0) {
+      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
+      dto.setFilesize((int)(dto.getFilenameMF().getSize()));
+    }
+    
     Map map = new HashMap();
     map.put("grpno", dto.getGrpno());
     map.put("ansnum", dto.getAnsnum());
@@ -187,5 +200,58 @@ public class BbsController {
     }else {
       return "error";
     }
+  }
+  
+  @PostMapping(value = "/bbs/delete_Ajax", produces = "application/json;charset=UTF-8")
+  @ResponseBody
+  public Map<String, String> delete_Ajax(@RequestBody BbsDTO dto, HttpServletRequest request) {
+          boolean cflag = false;
+          int cnt = dao.checkRefnum(dto.getBbsno());
+          if (cnt > 0)
+                  cflag = true;
+          String upDir = UploadBbs.getUploadDir();
+          Map map = new HashMap();
+          map.put("bbsno", dto.getBbsno());
+          map.put("passwd", dto.getPasswd());
+
+          boolean pflag = false;
+          boolean flag = false;
+
+          if (!cflag) {
+                  int cnt2 = dao.passCheck(map);
+                  if (cnt2 > 0)
+                          pflag = true;
+          }
+          if (pflag) {
+                  if (dto.getFilename() != null)
+                          Utility.deleteFile(upDir, dto.getFilename());
+                  int cnt3 = dao.delete(dto.getBbsno());
+                  if (cnt3 > 0)
+                          flag = true;
+          }
+
+          Map<String, String> map2 = new HashMap<String, String>();
+
+          if (cflag) {
+                  map2.put("str", "답변있는 글이므로 삭제할 수 없습니다");
+                  map2.put("color", "blue");
+          } else if (!pflag) {
+                  map2.put("str", "패스워드가 잘못입력되었습니다");
+                  map2.put("color", "blue");
+          } else if (flag) {
+                  map2.put("str", "삭제 처리되었습니다");
+                  map2.put("color", "blue");
+          } else {
+                  map2.put("str", "삭제중 에러가 발생했습니다");
+                  map2.put("color", "blue");
+          }
+
+          return map2;
+  }
+
+  @GetMapping("/bbs/delete_Ajax")
+  public String delete_Ajax() {
+
+          return "/bbs/delete_Ajax";
   }
 }

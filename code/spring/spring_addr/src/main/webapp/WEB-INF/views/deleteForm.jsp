@@ -1,7 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%
-	int addressnum = (int)request.getAttribute("addressnum");
-%>
+
 <!DOCTYPE html> 
 <html> 
 <head>
@@ -20,7 +18,7 @@
       action="/addr/delete"
       method="post"
       >
-  <input type = "hidden" name = "addressnum" value = "<%=addressnum %>">
+  <input type = "hidden" name = "addressnum" value = "${addressnum }">
   
   <p id = "red" class = "col-sm-offset-2 col-sm-6">삭제하면 복구할 수 없습니다.</p>
   

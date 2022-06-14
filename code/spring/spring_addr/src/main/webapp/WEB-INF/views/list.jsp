@@ -1,14 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.util.*, com.study.model.AddrDTO, com.study.utility.*"%>
-
-<%
-	// Action에서 저장한 model결과 및 JSP에서 사용할 내용을 꺼내온다.
-	String col = (String)request.getAttribute("col");
-	String word = (String)request.getAttribute("word");
-	int nowPage = (int)request.getAttribute("nowPage");
-	List<AddrDTO> list = (List<AddrDTO>)request.getAttribute("list");
-	String paging = (String)request.getAttribute("paging");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -25,28 +16,31 @@
 <body>
 	<div class="container">
 		<h1 class="col-sm-offset-2 col-sm-10">주소 목록</h1>
-
 		<form action="list" class="form-inline">
 			<div class="form-group">
 				<select class="form-control" name="col">
 					<option value="name"
-						<%if (col.equals("name"))
-	out.print("selected");%>>이름</option>
+						<c:if test = "col == 'name'">
+							selected
+						</c:if>>이름</option>
 					<option value="handphone"
-						<%if (col.equals("handphone"))
-	out.print("selected");%>>전화번호</option>
+						<c:if test = "col == 'handphone'">
+							selected
+						</c:if>>전화번호</option>
 					<option value="address"
-						<%if (col.equals("address"))
-	out.print("selected");%>>주소</option>
+						<c:if test = "col == 'address'">
+							selected
+						</c:if>>주소</option>
 					<option value="total"
-						<%if (col.equals("total"))
-	out.print("selected");%>>전체출력</option>
+						<c:if test = "col == 'total'">
+							selected
+						</c:if>>전체출력</option>
 				</select>
 			</div>
 
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Enter 검색어"
-					name="word" value="<%=word%>">
+					name="word" value="${word }">
 			</div>
 			<button class="btn btn-default">검색</button>
 			<button class="btn btn-default" type="button"
@@ -65,40 +59,35 @@
 				</tr>
 			</thead>
 			<tbody>
-				<%
-				if (list.size() == 0) {
-				%>
-				<tr>
-					<td colspan="7">등록된 글이 없습니다.</td>
-				</tr>
-				<%
-				} else {
-				for (int i = 0; i < list.size(); i++) {
-					AddrDTO dto = list.get(i);
-				%>
-				<tr>
-					<td><%=dto.getAddressnum()%></td>
-					<td>
-					
-					<a href = "javascript:read('<%=dto.getAddressnum() %>')"><%=dto.getName() %></a>
-				
-					</td>
-					<td><%=dto.getHandphone()%></td>
-					<td><%=dto.getZipcode()%></td>
-					<td><%=dto.getAddress()%></td>
-					<td><%=dto.getAddress2()%></td>
-				</tr>
-				
-				<%
-				} // for end
-				} // if end
-				%>
+				<c:choose>
+					<c:when test="${empty list }">
+						<tr>
+							<td colspan="7">등록된 글이 없습니다.</td>
+						</tr>
+					</c:when>
+
+					<c:otherwise>
+						<c:forEach var="dto" items="${list }">
+							<tr>
+								<td>${dto.addressnum }</td>
+								<td><a href="javascript:read('${dto.addressnum }')">${dto.name }</a>
+
+								</td>
+								<td>${dto.handphone }</td>
+								<td>${dto.zipcode }</td>
+								<td>${dto.address }</td>
+								<td>${dto.address2}</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+
+
+
 			</tbody>
 		</table>
 
-		<div>
-			<%=paging%>
-		</div>
+		<div>${paging }</div>
 
 	</div>
 </body>

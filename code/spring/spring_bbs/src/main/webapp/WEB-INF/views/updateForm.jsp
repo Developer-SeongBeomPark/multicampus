@@ -1,9 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import = "com.study.model.*" %> 
 
-<%
-	BbsDTO dto = (BbsDTO)request.getAttribute("dto");
-%>
 <!DOCTYPE html> 
 <html> 
 <head>
@@ -19,20 +15,20 @@
       enctype = "multipart/form-data"
       >
       
-  <input type="hidden" name="bbsno" value="<%=dto.getBbsno() %>">
-  <input type="hidden" name="oldfile" value="<%=dto.getFilename() %>">
+  <input type="hidden" name="bbsno" value="${dto.bbsno}">
+  <input type="hidden" name="oldfile" value="${dto.filename}">
   <div class="form-group">
     <label class="control-label col-sm-2" for="wname">작성자</label>
     <div class="col-sm-6">
       <input type="text" name="wname" id="wname" 
-      class="form-control" value="<%=dto.getWname()%>">
+      class="form-control" value="${dto.wname}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="title">제목</label>
     <div class="col-sm-8">
       <input type="text" name="title" id="title" 
-      class="form-control" value="<%=dto.getTitle()%>">
+      class="form-control" value="${dto.title}">
     </div>
   </div>
   
@@ -40,7 +36,7 @@
     <label class="control-label col-sm-2" for="content">내용</label>
     <div class="col-sm-8">
     <textarea rows="12" cols="7" id="content" name="content" 
-    class="form-control"><%=dto.getContent() %></textarea>
+    class="form-control">${dto.content}</textarea>
     </div>
   </div>
   

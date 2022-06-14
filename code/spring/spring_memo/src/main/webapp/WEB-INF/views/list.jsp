@@ -1,14 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
-<%@ page import = "com.study.model.*, com.study.utility.*, java.util.*" %>
- 
-<%
-	List<MemoDTO> list = (List<MemoDTO>)request.getAttribute("list");
-	String col = (String)request.getAttribute("col");
-	String word = (String)request.getAttribute("word");
-	String paging = (String)request.getAttribute("paging");
-	int nowPage = (int)request.getAttribute("nowPage");
-
-%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html> 
 <html> 
 <head>
@@ -29,26 +20,33 @@
 			<div class="form-group">
 				<select class="form-control" name="col">
 					<option value="wname"
-						<%if (col.equals("wname"))
-	out.print("selected");%>>성명</option>
+						<c:if test = "col == 'wname'">
+							selected
+						</c:if>
+					>성명</option>
 					<option value="title"
-						<%if (col.equals("title"))
-	out.print("selected");%>>제목</option>
+						<c:if test = "col == 'title'">
+							selected
+						</c:if>
+					>제목</option>
 					<option value="content"
-						<%if (col.equals("content"))
-	out.print("selected");%>>내용</option>
+						<c:if test = "col == 'content'">
+							selected
+						</c:if>>내용</option>
 					<option value="title_content"
-						<%if (col.equals("title_content"))
-	out.print("selected");%>>제목+내용</option>
+						<c:if test = "col == 'title_content'">
+							selected
+						</c:if>>제목+내용</option>
 					<option value="total"
-						<%if (col.equals("total"))
-	out.print("selected");%>>전체출력</option>
+						<c:if test = "col == 'total'">
+							selected
+						</c:if>>전체출력</option>
 				</select>
 			</div>
 
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Enter 검색어"
-					name="word" value="<%=word%>">
+					name="word" value="${word }">
 			</div>
 			<button class="btn btn-default">검색</button>
 			<button class="btn btn-default" type="button"
@@ -71,58 +69,49 @@
 		</thead>
 		
 		<tbody>
-			
-			<%
-				if(list.size() == 0){
-			%>
-			<tr>
-				<td colspan = "7">등록된 메모가 없습니다.</td>
-			</tr>
-			
-			<%
-				}
-			%>
-			
-			<%
-				for(int i = 0; i < list.size(); i++){
-					MemoDTO dto = list.get(i);
-			%>
-			<tr>
-				<td><%=dto.getMemono() %></td>
+			<c:choose>
+				<c:when test="${empty list }">
+					<tr>
+						<td colspan = "7">등록된 메모가 없습니다.</td>
+					</tr>
+				</c:when>
+					<c:forEach var = "dto" items = "list">
+						<tr>
+				<td>${dto.memono }</td>
 				
 				
 				<td>
-				<%
-						for (int j = 0; j < dto.getIndent(); j++) {
-							out.print("&nbsp;&nbsp;");
-						}
-						if (dto.getIndent() > 0) {
-							out.print("<img src = '../images/re.jpg'>");
-						}
-				%>
-				<a href = "javascript:read('<%=dto.getMemono()%>')"><%=dto.getWname() %></a>
-				<%
-						if (Utility.compareDay(dto.getWdate())) {
-						%> <img src="../images/new.gif"> <%
- 						}
-				%>
-				</td>
+					<c:forEach begin = "0" end = "${dto.indent }">
+						&nbsp;&nbsp;
+					</c:forEach>
+					<c:if test="${dto.indent > 0 }">
+						<img src = '../images/re.jpg'>
+					</c:if>
+				
+				<a href = "javascript:read('${dto.memono }')">${dto.wname }</a>
+				<img src="../images/new.gif"> <%
+ 				
+				    </td>
 				
 				
-				<td><%=dto.getTitle() %></td>
-				<td><%=dto.getWdate() %></td>
-				<td><%=dto.getGrpno() %></td>
-				<td><%=dto.getIndent() %></td>
-				<td><%=dto.getAnsnum() %></td>
+				<td>${dto.title}</td>
+				<td>${dto.wdate}</td>
+				<td>${dto.grpno}</td>
+				<td>${dto.indent}</td>
+				<td>${dto.ansnum}</td>
 			</tr>	
-			<%
-				}
-			%>
+					</c:forEach>
+				<c:otherwise>
+				
+				</c:otherwise>
+			</c:choose>
+			
+			
 		</tbody>
 	</table>
 	
 	<div>
-		<%=paging %>
+		${paging }
 	</div>
 	
 </div>

@@ -15,4 +15,5 @@ public interface BbsMapper {
   BbsDTO readreply(int bbsno);
   void upAnsnum(Map map);
   int createReply(BbsDTO dto);
+  int checkRefnum(int bbsno);
 }

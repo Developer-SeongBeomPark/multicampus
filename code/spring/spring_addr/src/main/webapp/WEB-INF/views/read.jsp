@@ -1,8 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
-<%@ page import = "com.study.model.*" %>
-<%    
-    AddrDTO dto = (AddrDTO)request.getAttribute("dto");    
-%> 
+
 <!DOCTYPE html> 
 <html> 
 <head>
@@ -11,12 +8,12 @@
   <script>
   	function update(){
   		//alert(bbsno);
-  		let url = "/addr/update/<%=dto.getAddressnum() %>";
+  		let url = "/addr/update/${dto.addressnum }";
   		location.href = url;
   	}
   	function del(){
   		//alert(bbsno);
-  		let url = "/addr/delete/<%=dto.getAddressnum() %>";
+  		let url = "/addr/delete/${dto.addressnum }";
   		location.href = url;
   	}
   </script>
@@ -27,19 +24,19 @@
 	
 	<div class="panel panel-default">
 	<div class="panel-heading">이름</div>
-	<div class="panel-body"><%=dto.getName() %></div>
+	<div class="panel-body">${dto.name }</div>
 	 
 	<div class="panel-heading">전화번호</div>
-	<div class="panel-body"><%=dto.getHandphone() %></div>
+	<div class="panel-body">${dto.handphone }</div>
 	 
 	<div class="panel-heading">우편번호</div>
-	<div class="panel-body" style="height: 200px"><%=dto.getZipcode() %></div>
+	<div class="panel-body" style="height: 200px">${dto.zipcode }</div>
 	 
 	<div class="panel-heading">주소</div>
-	<div class="panel-body"><%=dto.getAddress() %></div>
+	<div class="panel-body">${dto.address }</div>
 	 
 	<div class="panel-heading">상세 주소</div>
-	<div class="panel-body"><%=dto.getAddress2() %></div>
+	<div class="panel-body">${dto.address2 }</div>
 	</div>
 	 
 	<div>

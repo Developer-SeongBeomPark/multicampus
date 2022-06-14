@@ -5,9 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.study.model.BbsMapper">
+
 	<insert id="createReply" parameterType="com.study.model.BbsDTO">
-		insert into bbs(wname, title, content, passwd, wdate, grpno, indent, ansnum)
-		values(#{wname}, #{title}, #{content}, #{passwd}, sysdate(), #{grpno}, #{indent}+1, #{ansnum}+1)
+		insert into bbs(wname, title, content, passwd, wdate, grpno, indent, ansnum, refnum, filename, filesize)
+		values(#{wname}, #{title}, #{content}, #{passwd}, sysdate(), #{grpno}, #{indent}+1, #{ansnum}+1, #{bbsno}, #{filename}, #{filesize})
 	</insert>
 
 	<update id="upAnsnum" parameterType="Map">
@@ -23,6 +24,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT bbsno, title, grpno, indent, ansnum
 	    FROM bbs
 	    WHERE bbsno = #{bbsno}
+	</select>
+
+	<select id="checkRefnum" parameterType="int" resultType="int">
+		select count(refnum)
+		from bbs
+	    where refnum = #{bbsno}
 	</select>
 
 	<delete id="delete" parameterType="int">

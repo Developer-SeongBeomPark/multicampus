@@ -1,9 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import = "com.study.model.*" %> 
 
-<%
-	AddrDTO dto = (AddrDTO)request.getAttribute("dto");
-%>
 <!DOCTYPE html> 
 <html> 
 <head>
@@ -74,12 +70,12 @@
       method="post"
       >
       
-  <input type="hidden" name="addressnum" value="<%=dto.getAddressnum() %>">
+  <input type="hidden" name="addressnum" value="${dto.addressnum }">
 			
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">이름</label>
 				<div class="col-sm-6">
-					<input type="text" name="name" id="name" class="form-control" value = "<%=dto.getName() %>">
+					<input type="text" name="name" id="name" class="form-control" value = "${dto.name }">
 				</div>
 			</div>
 
@@ -87,7 +83,7 @@
 				<label class="control-label col-sm-2" for="handphone">전화번호</label>
 				<div class="col-sm-6">
 					<input type="text" name="handphone" id="handphone"
-						class="form-control" value = "<%=dto.getHandphone() %>">
+						class="form-control" value = "${dto.handphone }">
 				</div>
 			</div>
 
@@ -95,7 +91,7 @@
 				<label class="control-label col-sm-2" for="zipcode">우편번호</label>
 				<div class="col-sm-2">
 					<input type="text" name="zipcode" class="form-control"
-						id="sample6_postcode" placeholder="우편번호" value = "<%=dto.getZipcode() %>">
+						id="sample6_postcode" placeholder="우편번호" value = "${dto.zipcode }">
 				</div>
 				<div class="col-sm-4">
 					<button class="btn" type="button"
@@ -107,7 +103,7 @@
 				<label class="control-label col-sm-2" for="address">주소</label>
 				<div class="col-sm-6">
 					<input type="text" name="address" id="sample6_address"
-						class="form-control" placeholder="주소" value = "<%=dto.getAddress() %>">
+						class="form-control" placeholder="주소" value = "${dto.address }">
 				</div>
 			</div>
 
@@ -115,7 +111,7 @@
 				<label class="control-label col-sm-2" for="address2">상세주소</label>
 				<div class="col-sm-6">
 					<input type="text" name="address2" id="sample6_detailAddress"
-						class="form-control" placeholder="상세주소" value = "<%=dto.getAddress2() %>">
+						class="form-control" placeholder="상세주소" value = "${dto.address2 }">
 				</div>
 			</div>
   
