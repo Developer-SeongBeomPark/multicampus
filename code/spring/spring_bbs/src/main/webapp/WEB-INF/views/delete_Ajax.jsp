@@ -19,7 +19,7 @@
                         filename : $('#oldfile').val()            
                     }
                   alert(form.bbsno)  
-                        //비공기 통신
+                        //비동기 통신
                         $.ajax({
                     url: "./delete_Ajax",
                     type: "POST",

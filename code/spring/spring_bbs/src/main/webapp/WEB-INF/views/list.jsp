@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix = "util" uri = "/ELFunctions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +10,16 @@
 <script>
 	function read(bbsno) {
 		let url = "read/" + bbsno;
+		url += "?nowPage=${nowPage}";
+		url += "&col=${col}";
+		url += "&word=${word}";
 		location.href = url;
 	}
+	function fileDown(filename){
+	      var url = "./fileDown";
+	      url += "?filename="+filename;
+	      location.href=url;
+	     }
 </script>
 </head>
 <body>
@@ -77,25 +86,31 @@
 						<c:forEach var="dto" items="${list }">
 							<tr>
 								<td>${dto.bbsno}</td>
-								<td>
-								
-									<c:forEach begin = "1" end = "${dto.indent }">
+								<td><c:forEach begin="1" end="${dto.indent }">
 										&nbsp;&nbsp;
-									</c:forEach>
-									<c:if test="${dto.indent > 0 }">
-										<img src = '/images/re.jpg'>
-									</c:if>
-									<a href="javascript:read('${dto.bbsno}')">${dto.title}</a>
-									<%--
-									if (Utility.compareDay(dto.getWdate())) {
-									--%> <img src="/images/new.gif">
+									</c:forEach> <c:if test="${dto.indent > 0 }">
+										<img src='/images/re.jpg'>
 									
-
-								</td>
+									</c:if>
+									<c:set var = "rcount" value = "${util:rcount(dto.bbsno,rservice) }"/>
+									<a href="javascript:read('${dto.bbsno}')">${dto.title}</a>
+									<c:if test="${rcount > 0 }">
+										<span class="badge">${rcount}</span>
+									</c:if>
+									<c:if test="${util:newImg(dto.wdate) }">
+										<img src="/images/new.gif"></td>
+									</c:if>
+									 
 								<td>${dto.wname }</td>
 								<td>${dto.wdate }</td>
 								<td>${dto.viewcnt }</td>
-								<td>${dto.filename }</td>
+								<td><c:choose>
+										<c:when test="${empty dto.filename}">파일없음</c:when>
+										<c:otherwise>
+											<a href="javascript:fileDown('${dto.filename}')">
+												${dto.filename} </a>
+										</c:otherwise>
+								</c:choose></td>
 
 							</tr>
 						</c:forEach>
@@ -105,9 +120,7 @@
 			</tbody>
 		</table>
 
-		<div>
-			${paging }
-		</div>
+		<div>${paging }</div>
 
 	</div>
 </body>

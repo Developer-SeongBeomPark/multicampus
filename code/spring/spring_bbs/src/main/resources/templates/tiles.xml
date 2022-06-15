@@ -45,5 +45,9 @@
     <put-attribute name="body"
       value="/WEB-INF/views/index.jsp" />
   </definition>
+  <definition name="/bbs/delete_Ajax" extends="main"> 
+    <put-attribute name="title" value="bbs Ajax 삭제" ></put-attribute> 
+    <put-attribute name="body" value="/WEB-INF/views/delete_Ajax.jsp" /> 
+  </definition> 
  
 </tiles-definitions>
