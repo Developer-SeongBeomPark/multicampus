@@ -30,4 +30,34 @@ public class NoticeServiceImpl implements NoticeService {
     return mapper.total(map);
   }
 
+  @Override
+  public int passwd(Map map) {
+    // TODO Auto-generated method stub
+    return mapper.passwd(map);
+  }
+
+  @Override
+  public int update(NoticeDTO noticeDTO) {
+    // TODO Auto-generated method stub
+    return mapper.update(noticeDTO);
+  }
+
+  @Override
+  public int delete(int noticeno) {
+    // TODO Auto-generated method stub
+    return mapper.delete(noticeno);
+  }
+
+  @Override
+  public void upCnt(int noticeno) {
+    // TODO Auto-generated method stub
+    mapper.upCnt(noticeno);
+  }
+
+  @Override
+  public NoticeDTO read(int noticeno) {
+    // TODO Auto-generated method stub
+    return mapper.read(noticeno);
+  }
+
 }
