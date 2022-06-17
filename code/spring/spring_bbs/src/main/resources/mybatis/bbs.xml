@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<delete id="delete" parameterType="int">
 		delete from bbs
-		where bbsno = #{bbsno}
+		where bbsno1 = #{bbsno}
 	</delete>
 
 	<select id="passCheck" parameterType="Map" resultType="int">

@@ -40,7 +40,7 @@ public class BbsController {
   @Autowired
   @Qualifier("com.study.model.ReplyServiceImpl")
   private ReplyService rservice;
-  
+
   @GetMapping("/")
   public String main(Locale locale, Model model) {
     Date date = new Date();
@@ -89,8 +89,7 @@ public class BbsController {
     request.setAttribute("paging", paging);
     request.setAttribute("nowPage", nowPage);
     request.setAttribute("rservice", rservice);
-    
-    
+
     return "/list";
   }
 
@@ -196,20 +195,20 @@ public class BbsController {
 
     int bbsno = Integer.parseInt(map.get("bbsno"));
     int pflag = dao.passCheck(map);
-    int flag = 0;
+    String url = "passwdError";
     if (pflag == 1) {
-      flag = dao.delete(bbsno);
-      if (oldfile != null && !oldfile.equals("")) {
-        Utility.deleteFile(upDir, oldfile);
+      try {
+        dao.delete(bbsno);
+        url = "redirect:list";
+        if (oldfile != null && !oldfile.equals("")) {
+          Utility.deleteFile(upDir, oldfile);
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
+        url = "error";
       }
     }
-
-    if (pflag != 1)
-      return "passwdError";
-    else if (flag != 1)
-      return "error";
-    else
-      return "redirect:list";
+    return url;
   }
 
   @GetMapping("/bbs/reply/{bbsno}")
@@ -260,9 +259,9 @@ public class BbsController {
     if (pflag) {
       if (dto.getFilename() != null)
         Utility.deleteFile(upDir, dto.getFilename());
-      int cnt3 = dao.delete(dto.getBbsno());
-      if (cnt3 > 0)
-        flag = true;
+//      int cnt3 = dao.delete(dto.getBbsno());
+//      if (cnt3 > 0)
+//        flag = true;
     }
 
     Map<String, String> map2 = new HashMap<String, String>();

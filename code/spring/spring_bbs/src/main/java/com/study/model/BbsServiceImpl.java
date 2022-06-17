@@ -11,6 +11,9 @@ public class BbsServiceImpl implements BbsService{
   @Autowired
   private BbsMapper mapper;
   
+  @Autowired
+  private ReplyMapper rmapper;
+  
   public List<BbsDTO> list(Map map) {
     // TODO Auto-generated method stub
     return mapper.list(map);
@@ -42,8 +45,11 @@ public class BbsServiceImpl implements BbsService{
     return mapper.passCheck(map);
   }
   
-  public int delete(int bbsno) {
-    return mapper.delete(bbsno);
+  
+  public void delete(int bbsno) {
+    
+    rmapper.bdelete(bbsno);
+    mapper.delete(bbsno);
   }
 
   @Override

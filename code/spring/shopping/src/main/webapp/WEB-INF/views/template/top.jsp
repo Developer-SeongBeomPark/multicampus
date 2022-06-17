@@ -31,6 +31,60 @@
 	color: white;
 }
 </style>
+<style>
+$
+(
+
+
+function
+(
+) { $. ajax ({ url :"/contents/getCategory", type :
+ 
+"GET", dataType :
+ 
+"json", success :
+ 
+function(data) {
+
+                
+                
+for (
+vari =
+ 
+0;i < data.length;i ++) { $('#pmenu').append("<li><a
+	href='/contents/mainlist/"+data[i].cateno+"'>" + data[i].catename +
+	"</a></li>");
+	
+}
+
+}
+,
+error: function(request, status, error) {alert ("code = "+
+	request.status + " message = " + request.responseText + " error = " +
+	error); // 실패 시 처리
+	
+}
+}
+)
+
+
+;//
+ajax
+
+ 
+
+end
+
+
+    
+
+}
+)
+
+
+;//
+페이지로딩
+</style>
 </head>
 <body>
 	<!--상단메뉴-->
@@ -44,15 +98,15 @@
 					<li class="active"><a href="${root}/">Home</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Product <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Jean</a></li>
-							<li><a href="#">Bag</a></li>
-							<li><a href="#">Shoes</a></li>
+						<ul class="dropdown-menu" id="pmenu">
+							<li><a href="/contents/mainlist/1">Jean</a></li>
+							<li><a href="/contents/mainlist/2">Bag</a></li>
+							<li><a href="/contents/mainlist/3">Shoes</a></li>
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">community <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="${root}/contents/mypage">Mypage</a></li>
+							<li><a href="${root}/member/mypage">Mypage</a></li>
 							<li><a href="${root}/contents/detail">Review</a></li>
 							<li><a href="/notice/list">Notice</a></li>
 							<li><a href="#">Q&A</a></li>
@@ -72,9 +126,10 @@
 							test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
 							<li><a href="${root}/admin/contents/create"><span
 									class="glyphicon glyphicon-plus-sign"></span> 상품등록</a></li>
+							<li><a href="${root}/contents/list"><span
+									class="glyphicon glyphicon-list"></span> 상품목록</a></li>
 							<li><a href="${root}/admin/member/list"><span
 									class="glyphicon glyphicon-list"></span> 회원목록</a></li>
-									
 							<li><a href="${root}/admin/order/list"><span
 									class="glyphicon glyphicon-list"></span> 주문목록</a></li>
 							<li><a href="${root}/member/logout"><span

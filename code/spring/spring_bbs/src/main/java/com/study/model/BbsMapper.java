@@ -11,7 +11,7 @@ public interface BbsMapper {
   int create(BbsDTO dto);
   int update(BbsDTO dto);
   int passCheck(Map map);
-  int delete(int bbsno);
+  void delete(int bbsno);
   BbsDTO readreply(int bbsno);
   void upAnsnum(Map map);
   int createReply(BbsDTO dto);

@@ -25,4 +25,5 @@ public interface MemberMapper {
 
   int updateFile(Map map);
 
+  MemberDTO mypage(String id);
 }

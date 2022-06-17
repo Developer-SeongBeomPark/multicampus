@@ -12,10 +12,13 @@ public class TilesConfiguration {
   public TilesConfigurer tilesConfigurer() {
       final TilesConfigurer configurer = new TilesConfigurer();
       //해당 경로에 tiles.xml 파일을 넣음
-      configurer.setDefinitions(new String[]{"classpath:/templates/tiles_member.xml"});
+      configurer.setDefinitions(new String[]{"classpath:/templates/tiles_member.xml",
+                                             "classpath:/templates/tiles_contents.xml"});
       configurer.setCheckRefresh(true);
       return configurer;
   }
+  
+  
  
   @Bean
   public TilesViewResolver tilesViewResolver() {
@@ -23,4 +26,5 @@ public class TilesConfiguration {
       tilesViewResolver.setViewClass(TilesView.class);
       return tilesViewResolver;
   }
+  
 }

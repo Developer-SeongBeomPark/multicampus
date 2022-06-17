@@ -3,7 +3,7 @@ package com.study.shop;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-//import com.study.contents.*;
+import com.study.contents.*;
 import com.study.member.*;
 
 @Configuration
@@ -19,8 +19,11 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     // + UploadCon.getUploadDir());
     // registry.addResourceHandler("/attachfile/storage/**").addResourceLocations("file:///"
     // + Attachfile.getUploadDir());
-    registry.addResourceHandler("/member/storage/**")// 저장경로
-    .addResourceLocations("file:///" + UploadMem.getUploadDir()); // 전체 경로
+    registry.addResourceHandler("/member/storage/**")// 사용경로
+    .addResourceLocations("file:///" + UploadMem.getUploadDir()); // 실제 경로
+  
+    registry.addResourceHandler("/contents/storage/**")
+    .addResourceLocations("file:///" + UploadCon.getUploadDir());
   }
 
 }

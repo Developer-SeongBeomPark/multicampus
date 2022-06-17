@@ -1,6 +1,10 @@
 package com.study.member;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
+
+import com.study.orders.OrdersDTO;
 
 import lombok.Data;
 
@@ -20,5 +24,5 @@ public class MemberDTO {
   private String grade    ;
   private MultipartFile fnameMF;
   
-  
+  private List<OrdersDTO> list;
 }

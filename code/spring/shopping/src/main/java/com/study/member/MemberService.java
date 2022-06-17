@@ -24,4 +24,5 @@ public interface MemberService {
  
         int updateFile(Map map);
  
+        MemberDTO mypage(String id);
 }

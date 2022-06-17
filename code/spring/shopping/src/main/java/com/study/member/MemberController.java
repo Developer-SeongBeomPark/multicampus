@@ -215,79 +215,92 @@ public class MemberController {
       return "./error";
     }
   }
-  
+
   @PostMapping("/member/update")
   public String update(MemberDTO dto, Model model) {
-          int cnt = service.update(dto);
-          
-          if(cnt==1) {
-                  model.addAttribute("id", dto.getId());
-                  return "redirect:./";
-          }else {
-                  return "error";
-          }
+    int cnt = service.update(dto);
+
+    if (cnt == 1) {
+      model.addAttribute("id", dto.getId());
+      return "redirect:./";
+    } else {
+      return "error";
+    }
   }
-  
+
   @GetMapping("/member/update")
   public String update(String id, HttpSession session, Model model) {
-          
-          if(id==null) {
-                  id = (String)session.getAttribute("id");
-          }
-          
-          MemberDTO dto = service.read(id);
-          
-          model.addAttribute("dto",dto);
-          
-          return "/member/update";
-          
-          
+
+    if (id == null) {
+      id = (String) session.getAttribute("id");
+    }
+
+    MemberDTO dto = service.read(id);
+
+    model.addAttribute("dto", dto);
+
+    return "/member/update";
+
   }
-  
+
   @RequestMapping("/admin/member/list")
   public String list(HttpServletRequest request) {
-          // 검색관련------------------------
-          String col = Utility.checkNull(request.getParameter("col"));
-          String word = Utility.checkNull(request.getParameter("word"));
+    // 검색관련------------------------
+    String col = Utility.checkNull(request.getParameter("col"));
+    String word = Utility.checkNull(request.getParameter("word"));
 
-          if (col.equals("total")) {
-                  word = "";
-          }
+    if (col.equals("total")) {
+      word = "";
+    }
 
-          // 페이지관련-----------------------
-          int nowPage = 1;// 현재 보고있는 페이지
-          if (request.getParameter("nowPage") != null) {
-                  nowPage = Integer.parseInt(request.getParameter("nowPage"));
-          }
-          int recordPerPage = 3;// 한페이지당 보여줄 레코드갯수
+    // 페이지관련-----------------------
+    int nowPage = 1;// 현재 보고있는 페이지
+    if (request.getParameter("nowPage") != null) {
+      nowPage = Integer.parseInt(request.getParameter("nowPage"));
+    }
+    int recordPerPage = 3;// 한페이지당 보여줄 레코드갯수
 
-      
-      // DB에서 가져올 순번(mysql)-----------------
-          int sno = (nowPage - 1) * recordPerPage;
-          int eno = recordPerPage;
+    // DB에서 가져올 순번(mysql)-----------------
+    int sno = (nowPage - 1) * recordPerPage;
+    int eno = recordPerPage;
 
-          Map map = new HashMap();
-          map.put("col", col);
-          map.put("word", word);
-          map.put("sno", sno);
-          map.put("eno", eno);
+    Map map = new HashMap();
+    map.put("col", col);
+    map.put("word", word);
+    map.put("sno", sno);
+    map.put("eno", eno);
 
-          int total = service.total(map);
+    int total = service.total(map);
 
-          List<MemberDTO> list = service.list(map);
+    List<MemberDTO> list = service.list(map);
 
-          String paging = Utility.paging(total, nowPage, recordPerPage, col, word);
+    String paging = Utility.paging(total, nowPage, recordPerPage, col, word);
 
-          // request에 Model사용 결과 담는다
-          request.setAttribute("list", list);
-          request.setAttribute("nowPage", nowPage);
-          request.setAttribute("col", col);
-          request.setAttribute("word", word);
-          request.setAttribute("paging", paging);
-          
-          return "/member/list";
+    // request에 Model사용 결과 담는다
+    request.setAttribute("list", list);
+    request.setAttribute("nowPage", nowPage);
+    request.setAttribute("col", col);
+    request.setAttribute("word", word);
+    request.setAttribute("paging", paging);
+
+    return "/member/list";
 
   }
+
+  @GetMapping("/member/mypage")
+  public String mypage(HttpSession session, Model model) {
+     String id = (String)session.getAttribute("id");
+   
+    if(id==null) {
+         return "redirect:/member/login/";
+    }else {
+    
+         MemberDTO dto = service.mypage(id);
+        
+         model.addAttribute("dto", dto);
+        
+     return "/member/mypage";
+    }
   
-  
+  } 
 }
