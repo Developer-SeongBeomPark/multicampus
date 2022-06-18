@@ -13,7 +13,7 @@ function getPage(param) {
 console.log(url);
         return fetch(url,{method : 'get'})
               .then(response => response.text())
-              .catch(console.log)
+              .catch(console.log);
  
 }
 

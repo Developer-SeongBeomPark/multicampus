@@ -17,7 +17,7 @@ $(function () {//페이지가 로딩될때
          str += "<small class='pull-right text-muted'>" + list[i].regdate + "</small></div>";
          str += replaceAll(list[i].content, '\n', '<br>') + "</div></li>";
        }
-  
+       
        replyUL.html(str);
      });
   
