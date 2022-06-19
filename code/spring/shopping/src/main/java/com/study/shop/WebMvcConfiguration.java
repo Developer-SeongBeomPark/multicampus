@@ -19,10 +19,10 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     // + UploadCon.getUploadDir());
     // registry.addResourceHandler("/attachfile/storage/**").addResourceLocations("file:///"
     // + Attachfile.getUploadDir());
-    registry.addResourceHandler("/member/storage/**")// 사용경로
+    registry.addResourceHandler("/member/**")// 사용경로
     .addResourceLocations("file:///" + UploadMem.getUploadDir()); // 실제 경로
   
-    registry.addResourceHandler("/contents/storage/**")
+    registry.addResourceHandler("/contents/**")
     .addResourceLocations("file:///" + UploadCon.getUploadDir());
   }
 

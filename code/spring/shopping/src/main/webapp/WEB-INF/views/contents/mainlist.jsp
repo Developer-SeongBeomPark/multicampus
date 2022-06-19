@@ -15,7 +15,7 @@
 <c:when test="${empty list}">
    <div class="row">
    <h2>상품 준비중 입니다.</h2> 
-   <p><img src="/contents/storage/default.jpg" class="img-thumbnail"  width="236" height="306"></p>
+   <p><img src="/contents/default.jpg" class="img-thumbnail"  width="236" height="306"></p>
    
    </div>
 </c:when>
@@ -34,7 +34,7 @@
       </c:choose>
       <p>
       <a href="/contents/detail/${dto.contentsno }">
-       <img src="/contents/storage/${dto.filename }" class="img-thumbnail"  width="236" height="306"></a></p>
+       <img src="/contents/${dto.filename }" class="img-thumbnail"  width="236" height="306"></a></p>
         <p> ${dto.pname }<br> <b>가격 :  ${dto.price }</b> </p>
         <div> 
          <a href="/contents/detail/${dto.contentsno }"><img class='btn'src="/svg/cart4.svg"/></a>
@@ -57,7 +57,7 @@
       </c:choose>
       <p>
        <a href="/contents/detail/${dto.contentsno }">
-        <img src="/contents/storage/${dto.filename }" class="img-thumbnail"  width="236" height="306"></a></p>
+        <img src="/contents/${dto.filename }" class="img-thumbnail"  width="236" height="306"></a></p>
         <p> ${dto.pname }<br> <b>가격 : ${dto.price }</b> </p>
         <div> 
          <a href="/contents/detail/${dto.contentsno }"><img class='btn'src="/svg/cart4.svg"/></a>

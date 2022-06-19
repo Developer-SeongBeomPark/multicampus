@@ -30,7 +30,18 @@
         <function-signature>    
 			boolean compareDay(java.lang.String)
         </function-signature> 
-    </function> 
+    </function>
+    
+    <function>  
+        <description>직업 코드</description> 
+        <name>jobname</name>  
+        <function-class>                   
+            com.study.utility.Utility 
+        </function-class> 
+        <function-signature>    
+			String getCodeValue(java.lang.String)
+        </function-signature> 
+    </function>
     
     
      

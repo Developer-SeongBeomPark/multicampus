@@ -37,7 +37,7 @@
 				<h4>
 					<img src="/svg/box2-heart.svg"> 상품 정보
 				</h4>
-				<img class="img-rounded" src="/contents/storage/${dto.filename}"
+				<img class="img-rounded" src="/contents/${dto.filename}"
 					style="width: 250px">
 				<div class="caption">
 					<p>상품명:${dto.pname}</p>

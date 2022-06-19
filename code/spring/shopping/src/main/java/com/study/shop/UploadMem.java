@@ -9,12 +9,12 @@ public class UploadMem {
     public static synchronized String getUploadDir() {
         String path = "";
         if (File.separator.equals("\\")) {
-            path = "C:\\deploy\\member\\storage";
+            path = "C:\\deploy\\member\\";
             System.out.println("Windows 10: " + path);
             
         } else {
             // System.out.println("Linux");
-            path = "/home/ubuntu/deploy/bbs/storage/";
+            path = "/home/ubuntu/deploy/bbs/";
         }
         
         return path;

@@ -9,7 +9,7 @@ public class UploadCon {
     public static synchronized String getUploadDir() {
         String path = "";
         if (File.separator.equals("\\")) {
-            path = "C:\\deploy\\contents\\storage";
+            path = "C:\\deploy\\contents\\";
             System.out.println("Windows 10: " + path);
             
         } else {
