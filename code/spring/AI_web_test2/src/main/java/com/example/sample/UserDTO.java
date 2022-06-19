@@ -1,5 +1,6 @@
 package com.example.sample;
 
+
 public class UserDTO {
    
   private String id;
@@ -7,6 +8,8 @@ public class UserDTO {
   private String name;
   
   
+  public UserDTO() {
+  }
   
   @Override
   public String toString() {
@@ -18,9 +21,7 @@ public class UserDTO {
     this.passwd = passwd;
     this.name = name;
   }
-  public UserDTO() {
-    super();
-  }
+  
   public String getId() {
     return id;
   }
