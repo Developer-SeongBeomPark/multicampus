@@ -5,7 +5,7 @@ public class ReplyDTO {
   private String content;
   private String regdate;
   private String id;
-  private int contentsno;
+  private int bbsno;
  
   public int getRnum() {
     return rnum;
@@ -39,11 +39,11 @@ public class ReplyDTO {
     this.id = id;
   }
  
-  public int getContentsno() {
-    return contentsno;
+  public int getBbsno() {
+    return bbsno;
   }
  
-  public void setContentsno(int contentsno) {
-    this.contentsno = contentsno;
+  public void setBbsno(int bbsno) {
+    this.bbsno = bbsno;
   }
 }

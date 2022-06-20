@@ -30,7 +30,7 @@ public class ReplyController {
   @Qualifier("com.study.model.ReplyServiceImpl")
   private ReplyService service;
   
-  @GetMapping("/bbs/reply/list/{contentsno}/{sno}/{eno}")
+  @GetMapping("/shopping/reply/list/{contentsno}/{sno}/{eno}")
   public ResponseEntity<List<ReplyDTO>> getList(
       // ResponseEntity = ResponseBody + 성공여부.
       @PathVariable("contentsno") int contentsno, 
@@ -45,7 +45,7 @@ public class ReplyController {
     return new ResponseEntity<List<ReplyDTO>>(service.list(map), HttpStatus.OK);
   }
   
-  @GetMapping("/bbs/reply/page")
+  @GetMapping("/shopping/reply/page")
   public ResponseEntity<String> getPage(
      int nPage, int nowPage, int contentsno, String col, String word) {
  
