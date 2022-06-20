@@ -15,12 +15,12 @@
         method="post"
         enctype="multipart/form-data"
         >   
-    <input type="hidden" name="oldfile" value="${param.oldfile}">    
+    <input type="hidden" name="oldfile" value="${dto.fname}">    
         
     <div class="form-group">
       <label class="control-label col-sm-2" for="oldfile">원본파일</label>
       <div class="col-sm-6">
-        <img src="/member/storage/${param.oldfile }" 
+        <img src="/member/${dto.fname }" 
         class="img-rounded" width="200px" height="200px">
       </div>
     </div>

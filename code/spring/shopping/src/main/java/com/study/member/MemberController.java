@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -188,8 +190,18 @@ public class MemberController {
   }
 
   @GetMapping("/member/updateFile")
-  public String updateFileForm() {
-
+  public String updateFileForm(HttpSession session, Model model) {
+    String id = (String)session.getAttribute("id");
+    
+    if(id == null) {
+      return "redirect:/member/login";
+    }
+    else {
+      MemberDTO dto = service.mypage(id);
+      
+      model.addAttribute("dto", dto);
+    }
+    
     return "/member/updateFile";
   }
 
@@ -197,7 +209,8 @@ public class MemberController {
   public String updateFile(MultipartFile fnameMF, String oldfile, HttpSession session, HttpServletRequest request)
       throws IOException {
     String basePath = UploadMem.getUploadDir();
-
+    oldfile = request.getParameter("oldfile");
+    
     if (oldfile != null && !oldfile.equals("member.jpg")) { // 원본파일 삭제
       Utility.deleteFile(basePath, oldfile);
     }
@@ -211,7 +224,7 @@ public class MemberController {
     int cnt = service.updateFile(map);
 
     if (cnt == 1) {
-      return "redirect:./";
+      return "redirect:/";
     } else {
       return "./error";
     }
@@ -223,7 +236,7 @@ public class MemberController {
 
     if (cnt == 1) {
       model.addAttribute("id", dto.getId());
-      return "redirect:./";
+      return "redirect:/";
     } else {
       return "error";
     }
@@ -290,28 +303,62 @@ public class MemberController {
 
   @GetMapping("/member/mypage")
   public String mypage(HttpSession session, Model model) {
-     String id = (String)session.getAttribute("id");
-   
-    if(id==null) {
-         return "redirect:/member/login/";
-    }else {
-    
-         MemberDTO dto = service.mypage(id);
-        
-         model.addAttribute("dto", dto);
-        
-     return "/member/mypage";
+    String id = (String) session.getAttribute("id");
+
+    if (id == null) {
+      return "redirect:/member/login/";
+    } else {
+
+      MemberDTO dto = service.mypage(id);
+
+      model.addAttribute("dto", dto);
+
+      return "/member/mypage";
     }
-  
+
   }
-  
+
   @GetMapping("/admin/member/read?id={id}")
   public String member_detail(@PathVariable String id, Model model) {
-    
+
     MemberDTO dto = service.read(id);
-    
+
     model.addAttribute("dto", dto);
-    
+
     return "/member/read";
+  }
+
+  @GetMapping("/member/findId")
+  public String findId() {
+    return "/member/findId";
+  }
+
+  @GetMapping("/member/findPw")
+  public String findPw() {
+    return "/member/findPw";
+  }
+
+  @GetMapping("/findId/{mname}/{email}")
+  public ResponseEntity<MemberDTO> getId(@PathVariable("mname") String mname, @PathVariable("email") String email) {
+
+    int cnt = service.duplicatedEmail(email);
+    if (cnt == 1) {
+      return new ResponseEntity<MemberDTO>(service.readbyemail(email), HttpStatus.OK);
+    } else {
+      return null;
+    }
+
+  }
+  
+  @GetMapping("/findPw/{id}/{mname}")
+  public ResponseEntity<MemberDTO> getPw(@PathVariable("id") String id, @PathVariable("mname") String mname) {
+    int cnt = service.duplicatedId(id);
+    if(cnt == 1) {
+      return new ResponseEntity<MemberDTO>(service.read(id), HttpStatus.OK);
+    }
+    else {
+      return null;
+    }
+    
   }
 }

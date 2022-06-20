@@ -25,4 +25,8 @@ public interface MemberService {
         int updateFile(Map map);
  
         MemberDTO mypage(String id);
+
+        int isExit(String email);
+
+        MemberDTO readbyemail(String email);
 }

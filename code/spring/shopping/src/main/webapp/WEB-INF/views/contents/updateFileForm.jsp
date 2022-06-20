@@ -21,7 +21,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="oldfile">원본파일</label>
       <div class="col-sm-6">
-        <img src="/contents/storage/${oldfile }" 
+        <img src="/contents/${oldfile }" 
         class="img-rounded" width="200px" height="200px">
       </div>
     </div>

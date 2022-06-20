@@ -22,5 +22,7 @@ List<Map> getCategory();
 List<ContentsDTO> mainlist(Map map);
 
 ContentsDTO detail(int contentsno);
+
+int delete(int contentsno);
  
 }

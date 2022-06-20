@@ -126,7 +126,7 @@ end
 							test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
 							<li><a href="${root}/admin/contents/create"><span
 									class="glyphicon glyphicon-plus-sign"></span> 상품등록</a></li>
-							<li><a href="${root}/contents/list"><span
+							<li><a href="${root}/admin/contents/list"><span
 									class="glyphicon glyphicon-list"></span> 상품목록</a></li>
 							<li><a href="${root}/admin/member/list"><span
 									class="glyphicon glyphicon-list"></span> 회원목록</a></li>

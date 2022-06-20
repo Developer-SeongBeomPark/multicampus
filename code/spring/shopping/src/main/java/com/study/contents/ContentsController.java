@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,11 +31,40 @@ public class ContentsController {
   @Autowired
   @Qualifier("com.study.contents.ContentsServiceImpl")
   private ContentsService service;
-
+  
+  
+  @GetMapping("/admin/contents/delete/{contentsno}")
+  public String delete(@PathVariable("contentsno") int contentsno) {
+    
+    int cnt = service.delete(contentsno);
+    
+    if(cnt == 1) {
+      return "redirect:/admin/contents/list";
+    }
+    else {
+      return "error";
+    }
+    
+  }
+  
+  
+  
+  
+  @GetMapping("/admin/contents/read/{contentsno}")
+  public String read(@PathVariable("contentsno") int contentsno, Model model) {
+   
+    ContentsDTO dto = service.read(contentsno);
+    model.addAttribute("dto", dto);
+    
+    return "/contents/read";
+  }
+  
+  
+  
   @PostMapping("/contents/updateFile")
   public String updateFile(MultipartFile filenameMF, String oldfile, int contentsno) throws IOException {
     String basePath = UploadCon.getUploadDir();
-
+    
     if (oldfile != null && !oldfile.equals("default.jpg")) { // 원본파일 삭제
       Utility.deleteFile(basePath, oldfile);
     }
@@ -48,13 +78,13 @@ public class ContentsController {
     int cnt = service.updateFile(map);
 
     if (cnt == 1) {
-      return "redirect:./list";
+      return "redirect:/admin/contents/list";
     } else {
       return "./error";
     }
   }
 
-  @GetMapping("/contents/updateFile/{contentsno}/{oldfile}")
+  @GetMapping("/admin/contents/updateFile/{contentsno}/{oldfile}")
   public String updateFileForm(@PathVariable("contentsno") int contentsno, @PathVariable("oldfile") String oldfile,
       Model model) {
     model.addAttribute("contentsno", contentsno);
@@ -63,8 +93,14 @@ public class ContentsController {
     return "/contents/updateFile";
   }
 
-  @RequestMapping("/contents/list")
-  public String list(HttpServletRequest request) {
+  @RequestMapping("/admin/contents/list")
+  public String list(HttpServletRequest request, HttpSession session) {
+//    String id = (String)session.getAttribute("id");
+//    
+//    if (id == null || id.equals("H")) {
+//      return "redirect:/member/login";
+//    }
+    
     // 검색관련------------------------
     String col = Utility.checkNull(request.getParameter("col"));
     String word = Utility.checkNull(request.getParameter("word"));
@@ -107,11 +143,11 @@ public class ContentsController {
     request.setAttribute("word", word);
     request.setAttribute("paging", paging);
 
-    return "/contents/list";
+    return "/admin/contents/list";
 
   }
 
-  @PostMapping("/contents/update")
+  @PostMapping("/admin/contents/update")
   public String update(ContentsDTO dto) {
     int cnt = service.update(dto);
 
@@ -122,14 +158,14 @@ public class ContentsController {
     }
   }
 
-  @GetMapping("/contents/update/{contentsno}")
+  @GetMapping("/admin/contents/update/{contentsno}")
   public String update(@PathVariable("contentsno") int contentsno, Model model) {
 
     ContentsDTO dto = service.read(contentsno);
 
     model.addAttribute("dto", dto);
 
-    return "/contents/update";
+    return "/admin/contents/update";
 
   }
 
@@ -147,7 +183,7 @@ public class ContentsController {
     }
 
     if (service.create(dto) > 0) {
-      return "redirect:./list";
+      return "redirect:/admin/contents/list";
     } else {
       return "error";
     }
@@ -183,9 +219,6 @@ public class ContentsController {
     }
     int recordPerPage = 8;// 한페이지당 보여줄 레코드갯수
 
-    // (Oracle) DB에서 가져올 순번-----------------
-    // int sno = ((nowPage - 1) * recordPerPage) + 1;
-    // int eno = nowPage * recordPerPage;
 
     // (MySQL) DB에서 가져올 순번-----------------
     int sno = (nowPage - 1) * recordPerPage;

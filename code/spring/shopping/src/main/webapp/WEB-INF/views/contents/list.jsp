@@ -11,11 +11,8 @@
   <meta charset="utf-8">
    <script type="text/javascript">
      function read(contentsno){
-       var url = "read";
-       url += "?contentsno="+contentsno;
-       url += "&col=${col}";
-       url += "&word=${word}";
-       url += "&nowPage=${nowPage}";
+       var url = "read/";
+       url += contentsno;
        location.href=url;
  
      }

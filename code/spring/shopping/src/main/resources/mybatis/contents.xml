@@ -5,7 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.study.contents.ContentsMapper">
-
+	
+	<delete id="delete" parameterType="int">
+		delete from contents
+		where contentsno = #{contentsno}
+	</delete>
 	
 
 	<select id="detail" parameterType="int"
