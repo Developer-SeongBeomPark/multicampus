@@ -111,8 +111,8 @@
 
 				<div class="panel-heading">
 					<i class="fa fa-comments fa-fw"></i> 댓글
-					<button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New
-						Reply</button>
+					<button id='addReviewBtn' class='btn btn-primary btn-xs pull-right'>New
+						Review</button>
 				</div>
 
 
@@ -151,12 +151,12 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+					<h4 class="modal-title" id="myModalLabel">Review MODAL</h4>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
 						<label>내용</label>
-						<textarea cols="10" rows="3" class="form-control" name='content'>New Reply!!!!</textarea>
+						<textarea cols="10" rows="3" class="form-control" name='content'>New Review!!!!</textarea>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -184,6 +184,8 @@
 	  let nowPage = "${param.nowPage}";
 	  let colx = "${param.col}";
 	  let wordx = "${param.word}";
+	 <!-- 댓글 작성시 로그인 확인 -->
+	  let id = "${id}"; 
 	 </script>
 	<!-- 댓글처리 관련 Javascript 파일 추가-->
 	<script src="/js/producer.js"></script>

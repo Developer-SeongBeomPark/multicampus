@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.study.review.ReviewService;
 import com.study.shop.UploadCon;
 import com.study.utility.Utility;
 
@@ -31,6 +32,10 @@ public class ContentsController {
   @Autowired
   @Qualifier("com.study.contents.ContentsServiceImpl")
   private ContentsService service;
+  
+  @Autowired
+  @Qualifier("com.study.model.ReviewServiceImpl")
+  private ReviewService rservice;
   
   
   @GetMapping("/admin/contents/delete/{contentsno}")
@@ -94,7 +99,7 @@ public class ContentsController {
   }
 
   @RequestMapping("/admin/contents/list")
-  public String list(HttpServletRequest request, HttpSession session) {
+  public String list(HttpServletRequest request) {
 //    String id = (String)session.getAttribute("id");
 //    
 //    if (id == null || id.equals("H")) {
@@ -142,6 +147,7 @@ public class ContentsController {
     request.setAttribute("col", col);
     request.setAttribute("word", word);
     request.setAttribute("paging", paging);
+    request.setAttribute("rservice", rservice);
 
     return "/admin/contents/list";
 
@@ -255,10 +261,35 @@ public class ContentsController {
   
   
   @GetMapping("/contents/detail/{contentsno}")
-  public String detail(@PathVariable("contentsno") int contentsno, Model model) {
+  public String detail(@PathVariable("contentsno") int contentsno, HttpServletRequest request ,Model model, HttpSession session) {
       
      model.addAttribute("dto",service.detail(contentsno));
-    
+     String nowPage = request.getParameter("nowPage");
+     String id = (String)session.getAttribute("id");
+     
+     
+     /* 댓글 관련 시작 */
+     int nPage = 1;
+     if (request.getParameter("nPage") != null) {
+       nPage = Integer.parseInt(request.getParameter("nPage"));
+     }
+     int recordPerPage = 3;
+
+     // mysql
+     int sno = (nPage - 1) * recordPerPage;
+     int eno = recordPerPage;
+
+     Map map = new HashMap();
+     map.put("sno", sno);
+     map.put("eno", eno);
+     map.put("nPage", nPage);
+
+     model.addAllAttributes(map);
+     request.setAttribute("nowPage", nowPage);
+     model.addAttribute("id", id);
+
+     /* 댓글 처리 끝 */
+     
       return "/contents/detail";
   }
 

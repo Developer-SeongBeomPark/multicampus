@@ -1,4 +1,4 @@
-package com.study.reply;
+package com.study.review;
 
 import java.util.List;
 import java.util.Map;
@@ -6,34 +6,34 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("com.study.model.ReplyServiceImpl")
-public class ReplyServiceImpl implements ReplyService {
+@Service("com.study.model.ReviewServiceImpl")
+public class ReviewServiceImpl implements ReviewService {
 
   @Autowired
-  private ReplyMapper mapper;
+  private ReviewMapper mapper;
   
   @Override
-  public int create(ReplyDTO replyDTO) {
+  public int create(ReviewDTO reviewDTO) {
     // TODO Auto-generated method stub
-    return mapper.create(replyDTO);
+    return mapper.create(reviewDTO);
   }
 
   @Override
-  public List<ReplyDTO> list(Map map) {
+  public List<ReviewDTO> list(Map map) {
     // TODO Auto-generated method stub
     return mapper.list(map);
   }
 
   @Override
-  public ReplyDTO read(int rnum) {
+  public ReviewDTO read(int rnum) {
     // TODO Auto-generated method stub
     return mapper.read(rnum);
   }
 
   @Override
-  public int update(ReplyDTO replyDTO) {
+  public int update(ReviewDTO reviewDTO) {
     // TODO Auto-generated method stub
-    return mapper.update(replyDTO);
+    return mapper.update(reviewDTO);
   }
 
   @Override
@@ -43,9 +43,9 @@ public class ReplyServiceImpl implements ReplyService {
   }
 
   @Override
-  public int total(int bbsno) {
+  public int total(int contentsno) {
     // TODO Auto-generated method stub
-    return mapper.total(bbsno);
+    return mapper.total(contentsno);
   }
 
 }

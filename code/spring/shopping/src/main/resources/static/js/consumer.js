@@ -3,8 +3,8 @@ $(function () {//페이지가 로딩될때
     showPage();
  });//page loading function end  
   
- let replyUL = $(".chat");
- let replyPageFooter = $(".panel-footer");
+ let reviewUL = $(".chat");
+ let reviewPageFooter = $(".panel-footer");
   
  function showList() {
      getList({ contentsno: contentsno, sno: sno, eno: eno })
@@ -18,7 +18,7 @@ $(function () {//페이지가 로딩될때
          str += replaceAll(list[i].content, '\n', '<br>') + "</div></li>";
        }
        
-       replyUL.html(str);
+       reviewUL.html(str);
      });
   
  }//showList() end
@@ -40,7 +40,7 @@ $(function () {//페이지가 로딩될때
        console.log(paging);
        let str = "<div><small class='text-muted'>" + paging + "</small></div>";
   
-       replyPageFooter.html(str);
+       reviewPageFooter.html(str);
  });
  }
 
@@ -58,7 +58,13 @@ $("#modalCloseBtn").on("click", function (e) {
    modal.modal('hide');
 });
   
-$("#addReplyBtn").on("click", function (e) {
+$("#addReviewBtn").on("click", function (e) {
+  if(id == ""){
+    alert("로그인 해주세요.");
+    location.href = "/member/login";
+    return;
+  }
+
   modalInputContent.val("");
   modal.find("button[id !='modalCloseBtn']").hide();
  
@@ -75,12 +81,12 @@ modalRegisterBtn.on("click", function (e) {
     return;
   }
  
-  let reply = {
+  let review = {
     content: modalInputContent.val(),
-    id: 'user1',
+    id: id,
     contentsno: contentsno
   };
-  add(reply)
+  add(review)
     .then(result => {
       modal.find("input").val("");
       modal.modal("hide");
@@ -98,10 +104,12 @@ $(".chat").on("click", "li", function (e) {
   let rnum = $(this).data("rnum");
  
    get(rnum)
-    .then(reply => {
- 
-      modalInputContent.val(reply.content);
-      modal.data("rnum", reply.rnum);
+    .then(review => {
+      if(review.id != id){
+        return;
+      }
+      modalInputContent.val(review.content);
+      modal.data("rnum", review.rnum);
  
       modal.find("button[id !='modalCloseBtn']").hide();
  
@@ -118,8 +126,8 @@ $(".chat").on("click", "li", function (e) {
 //댓글 수정
 modalModBtn.on("click", function (e) {
  
-  let reply = { rnum: modal.data("rnum"), content: modalInputContent.val() };
-  update(reply)
+  let review = { rnum: modal.data("rnum"), content: modalInputContent.val() };
+  update(review)
     .then(result => {
       modal.modal("hide");
       showList();

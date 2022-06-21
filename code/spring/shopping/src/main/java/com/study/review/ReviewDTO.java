@@ -1,6 +1,6 @@
-package com.study.reply;
+package com.study.review;
  
-public class ReplyDTO {
+public class ReviewDTO {
   private int rnum;
   private String content;
   private String regdate;

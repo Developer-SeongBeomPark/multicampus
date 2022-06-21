@@ -6,5 +6,13 @@
    regdate date not null,
    id varchar(10) not null,
    contentsno int(7) not null,
-   foreign key (`contentsno`) references contents(`contentsno`)
+   foreign key (contentsno) references contents(contentsno)
 );
+
+use webtest;
+
+select * from review;
+drop table review;
+
+insert into review(content, regdate, id, contentsno)
+values('의견입니다2.',sysdate(),'user1',13);

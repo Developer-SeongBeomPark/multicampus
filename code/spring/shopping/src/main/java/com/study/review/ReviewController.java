@@ -1,4 +1,4 @@
-package com.study.reply;
+package com.study.review;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.study.reply.ReplyDTO;
-import com.study.reply.ReplyService;
+import com.study.review.ReviewDTO;
+import com.study.review.ReviewService;
 import com.study.utility.Utility;
 
 @RestController
-public class ReplyController {
-  private static final Logger log = LoggerFactory.getLogger(ReplyController.class);
+public class ReviewController {
+  private static final Logger log = LoggerFactory.getLogger(ReviewController.class);
 
   @Autowired
-  @Qualifier("com.study.model.ReplyServiceImpl")
-  private ReplyService service;
+  @Qualifier("com.study.model.ReviewServiceImpl")
+  private ReviewService service;
   
-  @GetMapping("/shopping/reply/list/{contentsno}/{sno}/{eno}")
-  public ResponseEntity<List<ReplyDTO>> getList(
+  @GetMapping("/shopping/review/list/{contentsno}/{sno}/{eno}")
+  public ResponseEntity<List<ReviewDTO>> getList(
       // ResponseEntity = ResponseBody + 성공여부.
       @PathVariable("contentsno") int contentsno, 
       @PathVariable("sno") int sno,
@@ -42,15 +42,15 @@ public class ReplyController {
     map.put("eno", eno);
     map.put("contentsno", contentsno);
  
-    return new ResponseEntity<List<ReplyDTO>>(service.list(map), HttpStatus.OK);
+    return new ResponseEntity<List<ReviewDTO>>(service.list(map), HttpStatus.OK);
   }
   
-  @GetMapping("/shopping/reply/page")
+  @GetMapping("/shopping/review/page")
   public ResponseEntity<String> getPage(
      int nPage, int nowPage, int contentsno, String col, String word) {
  
     int total = service.total(contentsno);
-    String url = "/bbs/read/" + contentsno;
+    String url = "/contents/detail/" + contentsno;
  
     int recordPerPage = 3; // 한페이지당 출력할 레코드 갯수
  
@@ -60,33 +60,33 @@ public class ReplyController {
  
   }
   
-  @PostMapping("/bbs/reply/create")
-  public ResponseEntity<String> create(@RequestBody ReplyDTO vo) {
+  @PostMapping("/shopping/review/create")
+  public ResponseEntity<String> create(@RequestBody ReviewDTO vo) {
  
-    log.info("ReplyDTO1: " + vo.getContent());
-    log.info("ReplyDTO1: " + vo.getId());
-    log.info("ReplyDTO1: " + vo.getContentsno());
+    log.info("reviewDTO1: " + vo.getContent());
+    log.info("reviewDTO1: " + vo.getId());
+    log.info("reviewDTO1: " + vo.getContentsno());
  
     vo.setContent(vo.getContent().replaceAll("/n/r", "<br>"));
  
     int flag = service.create(vo);
  
-    log.info("Reply INSERT flag: " + flag);
+    log.info("review INSERT flag: " + flag);
  
     return flag == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
         : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
   }
  
-  @GetMapping("/reply/{rnum}")
-  public ResponseEntity<ReplyDTO> get(@PathVariable("rnum") int rnum) {
+  @GetMapping("/review/{rnum}")
+  public ResponseEntity<ReviewDTO> get(@PathVariable("rnum") int rnum) {
  
     log.info("get: " + rnum);
  
     return new ResponseEntity<>(service.read(rnum), HttpStatus.OK);
   }
   
-  @PutMapping("/reply/")
-  public ResponseEntity<String> modify(@RequestBody ReplyDTO vo) {
+  @PutMapping("/review/")
+  public ResponseEntity<String> modify(@RequestBody ReviewDTO vo) {
  
     log.info("modify: " + vo);
  
@@ -95,7 +95,7 @@ public class ReplyController {
  
   }
  
-  @DeleteMapping("/reply/{rnum}")
+  @DeleteMapping("/review/{rnum}")
   public ResponseEntity<String> remove(@PathVariable("rnum") int rnum) {
  
     log.info("remove: " + rnum);

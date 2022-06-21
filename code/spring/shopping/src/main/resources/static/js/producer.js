@@ -1,15 +1,15 @@
-console.log("*****Reply Module........");
+console.log("*****review Module........");
 function getList(param) {
      let contentsno = param.contentsno;
          let sno = param.sno;
          let eno = param.eno;
-        return fetch(`/shopping/reply/list/${contentsno}/${sno}/${eno}`,{method:'get'}) 
+        return fetch(`/shopping/review/list/${contentsno}/${sno}/${eno}`,{method:'get'}) 
               .then(response => response.json())
               .catch(console.log)
 }
  
 function getPage(param) {
-    let url = `/shopping/reply/page?${param}`;
+    let url = `/shopping/review/page?${param}`;
 console.log(url);
         return fetch(url,{method : 'get'})
               .then(response => response.text())
@@ -17,10 +17,10 @@ console.log(url);
  
 }
 
-function add(reply) {
-    return fetch('/shopping/reply/create',{
+function add(review) {
+    return fetch('/shopping/review/create',{
             method: 'post',
-            body: JSON.stringify(reply),
+            body: JSON.stringify(review),
             headers: {'Content-Type': "application/json; charset=utf-8"}
             })
             .then(response => response.json())
@@ -28,15 +28,15 @@ function add(reply) {
 }
 
 function get(rnum) {
-    return fetch(`/reply/${rnum}`,{method: 'get'})
+    return fetch(`/review/${rnum}`,{method: 'get'})
            .then(response => response.json())
            .catch(console.log);
 }
 
-function update(reply) {
-    return fetch(`/reply/`,{
+function update(review) {
+    return fetch(`/review/`,{
             method: 'put',
-            body: JSON.stringify(reply),
+            body: JSON.stringify(review),
             headers: {'Content-Type': "application/json; charset=utf-8"}
             })
            .then(response => response.text())
@@ -44,7 +44,7 @@ function update(reply) {
 }
 
 function remove(rnum) {
-    return fetch(`/reply/${rnum}`,{method: 'delete'})
+    return fetch(`/review/${rnum}`,{method: 'delete'})
            .then(response => response.text())
            .catch(console.log);
 }

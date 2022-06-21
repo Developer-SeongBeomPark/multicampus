@@ -52,6 +52,28 @@ public class BbsController {
     return "/home";
   }
 
+  
+
+  @GetMapping("/bbs/create")
+  public String create() {
+    return "/create";
+  }
+
+  @PostMapping("/bbs/create")
+  public String create(BbsDTO dto) {
+    String upDir = UploadBbs.getUploadDir();
+    if (dto.getFilenameMF().getSize() > 0) {// 사용자가 브라우저에서 서버로 파일을 보냈을 경우.
+      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
+      dto.setFilesize((int) dto.getFilenameMF().getSize());
+    }
+
+    int cnt = dao.create(dto);
+    if (cnt != 1) {
+      return "/error";
+    }
+    return "redirect:list";
+  }
+
   @GetMapping("/bbs/list")
   public String list(HttpServletRequest request) {
     // 검색 관련------------
@@ -92,27 +114,7 @@ public class BbsController {
 
     return "/list";
   }
-
-  @GetMapping("/bbs/create")
-  public String create() {
-    return "/create";
-  }
-
-  @PostMapping("/bbs/create")
-  public String create(BbsDTO dto) {
-    String upDir = UploadBbs.getUploadDir();
-    if (dto.getFilenameMF().getSize() > 0) {// 사용자가 브라우저에서 서버로 파일을 보냈을 경우.
-      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
-      dto.setFilesize((int) dto.getFilenameMF().getSize());
-    }
-
-    int cnt = dao.create(dto);
-    if (cnt != 1) {
-      return "/error";
-    }
-    return "redirect:list";
-  }
-
+  
   @GetMapping("/bbs/read/{bbsno}")
   public String read(@PathVariable int bbsno, Model model, HttpServletRequest request) {
     dao.upViewcnt(bbsno);
@@ -120,8 +122,8 @@ public class BbsController {
 
     /* 댓글 관련 시작 */
     int nPage = 1;
-    if (request.getParameter("nPage") != null) {
-      nPage = Integer.parseInt(request.getParameter("nPage"));
+    if (request.getParameter("nowPage") != null) {
+      nPage = Integer.parseInt(request.getParameter("nowPage"));
     }
     int recordPerPage = 3;
 

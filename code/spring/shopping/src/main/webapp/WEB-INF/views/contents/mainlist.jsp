@@ -1,11 +1,20 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html> 
 <html> 
 <head>
   <title>상품메인페이지</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="/css/style.css">
+  <script>
+  	function detail(contentsno){
+  		let url = "/contents/detail/" + contentsno;
+  		url += "?nowPage=${nowPage}";
+  		location.href = url;
+  	}
+  </script>
 </head>
 <body> 
  
@@ -33,7 +42,8 @@
       </c:when>
       </c:choose>
       <p>
-      <a href="/contents/detail/${dto.contentsno }">
+      <!--<a href="/contents/detail/${dto.contentsno }">-->
+      <a href = "javascript:detail('${dto.contentsno }')">
        <img src="/contents/${dto.filename }" class="img-thumbnail"  width="236" height="306"></a></p>
         <p> ${dto.pname }<br> <b>가격 :  ${dto.price }</b> </p>
         <div> 
@@ -56,7 +66,8 @@
       </c:when>
       </c:choose>
       <p>
-       <a href="/contents/detail/${dto.contentsno }">
+       <!--<a href="/contents/detail/${dto.contentsno }">-->
+       <a href = "javascript:detail('${dto.contentsno }')">
         <img src="/contents/${dto.filename }" class="img-thumbnail"  width="236" height="306"></a></p>
         <p> ${dto.pname }<br> <b>가격 : ${dto.price }</b> </p>
         <div> 

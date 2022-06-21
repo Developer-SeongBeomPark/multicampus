@@ -4,9 +4,9 @@ $(function(){
 		let pw = document.getElementById("pw").value;
 		// alert(id + pw);
 		return fetch(`/login/${id}/${pw}`)
-			   .then(response => response.json())
-			   .then(response =>{
-					alert(response.name + "님 login ok Status Success");
+			   .then(res => res.json())
+			   .then(res =>{
+					alert(res.name + "님 login ok Status Success");
 				})
 			   .catch(console.log);
 			
