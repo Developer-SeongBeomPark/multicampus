@@ -30,7 +30,7 @@ public class NoticeController {
   private MemberService mservice;
 
 
-  @GetMapping("admin/notice/create")
+  @GetMapping("/admin/notice/create")
   public String create(HttpSession session) {
     
     return "/notice/create";

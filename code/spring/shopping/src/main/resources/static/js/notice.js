@@ -1,11 +1,13 @@
 $(function(){
     if(grade != "A"){
-        $("#createbtn").hide();
+        $("#create").hide();
+    }
+    else{
+        $("#create").click(function(){
+            location.href = "/admin/notice/create";
+        });
     }
     
-    $("#createbtn").click(function(){
-        location.href = "/admin/notice/create";
-    });
 });
 
 

@@ -20,6 +20,7 @@
 		location.href = url;
 
 	}
+	
 	let grade = "${grade}";
 </script>
 <script src="/js/notice.js"></script>
@@ -48,7 +49,8 @@
 					name="word" value="${word}">
 			</div>
 			<button type="submit" class="btn btn-default">검색</button>
-			<button id = "createbtn" class="btn btn-default">등록</button>
+			
+			<button type = "button" id="create" class="btn btn-default" >등록</button>
 		</form>
 
 		<table class="table table-striped">
