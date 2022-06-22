@@ -95,7 +95,7 @@ public class NoticeController {
   }
 
   @GetMapping("/notice/read")
-  public String read(int noticeno, Model model) {
+  public String read(int noticeno, Model model, HttpSession session) {
     service.upCnt(noticeno);
 
     NoticeDTO dto = service.read(noticeno);
@@ -105,11 +105,15 @@ public class NoticeController {
     dto.setContent(content);
 
     model.addAttribute("dto", dto);
+    
+    
+    String grade = (String)session.getAttribute("grade");
+    model.addAttribute("grade", grade);
 
     return "/notice/read";
   }
 
-  @GetMapping("/notice/update")
+  @GetMapping("/admin/notice/update")
   public String update(int noticeno, Model model) {
 
     model.addAttribute("dto", service.read(noticeno));
@@ -141,7 +145,7 @@ public class NoticeController {
 
   }
 
-  @GetMapping("/notice/delete")
+  @GetMapping("/admin/notice/delete")
   public String delete() {
 
     return "/notice/delete";

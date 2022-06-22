@@ -10,7 +10,7 @@
 
 	<div class="container">
 		<h1 class="col-sm-offset-2 col-sm-10">게시판 수정</h1>
-		<form class="form-horizontal" action="./update" method="post">
+		<form class="form-horizontal" action="/notice/update" method="post">
 			<input type="hidden" name="noticeno" value="${dto.noticeno}">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="wname">작성자</label>

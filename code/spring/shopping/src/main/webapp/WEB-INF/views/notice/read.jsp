@@ -9,12 +9,12 @@
 
 <script type="text/javascript">
 	function updateM() {
-		var url = "update";
+		var url = "/admin/notice/update";
 		url += "?noticeno=${dto.noticeno}";
 		location.href = url;
 	}
 	function deleteM() {
-		var url = "delete";
+		var url = "/admin/notice/delete";
 		url += "?noticeno=${dto.noticeno}";
 		location.href = url;
 	}
@@ -26,8 +26,9 @@
 		url += "&word=${param.word}";
 		location.href = url;
 	}
+	let grade = "${grade}";
 </script>
-
+<script src = "/js/notice.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -51,9 +52,9 @@
 
 		</div>
 		<div>
-			<button type="button" class="btn" onclick="location.href='./create'">등록</button>
-			<button type="button" class="btn" onclick="updateM()">수정</button>
-			<button type="button" class="btn" onclick="deleteM()">삭제</button>
+			<button type="button" id = "create" class="btn" onclick="location.href='./create'">등록</button>
+			<button type="button" id = "update" class="btn" onclick="updateM()">수정</button>
+			<button type="button" id = "delete" class="btn" onclick="deleteM()">삭제</button>
 			<button type="button" class="btn" onclick="listM()">목록</button>
 		</div>
 	</div>

@@ -1,6 +1,8 @@
 $(function(){
     if(grade != "A"){
         $("#create").hide();
+        $("#update").hide();
+        $("#delete").hide();
     }
     else{
         $("#create").click(function(){
