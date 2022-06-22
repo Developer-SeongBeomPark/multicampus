@@ -86,6 +86,12 @@
 
 ![notice](Semi-Project.assets/notice.png)
 
+<br><br><br>
 
 
 
+### 권한
+
+<br>
+
+![스크린샷(3)](Semi-Project.assets/스크린샷(3).png)
