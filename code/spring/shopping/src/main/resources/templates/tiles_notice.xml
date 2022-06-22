@@ -15,7 +15,7 @@
       value="/WEB-INF/views/notice/createForm.jsp" />
   </definition>
   <definition name="/notice/list" extends="main">
-    <put-attribute name="title" value="목록"/>
+    <put-attribute name="title" value="공지사항"/>
     <put-attribute name="body"
       value="/WEB-INF/views/notice/list.jsp" />
   </definition>
@@ -35,7 +35,7 @@
       value="/WEB-INF/views/notice/deleteForm.jsp" />
   </definition>
   <definition name="/notice/passwdError" extends="main">
-    <put-attribute name="title" value="삭제"/>
+    <put-attribute name="title" value="비밀번호 오류"/>
     <put-attribute name="body"
       value="/WEB-INF/views/notice/passwdError.jsp" />
   </definition>

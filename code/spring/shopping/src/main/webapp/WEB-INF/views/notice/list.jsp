@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지사항</title>
 
 <script type="text/javascript">
 	function read(noticeno) {
