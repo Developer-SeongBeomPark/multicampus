@@ -23,19 +23,15 @@
 
 1. 회원가입
 
-​	
+​	![signup](Semi-Project.assets/signup.png)
 
 
 
 
 
-2. 로그인
+2. 로그인 + 아이디, 비밀번호 찾기
 
-
-
-
-
-3. 아이디, 비밀번호 찾기
+![login](Semi-Project.assets/login-16558756024952.png)
 
 
 
@@ -47,18 +43,13 @@
 
 - 상품
 
-1. 상품등록(관리자)
-2. 상품목록(관리자)
-3. 회원목록(관리자)
-4. 주문목록(관리자)(X)
+![contents](Semi-Project.assets/contents.png)
 
 
 
 - 리뷰
 
-1. 리뷰 생성
-2. 리뷰 조회
-3. 리뷰 수정 및 삭제
+![review](Semi-Project.assets/review.png)
 
 
 
@@ -66,11 +57,13 @@
 
 - 마이페이지
 
+![mypage](Semi-Project.assets/mypage.png)
+
 
 
 - 공지사항
 
-1. 
+![notice](Semi-Project.assets/notice.png)
 
 
 

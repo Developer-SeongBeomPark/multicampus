@@ -79,7 +79,7 @@ public class MemberController {
   }
 
   @PostMapping("/member/create")
-  public String create(MemberDTO dto, HttpServletRequest request) throws IOException {
+  public String create(MemberDTO dto) throws IOException {
     String upDir = UploadMem.getUploadDir();
     String fname = Utility.saveFileSpring(dto.getFnameMF(), upDir);
     int size = (int) dto.getFnameMF().getSize();
