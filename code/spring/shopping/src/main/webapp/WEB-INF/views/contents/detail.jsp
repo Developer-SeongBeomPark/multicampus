@@ -7,6 +7,7 @@
 <head>
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
+<script src = "/js/cart.js"></script>
 <link rel="stylesheet" href="/css/style.css">
 <script type="text/javascript">
 	function cart(){
@@ -16,6 +17,27 @@
 			return;
 		}
 		//카트테이블에 등록하고 등록확인 창 띄우기(비동기)
+		let count = document.getElementById("qty").value;//--> javascript  = $("qty").val(); --> jquery
+		let select = document.querySelector(".form-select");
+		let i = select.selectedIndex;
+		if(i == 0 && !select.disabled){
+			alert("사이즈를 선택하세요.");
+			select.focus();
+			return
+		}
+		else if(select.disabled){
+			select[i].value = 0;
+		}
+		
+		let param = {
+				contentsno : "${dto.contentsno}",
+				count : count,
+				size : select[i].value
+		}
+		
+		addCart(param)
+		.then(result => alert(result))
+		.catch(console.log);
 	}
 	
 	function order(){
@@ -53,9 +75,9 @@
 							<c:when test="${dto.cateno == 1 }">
 								<select class="form-select" aria-label="Default select example">
 									<option selected>사이즈 선택</option>
-									<option value="1">L</option>
-									<option value="2">M</option>
-									<option value="3">S</option>
+									<option value="L">L</option>
+									<option value="M">M</option>
+									<option value="S">S</option>
 								</select>
 							</c:when>
 
@@ -87,7 +109,7 @@
 						</c:choose>
 					<li class="list-group-item">가격 : ${dto.price }
 					<li class="list-group-item">재고 : ${dto.stock }
-					<li class="list-group-item">수량 : <input type="number"
+					<li class="list-group-item">수량 : <input type="number" id = "qty"
 						name="quantity" min=0 max=20 value="1">
 					<li class="list-group-item"><a href="javascript:cart()"> <img
 							class='btn' src="/svg/cart4.svg" />

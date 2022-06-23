@@ -15,7 +15,7 @@
 		
 	}
 	
-	function update() {
+	function update1() {
 		//alert(bbsno);
 		let url = "/bbs/update/${dto.bbsno}";
 		location.href = url;
@@ -52,7 +52,7 @@
 			<div class="panel-body">${dto.title}</div>
 
 			<div class="panel-heading">내용</div>
-			<div class="panel-body" style="height: 200px">${dto.content}</div>
+			<div class="panel-body">${dto.content}</div>
 
 			<div class="panel-heading">조회수</div>
 			<div class="panel-body">${dto.viewcnt}</div>
@@ -69,7 +69,7 @@
 		<div>
 			<button type="button" class="btn"
 				onclick="location.href='/bbs/create'">등록</button>
-			<button type="button" class="btn" onclick="update()">수정</button>
+			<button type="button" class="btn" onclick="update1()">수정</button>
 			<button type="button" class="btn" onclick="del()">삭제</button>
 			<button type="button" class="btn" onclick="reply()">답변</button>
 			<button type="button" class="btn" onclick="list()">목록</button>

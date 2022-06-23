@@ -146,7 +146,7 @@ public class BbsController {
   @GetMapping("/bbs/update/{bbsno}")
   public String update(@PathVariable int bbsno, Model model) {
     model.addAttribute("dto", dao.read(bbsno));
-    return "/update";
+    return "/bbs/update";
   }
 
   @PostMapping("/bbs/update")

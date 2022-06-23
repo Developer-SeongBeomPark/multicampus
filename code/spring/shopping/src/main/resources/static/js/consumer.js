@@ -59,11 +59,13 @@ $("#modalCloseBtn").on("click", function (e) {
 });
   
 $("#addReviewBtn").on("click", function (e) {
-  if(id == ""){
-    alert("로그인 해주세요.");
-    location.href = "/member/login";
-    return;
-  }
+  if(id == null || id == ""){
+		if(confirm("로그인이 필요합니다. ")){
+			let url = "/member/login?rurl=/contents/detail/"+contentsno+"&"+param;
+			location.href=url;
+			return;
+		}
+	}
 
   modalInputContent.val("");
   modal.find("button[id !='modalCloseBtn']").hide();

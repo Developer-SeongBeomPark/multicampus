@@ -25,7 +25,7 @@
     <put-attribute name="body"
       value="/WEB-INF/views/read.jsp" />
   </definition>
-  <definition name="/update" extends="main">
+  <definition name="/bbs/update" extends="main">
     <put-attribute name="title" value="글 수정"/>
     <put-attribute name="body"
       value="/WEB-INF/views/updateForm.jsp" />

@@ -318,8 +318,8 @@ public class MemberController {
 
   }
 
-  @GetMapping("/admin/member/read?id={id}")
-  public String member_detail(@PathVariable String id, Model model) {
+  @GetMapping("/admin/member/read")
+  public String read(@RequestParam String id, Model model) {
 
     MemberDTO dto = service.read(id);
 

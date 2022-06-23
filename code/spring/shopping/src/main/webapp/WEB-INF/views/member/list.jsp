@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <script type="text/javascript">
 	function read(id) {
-		var url = "${root}/admin/member/read";
+		var url = "/admin/member/read";
 		url += "?id=" + id;
 
 		location.href = url;
