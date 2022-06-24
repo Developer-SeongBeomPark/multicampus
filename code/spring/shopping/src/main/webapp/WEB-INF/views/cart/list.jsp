@@ -10,14 +10,28 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
    <script type="text/javascript">
+  
+   	 $(function(){
+   		 if("${empty list}" == "true"){
+   			 $("tfoot").hide();
+   		 }else{
+   			 $("tfoot").show();
+   		 }
+   	 })
+   
+   
      function read(contentsno){
-       var url = "read";
-       url += "?contentsno="+contentsno;
-       url += "&col=${col}";
-       url += "&word=${word}";
-       url += "&nowPage=${nowPage}";
+       var url = "/contents/detail/"+contentsno;
        location.href=url;
  
+     }
+     
+     function del(cartno){
+    	 if(confirm("상품을 삭제하겠습니까?")){
+    		 let url = "/cart/delete/" + cartno;
+    		 location.href = url;
+    	 }
+    	 
      }
      
      function change(check){
@@ -25,15 +39,48 @@
 
         	aa = document.querySelectorAll("#ch");
         	for(let i=0; i<aa.length; i++){
-        		aa[i].setAttribute("checked",'checked');
+        		aa[i].checked=true;
         	}
          }else{
         	aa = document.querySelectorAll("#ch")
         	for(let i=0; i<aa.length; i++){
-        		aa[i].removeAttribute("checked");
+        		aa[i].checked=false;
         	}
          }
-        }
+     }
+     
+     function order(){
+    	 let cno = document.querySelectorAll("#ch");
+    	 let qty= document.querySelectorAll("#qty");
+    	 let size = document.querySelectorAll("#size");
+    	 
+    	 let cnt = 0;//체크값을 검사하는 변수
+    	 
+    	 let param_cno = ""; //상품번호가 여러개 연결된다.
+    	 let param_qty = ""; //수량을 여러개 연결한다.
+    	 let param_size = ""; //사이즈를 여러개 연결한다.
+    	 
+    	 for(let i = 0; i < cno.length; i++){
+    		 if(cno[i].checked == true){
+    			 cnt++;
+    			 param_cno += cno[i].value + ",";
+    			 param_qty += qty[i].value + ",";
+    			 param_size += size[i].innerText + ",";
+    		 }
+    	 }
+    	 
+    	 if(cnt == 0){
+    		 alert("상품을 선택하세요");
+    		 return;
+    	 }else{
+    		 //alert(param_cno);
+    		 //alert(param_qty);
+    		 //alert(param_size);
+    		 
+    		 let url = "/order/create/cart/" + param_cno + "/" + param_qty + "/" + param_size;
+    		 location.href = url;
+    	 }
+     }
   
   </script>
  
@@ -57,26 +104,26 @@
    <tbody>
  
 <c:choose>   
-<c:when test="${false}">
+<c:when test="${empty list}">
    <tr><td colspan="6">등록된 상품이 없습니다.</td>
 </c:when>
 <c:otherwise>
-  
-   <c:forEach var="dto" begin="1" end="3"> 
-   
+   <c:set var = "tot" value = "${0 }"/>
+   <c:forEach var="dto" items = "${list }"> 
+   <c:set var = "tot" value = "${tot + (dto.cdto.price * dto.count) }"></c:set>
    <tr>
-    <td><input type='checkbox' id='ch'></td>
+    <td><input type='checkbox' id='ch' value = "${dto.cdto.contentsno }"></td>
     <td>
-    <img src="/contents/jeans1.jpg"  class="img-rounded" width="100px" height="100px">
+    <img src="/contents/${dto.cdto.filename }"  class="img-rounded" width="100px" height="100px">
     </td>
     <td>
-    <a href="javascript:read('1')">찢어진 청바지(size : M)</a>
+    <a href="javascript:read('${dto.cdto.contentsno }')">${dto.cdto.pname }(size :<span id = "size">${dto.size }</span> )</a>
     
     </td>
-    <td><input type='number' value="1" min="1" max="10"></td>
-    <td>50000</td>
+    <td><input type='number' id = "qty" value="${dto.count}" min="1" max="10"></td>
+    <td>${dto.cdto.price }</td>
     <td> 
-        <a href="./delete/1">
+        <a href="javascript:del('${dto.cartno }')">
           <span class="glyphicon glyphicon-trash"></span>
         </a>     
     </td>
@@ -85,11 +132,12 @@
    </c:otherwise>
    </c:choose>
    </tbody>
+   
    <tfoot>
    <tr style="background-color:beige;font-size:large">
    <th colspan="6" style="padding:30px;">
-    주문금액 150,000원 + 배송비 3,000원 = 153,000
-    <a href="/order/create">
+    주문금액 ${tot }원 + 배송비 3,000원 = ${tot + 3000 }원
+    <a href="javascript:order()">
    	<img src="/svg/bag-heart-fill.svg" title="주문하기" style='width:30px;margin-left:30px'></a>
    	<a href="/contents/mainlist/1">
    	<img src="/svg/box2-heart.svg" title="쇼핑계속" style='width:30px;margin-left:30px'></a>

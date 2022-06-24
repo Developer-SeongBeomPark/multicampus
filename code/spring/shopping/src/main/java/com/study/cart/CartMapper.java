@@ -8,4 +8,6 @@ public interface CartMapper {
 
   List<CartDTO> list(String id);
 
+  int delete(int cartno);
+
 }

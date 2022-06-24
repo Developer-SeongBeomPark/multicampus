@@ -46,7 +46,21 @@
 			location.href = "/member/login";
 			return;
 		}
+		
 		//주문서 작성으로 이동, 주문생성(비동기)
+		let count = document.getElementById("qty").value;//--> javascript  = $("qty").val(); --> jquery
+		let select = document.querySelector(".form-select");
+		let i = select.selectedIndex;
+		if(i == 0 && !select.disabled){
+			alert("사이즈를 선택하세요.");
+			select.focus();
+			return
+		}
+		else if(select.disabled){
+			select[i].value = 0;
+		}
+		let url = "/order/create/order/${dto.contentsno}/" + count + "/" + select[i].value;
+		location.href = url;
 	}
 </script>
 

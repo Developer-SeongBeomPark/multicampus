@@ -117,7 +117,7 @@ end
 </head>
 <body>
 	<!--상단메뉴-->
-	<nav class="navbar navbar-expand-lg bg-light">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
 			<button type="button" class="btn btn-secondary" onclick = "location.href='${root}/'">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -134,25 +134,70 @@ end
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">Home</a></li>
+					<!--
 					<li class="nav-item"><a class="nav-link" href="#">Features</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Pricing</a>
 					</li>
+					-->
+					
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> Dropdown link
+						data-bs-toggle="dropdown" aria-expanded="false"> Product
 					</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><a class="dropdown-item" href="#">Something else
+							<li><a class="dropdown-item" href="/contents/mainlist/1">Jean</a></li>
+							<li><a class="dropdown-item" href="/contents/mainlist/2">Bag</a></li>
+							<li><a class="dropdown-item" href="/contents/mainlist/3">Shoes
 									here</a></li>
+						</ul></li>
+					
+					
+					
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Community
+					</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="${root}/member/mypage">Mypage</a></li>
+							<li><a class="dropdown-item" href="${root}/contents/detail">Review</a></li>
+							<li><a class="dropdown-item" href="/notice/list">Notice</a></li>
+							<li><a class="dropdown-item" href="#">Q&A</a></li>
 						</ul></li>
 				</ul>
 			</div>
+			<div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+          <!-- 
+          <c:when test="${empty sessionScope.id }">
+            <li><a class="dropdown-item" href="#">회원가입</a></li>
+            <li><a class="dropdown-item" href="#">로그인</a></li>
+          </c:when>
+          
+          <c:when test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
+		  	<li><a class="dropdown-item" href="#">상품 등록</a></li>
+            <li><a class="dropdown-item" href="#">상품 목록</a></li>
+            <li><a class="dropdown-item" href="#">회원 목록</a></li>
+            <li><a class="dropdown-item" href="#">주문 목록</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">로그아웃</a></li>					
+		  </c:when>
+		  
+		  <c:otherwise>
+		    <li><a class="dropdown-item" href="#">장바구니</a></li>
+            <li><a class="dropdown-item" href="#">정보 수정</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">로그아웃</a></li>
+		  </c:otherwise>
+		   -->
+		  
+          </ul>
+        </div>
 		</div>
 	</nav>
 </body>

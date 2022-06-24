@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -261,7 +262,7 @@ public class ContentsController {
   
   
   @GetMapping("/contents/detail/{contentsno}")
-  public String detail(@PathVariable("contentsno") int contentsno, HttpServletRequest request ,Model model, HttpSession session) {
+  public String detail(@PathVariable int contentsno, HttpServletRequest request ,Model model, HttpSession session) {
       
      model.addAttribute("dto",service.detail(contentsno));
      String nowPage = request.getParameter("nowPage");

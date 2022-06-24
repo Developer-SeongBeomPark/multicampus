@@ -8,4 +8,6 @@ public interface CartService {
 
   List<CartDTO> list(String id);
 
+  int delete(int cartno);
+
 }

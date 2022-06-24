@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,5 +51,12 @@ public class CartController {
    
    
    return "/cart/list";
+ }
+ 
+ @GetMapping("/cart/delete/{cartno}")
+ public String delete(@PathVariable("cartno") int cartno) {
+   int cnt = service.delete(cartno);
+   
+   return "redirect:/cart/list";
  }
 }
