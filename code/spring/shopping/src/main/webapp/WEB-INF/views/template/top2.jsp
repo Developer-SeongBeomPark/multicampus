@@ -149,8 +149,7 @@ end
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							<li><a class="dropdown-item" href="/contents/mainlist/1">Jean</a></li>
 							<li><a class="dropdown-item" href="/contents/mainlist/2">Bag</a></li>
-							<li><a class="dropdown-item" href="/contents/mainlist/3">Shoes
-									here</a></li>
+							<li><a class="dropdown-item" href="/contents/mainlist/3">Shoes</a></li>
 						</ul></li>
 					
 					
@@ -172,32 +171,33 @@ end
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
-          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-          <!-- 
-          <c:when test="${empty sessionScope.id }">
-            <li><a class="dropdown-item" href="#">회원가입</a></li>
-            <li><a class="dropdown-item" href="#">로그인</a></li>
-          </c:when>
-          
-          <c:when test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
-		  	<li><a class="dropdown-item" href="#">상품 등록</a></li>
-            <li><a class="dropdown-item" href="#">상품 목록</a></li>
-            <li><a class="dropdown-item" href="#">회원 목록</a></li>
-            <li><a class="dropdown-item" href="#">주문 목록</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">로그아웃</a></li>					
-		  </c:when>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 34.4px, 0px);">
+        
+	          <c:choose>
+		          <c:when test="${empty sessionScope.id }">
+		            <li><a class="dropdown-item" href="/member/agree">회원가입</a></li>
+		            <li><a class="dropdown-item" href="/member/login">로그인</a></li>
+		          </c:when>
+		          
+		          <c:when test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
+				  	<li><a class="dropdown-item" href="/admin/contents/create">상품 등록</a></li>
+		            <li><a class="dropdown-item" href="/admin/contents/list">상품 목록</a></li>
+		            <li><a class="dropdown-item" href="/admin/member/list">회원 목록</a></li>
+		            <li><a class="dropdown-item" href="/admin/order/list">주문 목록</a></li>
+		            <li><hr class="dropdown-divider"></li>
+		            <li><a class="dropdown-item" href="/member/logout">로그아웃</a></li>					
+				  </c:when>
+				  
+				  <c:otherwise>
+				    <li><a class="dropdown-item" href="/cart/list">장바구니</a></li>
+		            <li><a class="dropdown-item" href="/member/update">정보 수정</a></li>
+		            <li><hr class="dropdown-divider"></li>
+		            <li><a class="dropdown-item" href="/member/logout">로그아웃</a></li>
+				  </c:otherwise>
+			   </c:choose>
 		  
-		  <c:otherwise>
-		    <li><a class="dropdown-item" href="#">장바구니</a></li>
-            <li><a class="dropdown-item" href="#">정보 수정</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">로그아웃</a></li>
-		  </c:otherwise>
-		   -->
-		  
-          </ul>
-        </div>
+           </ul>
+        </div>  
 		</div>
 	</nav>
 </body>

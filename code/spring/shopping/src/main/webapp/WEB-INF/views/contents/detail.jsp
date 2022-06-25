@@ -9,6 +9,7 @@
 <meta charset="utf-8">
 <script src = "/js/cart.js"></script>
 <link rel="stylesheet" href="/css/style.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function cart(){
 		if('${sessionScope.id}' == ''){
@@ -147,7 +148,7 @@
 
 				<div class="panel-heading">
 					<i class="fa fa-comments fa-fw"></i> 댓글
-					<button id='addReviewBtn' class='btn btn-primary btn-xs pull-right'>New
+					<button id='addReviewBtn' class='btn btn-primary btn-xs pull-right' >New
 						Review</button>
 				</div>
 

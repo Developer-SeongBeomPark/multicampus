@@ -1,7 +1,7 @@
-$(function () {//페이지가 로딩될때
-    showList();
-    showPage();
- });//page loading function end  
+$(function() {//페이지가 로딩될때
+  showList();
+  showPage();
+});//page loading function end  
   
  let reviewUL = $(".chat");
  let reviewPageFooter = $(".panel-footer");

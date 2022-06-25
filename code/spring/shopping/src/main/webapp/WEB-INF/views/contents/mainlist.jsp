@@ -19,7 +19,18 @@
 <body> 
  
 <div class="container">
-<h3> new Item </h3>
+	  <c:choose>
+	      <c:when test="${cateno==1 }">
+	      <h3>Jean</h3>
+	      </c:when>
+	      <c:when test="${cateno==2 }">
+	      <h3>Bag</h3>
+	      </c:when>
+	      <c:when test="${cateno==3 }">
+	      <h3>Shoes</h3>
+	      </c:when>
+      </c:choose>
+      
 <c:choose>   
 <c:when test="${empty list}">
    <div class="row">
@@ -54,6 +65,9 @@
     </div>
     </c:forEach>
 </div>
+
+<br><br>
+
  <div class="row">
     <c:forEach var="dto" begin="4" end="7" items="${list}">
     <div class="col-sm-3">
@@ -76,8 +90,8 @@
         </div>
     </div>
     </c:forEach>
-</div>
-  ${paging}
+ </div>
+	${paging }
 </c:otherwise>
 </c:choose>
 </div>
