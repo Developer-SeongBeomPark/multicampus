@@ -134,6 +134,9 @@ public class MemberController {
       session.setAttribute("id", map.get("id"));
       session.setAttribute("grade", gmap.get("grade"));
       session.setAttribute("mname", gmap.get("mname"));
+      
+      MemberDTO dto = service.read(map.get("id"));
+      model.addAttribute("dto", dto);
 
       // Cookie 저장,id저장 여부 및 id
       Cookie cookie = null;

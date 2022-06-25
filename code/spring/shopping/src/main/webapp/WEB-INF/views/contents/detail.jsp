@@ -9,7 +9,6 @@
 <meta charset="utf-8">
 <script src = "/js/cart.js"></script>
 <link rel="stylesheet" href="/css/style.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function cart(){
 		if('${sessionScope.id}' == ''){
