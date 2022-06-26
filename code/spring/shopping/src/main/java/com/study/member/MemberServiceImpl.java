@@ -89,5 +89,11 @@ public class MemberServiceImpl implements MemberService {
           // TODO Auto-generated method stub
           return mapper.readbyemail(email);
         }
+
+        @Override
+        public int validationCheck(Map map) {
+          // TODO Auto-generated method stub
+          return mapper.validationCheck(map);
+        }
  
 }

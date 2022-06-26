@@ -30,4 +30,6 @@ public interface MemberMapper {
   int isExit(String email);
 
   MemberDTO readbyemail(String email);
+
+  int validationCheck(Map map);
 }
