@@ -1,8 +1,11 @@
 package com.study.orders;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,11 +16,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.study.cart.CartService;
 import com.study.contents.ContentsDTO;
 import com.study.contents.ContentsService;
 import com.study.member.MemberDTO;
 import com.study.member.MemberService;
+import com.study.utility.Utility;
 
 @Controller
 public class OrderController {
@@ -31,6 +38,13 @@ public class OrderController {
   @Qualifier("com.study.member.MemberServiceImpl")
   private MemberService mservice;
   
+  @Autowired
+  @Qualifier("com.study.orders.OrderServiceImpl")
+  private OrderService oservice;
+  
+  @Autowired
+  @Qualifier("com.study.cart.CartServiceImpl")
+  private CartService cartservice;
   
   @GetMapping("/order/create/cart/{cno}/{qty}/{size}")
   public String create(@PathVariable String cno, @PathVariable String qty, @PathVariable String size,
@@ -80,5 +94,111 @@ public class OrderController {
   }
   
   
+  @PostMapping("/order/create/{str}")
+  public String create(@PathVariable String str, int tot, String payment, String reqtext,
+      HttpServletRequest request, HttpSession session) {
+      
+    String id = (String)session.getAttribute("id");
+    String mname = (String)session.getAttribute("mname");
+    
+    OrdersDTO dto = new OrdersDTO();
+    dto.setId(id);
+    dto.setMname(mname);
+    dto.setTotal(tot);
+    dto.setPayment(payment);
+    dto.setReqtext(reqtext);
+    
+    List<OrderdetailDTO> list = new ArrayList<>();
+    
+    if(str.equals("cart") ) {
+      String cno = request.getParameter("cno"); // 상품번호 들
+      String qty = request.getParameter("qtys"); // 수량 들
+      String size = request.getParameter("size"); // 사이즈 들
+      
+      String[] no = cno.split(",");
+      for(int i = 0; i < no.length; i++) {
+        int contentsno = Integer.parseInt(no[i]);
+        ContentsDTO cdto = cservice.detail(contentsno);
+        OrderdetailDTO ddto = new OrderdetailDTO();
+        ddto.setContentsno(contentsno);
+        ddto.setPname(cdto.getPname());
+        ddto.setQuantity(Integer.parseInt(qty.split(",")[i]));
+        ddto.setSize(size.split(",")[i]);
+        list.add(ddto);
+      }
+      
+    }else if(str.equals("order")) {
+      int contentsno = Integer.parseInt(request.getParameter("contentsno"));
+      ContentsDTO cdto = cservice.detail(contentsno);
+      OrderdetailDTO ddto = new OrderdetailDTO();
+      ddto.setContentsno(contentsno);
+      ddto.setPname(cdto.getPname());
+      ddto.setQuantity(Integer.parseInt(request.getParameter("qty")));
+      ddto.setSize(request.getParameter("size"));
+      list.add(ddto);
+    }
+    
+    dto.setList(list);
+    try {
+      oservice.create(dto);// 주문
+      if(str.equals("cart")) {
+        cartservice.deleteAll(id);
+        
+        
+        return "redirect:/member/mypage";
+      }
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+      return "error";
+    }
+    
+    return "";
+  }
   
+  
+  @RequestMapping("/admin/order/list")
+  public String list(HttpServletRequest request) {
+ // 검색관련------------------------
+    String col = Utility.checkNull(request.getParameter("col"));
+    String word = Utility.checkNull(request.getParameter("word"));
+
+    if (col.equals("total")) {
+      word = "";
+    }
+
+    // 페이지관련-----------------------
+    int nowPage = 1;// 현재 보고있는 페이지
+    if (request.getParameter("nowPage") != null) {
+      nowPage = Integer.parseInt(request.getParameter("nowPage"));
+    }
+    int recordPerPage = 5;// 한페이지당 보여줄 레코드갯수
+
+
+    // (mysql) DB에서 가져올 순번-----------------
+    int sno = (nowPage - 1) * recordPerPage;
+    int eno = recordPerPage;
+
+    Map map = new HashMap();
+    map.put("col", col);
+    map.put("word", word);
+    map.put("sno", sno);
+    map.put("eno", eno);
+
+    int total = oservice.total(map);
+
+    List<OrdersDTO> list = oservice.list(map);
+
+    String paging = Utility.paging(total, nowPage, recordPerPage, col, word);
+
+    // request에 Model사용 결과 담는다
+    request.setAttribute("list", list);
+    request.setAttribute("nowPage", nowPage);
+    request.setAttribute("col", col);
+    request.setAttribute("word", word);
+    request.setAttribute("paging", paging);
+    
+
+    return "/order/list";
+  }
 }

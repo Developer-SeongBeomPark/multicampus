@@ -10,4 +10,6 @@ public interface CartMapper {
 
   int delete(int cartno);
 
+  void deleteAll(String id);
+
 }

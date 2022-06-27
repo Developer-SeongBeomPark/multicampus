@@ -10,4 +10,6 @@ public interface CartService {
 
   int delete(int cartno);
 
+  void deleteAll(String id);
+
 }

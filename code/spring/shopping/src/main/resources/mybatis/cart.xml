@@ -5,6 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.study.cart.CartMapper">
+	<delete id="deleteAll" parameterType="String">
+		delete from cart
+		where id = #{id}
+	</delete>
+	
 	<insert id="create" parameterType="com.study.cart.CartDTO">
 		insert into cart(contentsno,
 		count, size, id)

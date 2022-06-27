@@ -80,6 +80,8 @@ SELECT LAST_INSERT_ID();
 delete from order_detail;
 delete from orders;
 
+use webtest;
+
 -- 2개 조인
 select o.id,o.mname, o.orderno,o.odate,o.total,o.ostate,o.reqtext, 
 d.quantity,d.contentsno,d.pname,d.size
