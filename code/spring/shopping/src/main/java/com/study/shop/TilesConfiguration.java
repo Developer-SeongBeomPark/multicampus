@@ -16,7 +16,8 @@ public class TilesConfiguration {
                                              "classpath:/templates/tiles_contents.xml",
                                              "classpath:/templates/tiles_notice.xml",
                                              "classpath:/templates/tiles_cart.xml",
-                                             "classpath:/templates/tiles_order.xml" });
+                                             "classpath:/templates/tiles_order.xml", 
+                                             "classpath:/templates/tiles_qna.xml"});
       configurer.setCheckRefresh(true);
       return configurer;
   }

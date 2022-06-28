@@ -40,4 +40,10 @@ public class OrderServiceImpl implements OrderService {
     return mapper.total(map);
   }
 
+  @Override
+  public int updateState(Map map) {
+    // TODO Auto-generated method stub
+    return mapper.updateState(map);
+  }
+
 }

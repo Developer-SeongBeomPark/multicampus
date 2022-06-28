@@ -12,4 +12,6 @@ public interface OrderMapper {
   List<OrdersDTO> list(Map map);
 
   int total(Map map);
+
+  int updateState(Map map);
 }
