@@ -14,7 +14,7 @@ public class UploadMem {
             
         } else {
             // System.out.println("Linux");
-            path = "/home/ubuntu/deploy/bbs/";
+            path = "/root/deploy/member/";
         }
         
         return path;
